@@ -7,7 +7,7 @@ namespace slnTCC.Infra.Data.Migrations
 
     internal sealed class Configuration : DbMigrationsConfiguration<Contexto.ProjectContext>
     {
-        public Configuration()
+        public Configuration()  ///classe gerada pelo migrations
         {
             AutomaticMigrationsEnabled = true;
         }
