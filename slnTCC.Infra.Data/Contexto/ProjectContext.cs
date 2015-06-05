@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using slnTCC.Domain.Entities;
+using System.Data.Entity.ModelConfiguration.Conventions;
+
 namespace slnTCC.Infra.Data.Contexto
 {
     public class ProjectContext : DbContext
@@ -17,6 +19,12 @@ namespace slnTCC.Infra.Data.Contexto
         }
 
         public DbSet<Cliente> Clientes { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+           
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+        }
 
     }
 }
