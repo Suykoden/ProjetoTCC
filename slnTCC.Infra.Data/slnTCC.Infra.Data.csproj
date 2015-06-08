@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexto\ProjectContext.cs" />
+    <Compile Include="EntityConfig\clienteConfiguration.cs" />
+    <Compile Include="EntityConfig\ProdutoConfiguration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -57,7 +59,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="EntityConfig\" />
     <Folder Include="Repositories\" />
   </ItemGroup>
   <ItemGroup>

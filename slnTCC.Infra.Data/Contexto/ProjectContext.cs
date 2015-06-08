@@ -17,7 +17,7 @@ namespace slnTCC.Infra.Data.Contexto
 
         }
 
-        public DbSet<Cliente> Clientes { get; set; } //método para criação de tabela a partir da classe do meu dominio 
+        public DbSet<Cliente> Clientes { get; set; } //método para criação de tabela a partir da classe do meu dominio,ncessário Entity instalado e comando update-database 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)  //Método para alterar convenções ou habilitar
         {
