@@ -13,7 +13,7 @@ namespace slnTCC.Domain.Entities
         public decimal Valor { get; set; }
         public bool Disponivel { get; set; }
         public int ClienteID { get; set; }
-        public virtual Cliente cliente { get; set; }
+        public virtual Cliente Cliente { get; set; }
 
 
     }

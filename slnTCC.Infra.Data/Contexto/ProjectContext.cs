@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using slnTCC.Domain.Entities;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using slnTCC.Infra.Data.EntityConfig;
 
 namespace slnTCC.Infra.Data.Contexto
 {
@@ -18,6 +19,8 @@ namespace slnTCC.Infra.Data.Contexto
         }
 
         public DbSet<Cliente> Clientes { get; set; } //método para criação de tabela a partir da classe do meu dominio,ncessário Entity instalado e comando update-database 
+
+        public DbSet<Produto> Produtos { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)  //Método para alterar convenções ou habilitar
         {
@@ -35,6 +38,10 @@ namespace slnTCC.Infra.Data.Contexto
 
             modelBuilder.Properties<string>()
                 .Configure(p => p.HasMaxLength(100)); //Define um tamanho para minhas strings
+
+            modelBuilder.Configurations.Add(new clienteConfiguration()); ///adcionando as configurações definidas nas clientes de configuração especificas 
+                                                                         ///
+            modelBuilder.Configurations.Add(new ProdutoConfiguration());
 
 
         }

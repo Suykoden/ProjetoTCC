@@ -51,6 +51,7 @@
     <Compile Include="EntityConfig\ProdutoConfiguration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ReposistoryBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\slnTCC.Domain\slnTCC.Domain.csproj">
@@ -58,9 +59,7 @@
       <Name>slnTCC.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

@@ -14,15 +14,22 @@ namespace slnTCC.Infra.Data.EntityConfig
         public ProdutoConfiguration()
         {
 
-            HasKey(P => P.ProdutoID);
+            HasKey(P => P.ProdutoID);  ///Define chave primárioa 
 
-            Property(p => p.Nome)
+            Property(p => p.Nome)   ///torna campo obrigatório  e com tamanho máximo de 250
                 .IsRequired()
                 .HasMaxLength(250);
 
 
             Property(p => p.Valor)
                 .IsRequired();
+
+            HasRequired(p => p.Cliente)
+                .WithMany()
+                .HasForeignKey(p => p.ClienteID);
+
+
+
 
         }
 
