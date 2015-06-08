@@ -8,13 +8,13 @@ using slnTCC.Domain.Interfaces;
 
 namespace slnTCC.Infra.Data.Repositories
 {
-    public class ProdutoRepository:ReposistoryBase<Produto>,IProdutoRepository
+    public class ProdutoRepository : ReposistoryBase<Produto>, IProdutoRepository
     {
 
 
         public IEnumerable<Produto> BuscarPorNome(string nome)
         {
-            throw new NotImplementedException();
+            return Db.Produtos.Where(p => p.Nome == nome);
         }
     }
 }
