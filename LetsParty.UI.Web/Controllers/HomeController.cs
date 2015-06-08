@@ -20,7 +20,7 @@ namespace LetsParty.UI.Web.Controllers
             //Em 30.05.15 rafael damasio
             //comentei o retorno da action para alterar para que a action retorne a pagina inicial do projeto.
             //Não sei se era importante
-            //var listaUsuarios = UsuarioAppService.RetornaUsuario().ToList();
+           // var listaUsuarios = UsuarioAppService.RetornaUsuario().ToList();
             // return View(listaUsuarios);
 
             return View();

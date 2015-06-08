@@ -6,8 +6,17 @@ using System.Threading.Tasks;
 
 namespace LetsParty.Domain.Model.Atores
 {
-    public class Anunciante : Usuario
+    public class Fornecedor : Usuario
     {
+
+        public int CNPJ  { get; set; }
+
+
+        public void GerenciarPedidos()
+        {
+
+            //Implementar gerenciar pedidos 
+        }
          
     }
 }

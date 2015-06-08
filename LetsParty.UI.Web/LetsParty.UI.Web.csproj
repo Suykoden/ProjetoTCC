@@ -945,6 +945,7 @@
     <Content Include="Template\LICENSE" />
     <Content Include="Template\README.md" />
     <Content Include="Views\Home\Administrativo.cshtml" />
+    <Content Include="Views\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

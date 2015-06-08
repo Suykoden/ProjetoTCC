@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="Model\Servicos\Servico.cs" />
     <Compile Include="Repository\IUsuarioRepository.cs" />
-    <Compile Include="Model\Atores\Anunciante.cs" />
+    <Compile Include="Model\Atores\Fornecedor.cs" />
     <Compile Include="Model\Atores\Comprador.cs" />
     <Compile Include="Model\Atores\Usuario.cs" />
     <Compile Include="Model\Servicos\Categoria.cs" />
