@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using slnTCC.Domain.Entities;
+using slnTCC.Domain.Interfaces;
 
 namespace slnTCC.Infra.Data.Repositories
 {
-    class ProdutoRepository
+    public class ProdutoRepository:ReposistoryBase<Produto>,IProdutoRepository
     {
 
 
+        public IEnumerable<Produto> BuscarPorNome(string nome)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
