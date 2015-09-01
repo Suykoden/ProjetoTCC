@@ -1,4 +1,6 @@
-﻿@{
+﻿@model LetsParty.Domain.Model.Atores.Usuario
+
+@{
     ViewBag.Title = "Login";
 }
 <!DOCTYPE html>
@@ -12,7 +14,6 @@
     <title>f</title>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="css/shop-homepage.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -23,6 +24,7 @@
     <![endif]-->
 </head>
 <body>
+
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -43,61 +45,54 @@
     <div class="container">
         <div class="panel panel-default">
             <div class="panel-body">
-
                 <div class="row">
                     <div class="col-sm-6 col-lg-6 col-md-6">
-
-                        <form class="form-horizontal" role="form">
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-4">
-                                    <h1> <span class="label label-primary">Faça seu Login</span></h1>
-                                </div>
-
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="email">Email:</label>
-                                <div class="col-sm-6 col-lg-6 col-md-6">
-                                    <input type="email" class="form-control" id="email" placeholder="Seu E-mail">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="senha">Senha:</label>
-                                <div class="col-sm-6 col-lg-6 col-md-6">
-                                    <input type="password" class="form-control" id="senha" placeholder="Informe uma senha">
-                                </div>
-
+                        @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                        {
+                            <form class="form-horizontal" role="form">
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-4">
-                                        <a href="#">Esqueceu sua senha?</a>
+                                        <h1> <span class="label label-primary">Faça seu Login</span></h1>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-4">
-                                    <button type="submit" class="btn btn-primary">Entrar</button>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" for="email">Email:</label>
+                                    <div class="col-sm-6 col-lg-6 col-md-6">
+                                        <input type="password" class="form-control" id="senha" placeholder="Informe uma senha">
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" for="senha">Senha:</label>
+                                    <div class="col-sm-6 col-lg-6 col-md-6">
+                                        <input type="password" class="form-control" id="senha" placeholder="Informe uma senha">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-4">
+                                            <a href="#">Esqueceu sua senha?</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-4">
+                                        <button type="submit" class="btn btn-primary">Entrar</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        }
                     </div> <!--fim div 1-->
                     <div class="col-sm-6 col-lg-6 col-md-4">
-
                         <img src="http://blog.festabox.com.br/wp-content/uploads/2013/02/festaanimada_festabox.jpg" alt="">
-
 
                     </div>
                 </div>
-
             </div> <!--fim conteudo painel-->
         </div> <!--fim painel-->
         <br />
         <br />
         <br />
         <br />
-
     </div>
-
 
     <!-- Footer -->
     <footer>
@@ -107,12 +102,9 @@
             </div>
         </div>
     </footer>
-
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
-
-
