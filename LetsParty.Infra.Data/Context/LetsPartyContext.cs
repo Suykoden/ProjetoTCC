@@ -41,5 +41,7 @@ namespace LetsParty.Infra.Data.Context
 
         }
 
+        public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.Usuario> Usuarios { get; set; }
+
     }
 }
