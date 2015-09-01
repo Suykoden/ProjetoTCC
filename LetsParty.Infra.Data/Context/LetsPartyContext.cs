@@ -10,7 +10,7 @@ namespace LetsParty.Infra.Data.Context
 {
     public class LetsPartyContext : DbContext, ILetsPartyContext
     {
-        public LetsPartyContext() : base("LetsPartyContext")
+        public LetsPartyContext() : base("TCCBanco")
         {
 
         }
