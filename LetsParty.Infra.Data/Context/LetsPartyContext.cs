@@ -37,6 +37,8 @@ namespace LetsParty.Infra.Data.Context
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Configurations.Add(new UsuarioDbMapping());
+            modelBuilder.Configurations.Add(new FornecedorMapping());
+
         }
 
     }
