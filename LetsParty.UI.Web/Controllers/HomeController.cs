@@ -42,7 +42,7 @@ namespace LetsParty.UI.Web.Controllers
         {
             return View();
         }
-
+        
 
     }
 }

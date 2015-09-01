@@ -11,7 +11,13 @@ namespace LetsParty.Infra.Data.Repository
 {
     public class UsuarioRepository : RepositoryBase<Usuario>, IUsuarioRepository
     {
-        public UsuarioRepository(ILetsPartyContext context) : base(context)
+        public UsuarioRepository(ILetsPartyContext context)
+            : base(context)
+        {
+
+        }
+        public UsuarioRepository()
+            : base()
         {
 
         }

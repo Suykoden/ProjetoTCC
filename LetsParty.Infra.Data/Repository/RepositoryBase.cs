@@ -20,6 +20,11 @@ namespace LetsParty.Infra.Data.Repository
             Base = currentContext.Context.Set<T>();
         }
 
+        public RepositoryBase()
+        {
+            // TODO: Complete member initialization
+        }
+
         public IQueryable<T> All()
         {
             return Base.AsQueryable();
