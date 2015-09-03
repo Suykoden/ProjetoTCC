@@ -7,15 +7,19 @@ using LetsParty.Infra.Data.Repository;
 using LetsParty.Infra.Data.Context;
 using System.Data.Entity;
 using LetsParty.Domain.Model.Atores;
+using LetsParty.Domain.Repository;
+using Ninject.Activation;
 
 
 namespace LetsParty.UI.Web.Controllers
 {
     public class UsuarioController : Controller
     {
+     
 
-        private readonly UsuarioRepository _UsuarioRepository = new UsuarioRepository();
-       // GET: Usuario
+        LetsPartyContext rep = new LetsPartyContext();
+
+        // GET: Usuario
         public ActionResult Index()
         {
             return View();
@@ -35,13 +39,17 @@ namespace LetsParty.UI.Web.Controllers
 
         // POST: Usuario/Create
         [HttpPost]
-        public ActionResult Create(Usuario usuario )
+        public ActionResult Create(Usuario usuario)
         {
-           if (ModelState.IsValid)
-           {
-               _UsuarioRepository.Insert(usuario);
-           }
-           return View("Index");
+            if (ModelState.IsValid)
+            {
+                var usuarioDbSet = rep.Set<Usuario>();
+                usuarioDbSet.Add(usuario);
+                rep.SaveChanges();
+                return RedirectToAction("Index");
+
+            }
+            return View(usuario);
 
         }
 

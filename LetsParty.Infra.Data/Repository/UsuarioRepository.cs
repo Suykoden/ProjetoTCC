@@ -16,10 +16,6 @@ namespace LetsParty.Infra.Data.Repository
         {
 
         }
-        public UsuarioRepository()
-            : base()
-        {
-
-        }
+        
     }
 }
