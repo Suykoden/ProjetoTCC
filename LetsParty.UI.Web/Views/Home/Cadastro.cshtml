@@ -1,4 +1,6 @@
-﻿@{
+﻿@model LetsParty.Domain.Model.Atores.Usuario
+
+@{
     ViewBag.Title = "Cadastro";
 }
 
@@ -34,7 +36,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Festeje - O Seu site de festas</a>
+                <a class="navbar-brand" href="http://localhost:34417/Home">Festeje - O Seu site de festas</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <!-- /.navbar-collapse -->
@@ -48,7 +50,8 @@
                 <div class="row">
                     <div class="col-sm-6 col-lg-6 col-md-6">
 
-                        <form class="form-horizontal" role="form">
+                        @using (Html.BeginForm("Create", "Usuario", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        { 
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-4">
                                     <h1> <span class="label label-primary">Faça seu cadastro</span></h1>
@@ -58,29 +61,29 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="Nome">Nome:</label>
                                 <div class="col-sm-6 col-lg-6 col-md-6">
-                                    <input type="text" class="form-control" id="txtNome" placeholder="Nome completo">
+                                    @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", placeholder = "Nome Completo" } })
                                 </div>
 
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="email">Email:</label>
                                 <div class="col-sm-6 col-lg-6 col-md-6">
-                                    <input type="email" class="form-control" id="txtEmail" placeholder="Enter email">
+                                    @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="senha">Senha:</label>
                                 <div class="col-sm-6 col-lg-6 col-md-6">
-                                    <input type="password" class="form-control" id="txtSenha" placeholder="Informe uma senha">
+                                    @Html.EditorFor(model => model.senha, new { htmlAttributes = new { @class = "form-control", placeholder = "Senha",Type="Password"} })
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="senha">Confirmar:</label>
-                                <div class="col-sm-6 col-lg-6 col-md-6">
-                                    <input type="password" class="form-control" id="txtConfSenha" placeholder="Confirme sua senha">
-                                </div>
-                            </div>
+                          //  <div class="form-group">
+//<label class="control-label col-sm-2" for="senha">Confirmar:</label>
+                       //         <div class="col-sm-6 col-lg-6 col-md-6">
+                    //                @Html.EditorFor(model => model.senha, new { htmlAttributes = new { @class = "form-control", placeholder = "Confirme a senha" } })
+                 //               </div>
+//</div>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-4">
                                     <div class="checkbox">
@@ -95,7 +98,7 @@
                                     <button type="submit" class="btn btn-primary">Criar Conta</button>
                                 </div>
                             </div>
-                        </form>
+                        }
                     </div> <!--fim div 1-->
                     <div class="col-sm-6 col-lg-6 col-md-4">
 
