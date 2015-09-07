@@ -15,10 +15,14 @@ namespace LetsParty.UI.Web.Controllers
 {
     public class UsuarioController : Controller
     {
-     
 
-        LetsPartyContext rep = new LetsPartyContext();
+        private readonly IUsuarioRepository _UsuarioRepositorio = null;
+        LetsPartyContext context = new LetsPartyContext();    
 
+        public UsuarioController(IUsuarioRepository usuarioRepositorio)
+        {
+            _UsuarioRepositorio = usuarioRepositorio;
+        }
         // GET: Usuario
         public ActionResult Index()
         {
@@ -43,10 +47,8 @@ namespace LetsParty.UI.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var usuarioDbSet = rep.Set<Usuario>();
-                usuarioDbSet.Add(usuario);
-                rep.SaveChanges();
-                return RedirectToAction("Index");
+                 _UsuarioRepositorio.Insert(usuario);
+                 return View("index");
 
             }
             return View(usuario);
