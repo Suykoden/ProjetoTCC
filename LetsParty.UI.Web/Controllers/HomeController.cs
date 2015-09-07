@@ -42,7 +42,10 @@ namespace LetsParty.UI.Web.Controllers
         {
             return View();
         }
-        
+        public ActionResult Anuncio()
+        {
+            return View();
+        }
 
     }
 }

@@ -947,6 +947,7 @@
     <Content Include="Template\README.md" />
     <Content Include="Views\Home\Administrativo.cshtml" />
     <Content Include="Views\View.cshtml" />
+    <Content Include="Views\Home\Anuncio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
