@@ -47,11 +47,12 @@ namespace LetsParty.UI.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                usuario.DataCadastro = DateTime.Now;
                  _UsuarioRepositorio.Insert(usuario);
-                 return View("index");
+                 RedirectToAction("Cadastro", "Home");
 
             }
-            return View(usuario);
+            return RedirectToAction("Cadastro", "Home");
 
         }
 

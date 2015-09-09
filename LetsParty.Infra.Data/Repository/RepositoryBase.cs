@@ -40,6 +40,7 @@ namespace LetsParty.Infra.Data.Repository
         public void Insert(T entity)
         {
             Base.Add(entity);
+            Context.SaveChanges();
         }
 
         public void Update(T entity)
