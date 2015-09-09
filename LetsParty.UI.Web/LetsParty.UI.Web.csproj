@@ -625,8 +625,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Home\Cadastro.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Usuario\Cadastro.cshtml" />
+    <Content Include="Views\Usuario\Login.cshtml" />
     <Content Include="Template\bower.json" />
     <Content Include="Template\bower_components\bootstrap-social\.bower.json" />
     <Content Include="Template\bower_components\bootstrap-social\.editorconfig" />
@@ -945,14 +945,13 @@
     <Content Include="Template\less\variables.less" />
     <Content Include="Template\LICENSE" />
     <Content Include="Template\README.md" />
-    <Content Include="Views\Home\Administrativo.cshtml" />
+    <Content Include="Views\Usuario\Administrativo.cshtml" />
     <Content Include="Views\View.cshtml" />
-    <Content Include="Views\Home\Anuncio.cshtml" />
+    <Content Include="Views\Usuario\Anuncio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Default\" />
-    <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

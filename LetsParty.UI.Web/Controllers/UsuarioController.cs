@@ -17,7 +17,7 @@ namespace LetsParty.UI.Web.Controllers
     {
 
         private readonly IUsuarioRepository _UsuarioRepositorio = null;
-        LetsPartyContext context = new LetsPartyContext();    
+        LetsPartyContext context = new LetsPartyContext();
 
         public UsuarioController(IUsuarioRepository usuarioRepositorio)
         {
@@ -28,6 +28,12 @@ namespace LetsParty.UI.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Cadastro()
+        {
+            return View("Cadastro");
+        }
+
 
         // GET: Usuario/Details/5
         public ActionResult Details(int id)
@@ -48,12 +54,13 @@ namespace LetsParty.UI.Web.Controllers
             if (ModelState.IsValid)
             {
                 usuario.DataCadastro = DateTime.Now;
-                 _UsuarioRepositorio.Insert(usuario);
-                 RedirectToAction("Cadastro", "Home");
+                _UsuarioRepositorio.Insert(usuario);
+                return View("Cadastro");
+                // RedirectToAction("Cadastro", "Home");
 
             }
-            return RedirectToAction("Cadastro", "Home");
-
+            //return RedirectToAction("Cadastro", "Home");
+            return View("Cadastro");
         }
 
         // GET: Usuario/Edit/5
