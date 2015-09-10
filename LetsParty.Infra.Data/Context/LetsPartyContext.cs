@@ -40,10 +40,13 @@ namespace LetsParty.Infra.Data.Context
 
             modelBuilder.Configurations.Add(new UsuarioDbMapping());
             modelBuilder.Configurations.Add(new FornecedorMapping());
+            modelBuilder.Configurations.Add(new AnuncioMapping());
 
         }
 
         public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.Usuario> Usuarios { get; set; }
+        public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.Fornecedor> Fornecedor { get; set; }
+        public System.Data.Entity.DbSet<LetsParty.Domain.Model.Servicos.Anuncio> Anuncio { get; set; }
 
     }
 }

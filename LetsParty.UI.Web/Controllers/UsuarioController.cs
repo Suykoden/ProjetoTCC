@@ -34,6 +34,18 @@ namespace LetsParty.UI.Web.Controllers
             return View("Cadastro");
         }
 
+        public ActionResult Login()
+        {
+            return View("Login");
+        }
+        public ActionResult Administrativo()
+        {
+            return View("Administrativo");
+        }
+        public ActionResult Anuncio()
+        {
+            return View("Anuncio");
+        }
 
         // GET: Usuario/Details/5
         public ActionResult Details(int id)
