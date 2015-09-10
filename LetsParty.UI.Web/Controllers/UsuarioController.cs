@@ -9,19 +9,17 @@ using System.Data.Entity;
 using LetsParty.Domain.Model.Atores;
 using LetsParty.Domain.Repository;
 using Ninject.Activation;
+using LetsParty.AppService.Usuarios;
 
 
 namespace LetsParty.UI.Web.Controllers
 {
     public class UsuarioController : Controller
     {
-
-        private readonly IUsuarioRepository _UsuarioRepositorio = null;
-        LetsPartyContext context = new LetsPartyContext();
-
-        public UsuarioController(IUsuarioRepository usuarioRepositorio)
+        private IUsuarioAppService UsuarioAppService { get; set; }
+        public UsuarioController(IUsuarioAppService usuarioApp)
         {
-            _UsuarioRepositorio = usuarioRepositorio;
+            UsuarioAppService = usuarioApp;
         }
         // GET: Usuario
         public ActionResult Index()
@@ -67,7 +65,8 @@ namespace LetsParty.UI.Web.Controllers
             {
                 usuario.Id = Guid.NewGuid();
                 usuario.DataCadastro = DateTime.Now;
-                _UsuarioRepositorio.Insert(usuario);
+              //  _UsuarioRepositorio.Insert(usuario);
+                UsuarioAppService.Grava(usuario);
                 return View("Cadastro");
                 // RedirectToAction("Cadastro", "Home");
 

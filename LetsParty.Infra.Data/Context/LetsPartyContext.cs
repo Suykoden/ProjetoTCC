@@ -31,7 +31,7 @@ namespace LetsParty.Infra.Data.Context
 
         public void SaveChanges()
         {
-            this.SaveChanges();
+            base.SaveChanges();
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

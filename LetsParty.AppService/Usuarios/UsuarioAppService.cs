@@ -26,11 +26,20 @@ namespace LetsParty.AppService.Usuarios
         {
             return UsuarioRepository
                         .All()
-                        .Select(p => new UsuarioDTO() {
+                        .Select(p => new UsuarioDTO()
+                        {
                             Id = p.Id,
                             Codigo = p.Codigo,
-                            Nome = p.Nome 
+                            Nome = p.Nome
                         });
         }
+
+        public void Grava(Usuario usuario)
+        {
+            UsuarioRepository.Insert(usuario);
+            LetsPartyContext.SaveChanges();
+        }
+
+
     }
 }

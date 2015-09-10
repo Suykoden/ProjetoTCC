@@ -11,6 +11,6 @@ namespace LetsParty.AppService.Usuarios
     public interface IUsuarioAppService
     {
         IQueryable<UsuarioDTO> RetornaUsuario();
-
+        void Grava(Usuario usuario);
     }
 }

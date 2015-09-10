@@ -15,7 +15,8 @@ namespace LetsParty.Infra.Data.Repository
         private DbContext Context { get; set; }
         private DbSet<T> Base { get; set; }
 
-        public RepositoryBase(ILetsPartyContext currentContext) {
+        public RepositoryBase(ILetsPartyContext currentContext)
+        {
             Context = currentContext.Context;
             Base = currentContext.Context.Set<T>();
         }
@@ -40,7 +41,6 @@ namespace LetsParty.Infra.Data.Repository
         public void Insert(T entity)
         {
             Base.Add(entity);
-            Context.SaveChanges();
         }
 
         public void Update(T entity)
@@ -60,7 +60,7 @@ namespace LetsParty.Infra.Data.Repository
             var entity = GetById(entityId);
             if (entity == null) throw new NullReferenceException("Não foi possivel encontrar o registro com chave informada.");
 
-            Delete(entity);            
+            Delete(entity);
         }
     }
 
@@ -68,4 +68,3 @@ namespace LetsParty.Infra.Data.Repository
 }
 
 
- 
