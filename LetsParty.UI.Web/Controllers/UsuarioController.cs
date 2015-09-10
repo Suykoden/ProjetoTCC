@@ -53,6 +53,7 @@ namespace LetsParty.UI.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                usuario.Id = Guid.NewGuid();
                 usuario.DataCadastro = DateTime.Now;
                 _UsuarioRepositorio.Insert(usuario);
                 return View("Cadastro");
