@@ -65,15 +65,32 @@ namespace LetsParty.UI.Web.Controllers
             {
                 usuario.Id = Guid.NewGuid();
                 usuario.DataCadastro = DateTime.Now;
-              //  _UsuarioRepositorio.Insert(usuario);
                 UsuarioAppService.Grava(usuario);
                 return View("Cadastro");
-                // RedirectToAction("Cadastro", "Home");
 
             }
-            //return RedirectToAction("Cadastro", "Home");
             return View("Cadastro");
         }
+
+        public ActionResult Logon()
+        {
+            return View();
+        }
+
+        // POST: Usuario/Create
+        [HttpPost]
+        public ActionResult Logon(Usuario usuario)
+        {
+            if (ModelState.IsValid)
+            {
+                UsuarioAppService.AutenticarUsuario(usuario);
+                return View("Cadastro");
+
+            }
+            return View("Cadastro");
+        }
+
+
 
         // GET: Usuario/Edit/5
         public ActionResult Edit(int id)

@@ -50,7 +50,7 @@ namespace LetsParty.Infra.Data.Repository
 
         public void Delete(T entity)
         {
-            if (entity == null) throw new NullReferenceException("Entidade que deveria ser excluida não foi passada para o metodo do repositorio");
+            if (entity == null) throw new NullReferenceException("Entidade que deveria ser excluida não foi passada para o método do repositorio");
 
             Base.Remove(entity);
         }

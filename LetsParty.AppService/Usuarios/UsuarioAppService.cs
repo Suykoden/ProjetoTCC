@@ -40,6 +40,12 @@ namespace LetsParty.AppService.Usuarios
             LetsPartyContext.SaveChanges();
         }
 
+        public  bool AutenticarUsuario(Usuario usuario)
+        {
+            var Retorno = UsuarioRepository.All().Where(u => u.email == usuario.email);
+            return (true);
+
+        }
 
     }
 }
