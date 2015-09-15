@@ -16,6 +16,8 @@ namespace LetsParty.Infra.Data.Repository
         {
 
         }
-        
+
+
+          
     }
 }

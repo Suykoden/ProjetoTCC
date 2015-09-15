@@ -40,6 +40,7 @@ namespace LetsParty.UI.Web.Controllers
         {
             return View("Administrativo");
         }
+        [Authorize]
         public ActionResult Anuncio()
         {
             return View("Anuncio");
@@ -83,6 +84,7 @@ namespace LetsParty.UI.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 UsuarioAppService.AutenticarUsuario(usuario);
                 return View("Cadastro");
 

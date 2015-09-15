@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,7 +45,9 @@
     <Compile Include="Usuarios\IUsuarioAppService.cs" />
     <Compile Include="Usuarios\UsuarioAppService.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LetsParty.Domain\LetsParty.Domain.csproj">
       <Project>{5a507b90-9b95-44cd-9ae0-a4e8389dd4e0}</Project>

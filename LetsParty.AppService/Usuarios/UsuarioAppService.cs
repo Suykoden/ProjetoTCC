@@ -7,6 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using LetsParty.Domain.Model.Atores;
 using LetsParty.AppService.Usuarios.DTO;
+using System.Web.Security;
+using System.Web;
+
 
 namespace LetsParty.AppService.Usuarios
 {
@@ -40,11 +43,31 @@ namespace LetsParty.AppService.Usuarios
             LetsPartyContext.SaveChanges();
         }
 
-        public  bool AutenticarUsuario(Usuario usuario)
+        public bool AutenticarUsuario(Usuario usuario)
         {
-            var Retorno = UsuarioRepository.All().Where(u => u.email == usuario.email);
-            return (true);
+            var Valida = UsuarioRepository.All().SingleOrDefault(u => u.email == usuario.email && u.senha == usuario.senha);
 
+            if (Valida == null)
+                return false;
+
+            FormsAuthentication.SetAuthCookie(usuario.Nome, true);
+            return true;
+
+        }
+
+        public  Usuario ObtemUsuarioLogado()
+        {
+            string Login = HttpContext.Current.User.Identity.Name;
+
+            if (Login == "")
+            {
+                return null;
+            }
+            else
+            {
+                var Valida = UsuarioRepository.All().SingleOrDefault(u => u.email == Login && u.senha == Login);
+                return Valida;
+            }
         }
 
     }
