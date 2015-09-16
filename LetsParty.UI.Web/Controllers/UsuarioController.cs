@@ -40,10 +40,18 @@ namespace LetsParty.UI.Web.Controllers
         {
             return View("Administrativo");
         }
-        [Authorize]
-        public ActionResult Anuncio()
+        
+        public ActionResult Anuncio(Usuario usuario)
         {
-            return View("Anuncio");
+            if (UsuarioAppService.ObtemUsuarioLogado() != null ){
+
+                return View("Administrativo");  
+            }
+            else 
+            {
+                return View("Anuncio");     
+            }
+            
         }
 
         // GET: Usuario/Details/5

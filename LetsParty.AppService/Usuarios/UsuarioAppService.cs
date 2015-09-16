@@ -9,7 +9,8 @@ using LetsParty.Domain.Model.Atores;
 using LetsParty.AppService.Usuarios.DTO;
 using System.Web.Security;
 using System.Web;
-
+using System.Security.Cryptography;
+using System.IO;
 
 namespace LetsParty.AppService.Usuarios
 {
@@ -43,6 +44,8 @@ namespace LetsParty.AppService.Usuarios
             LetsPartyContext.SaveChanges();
         }
 
+
+
         public bool AutenticarUsuario(Usuario usuario)
         {
             var Valida = UsuarioRepository.All().SingleOrDefault(u => u.email == usuario.email && u.senha == usuario.senha);
@@ -55,7 +58,8 @@ namespace LetsParty.AppService.Usuarios
 
         }
 
-        public  Usuario ObtemUsuarioLogado()
+       
+        public Usuario ObtemUsuarioLogado()
         {
             string Login = HttpContext.Current.User.Identity.Name;
 
@@ -68,7 +72,13 @@ namespace LetsParty.AppService.Usuarios
                 var Valida = UsuarioRepository.All().SingleOrDefault(u => u.email == Login && u.senha == Login);
                 return Valida;
             }
-        }
 
+
+
+        } 
+
+       
+
+        
     }
 }

@@ -13,5 +13,6 @@ namespace LetsParty.AppService.Usuarios
         IQueryable<UsuarioDTO> RetornaUsuario();
         void Grava(Usuario usuario);
         bool AutenticarUsuario(Usuario usuario);
+        Usuario ObtemUsuarioLogado();
     }
 }
