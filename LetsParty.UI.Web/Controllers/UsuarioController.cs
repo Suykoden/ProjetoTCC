@@ -49,7 +49,7 @@ namespace LetsParty.UI.Web.Controllers
             }
             else 
             {
-                return View("Anuncio");     
+                return View("Login");     
             }
             
         }
@@ -94,10 +94,10 @@ namespace LetsParty.UI.Web.Controllers
             {
 
                 UsuarioAppService.AutenticarUsuario(usuario);
-                return View("Cadastro");
+                return View("Anuncio");
 
             }
-            return View("Cadastro");
+            return View("Login");
         }
 
 

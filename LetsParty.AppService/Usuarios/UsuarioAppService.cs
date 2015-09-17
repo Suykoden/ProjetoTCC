@@ -11,6 +11,7 @@ using System.Web.Security;
 using System.Web;
 using System.Security.Cryptography;
 using System.IO;
+using System.Net;
 
 namespace LetsParty.AppService.Usuarios
 {
@@ -53,7 +54,17 @@ namespace LetsParty.AppService.Usuarios
             if (Valida == null)
                 return false;
 
-            FormsAuthentication.SetAuthCookie(usuario.Nome, true);
+            HttpCookie User = new HttpCookie("LetsPartyUser");
+            HttpCookie Senha   = new HttpCookie("LetsPartyAcess");
+            //FormsAuthentication.SetAuthCookie(usuario.email, true);
+            User.Value = usuario.email;
+            Senha.Value = usuario.senha;
+
+            User.Expires = DateTime.Now.AddDays(1);
+            Senha.Expires = DateTime.Now.AddDays(1);
+            HttpContext.Current.Response.Cookies.Add(User);
+            HttpContext.Current.Response.Cookies.Add(Senha);
+            
             return true;
 
         }
@@ -61,15 +72,19 @@ namespace LetsParty.AppService.Usuarios
        
         public Usuario ObtemUsuarioLogado()
         {
-            string Login = HttpContext.Current.User.Identity.Name;
 
-            if (Login == "")
+            string User = HttpContext.Current.Request.Cookies["LetsPartyUser"].Value.ToString();
+            string Senha = HttpContext.Current.Request.Cookies["LetsPartyAcess"].Value.ToString();
+
+            
+
+            if ((User == "") || (Senha == ""))
             {
                 return null;
             }
             else
             {
-                var Valida = UsuarioRepository.All().SingleOrDefault(u => u.email == Login && u.senha == Login);
+                var Valida = UsuarioRepository.All().SingleOrDefault(u => u.email == User && u.senha == Senha);
                 return Valida;
             }
 
