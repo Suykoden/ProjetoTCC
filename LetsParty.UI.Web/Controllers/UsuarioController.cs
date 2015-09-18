@@ -40,18 +40,21 @@ namespace LetsParty.UI.Web.Controllers
         {
             return View("Administrativo");
         }
-        
+
+
+
         public ActionResult Anuncio(Usuario usuario)
         {
-            if (UsuarioAppService.ObtemUsuarioLogado() != null ){
-
-                return View("Administrativo");  
-            }
-            else 
+            if (UsuarioAppService.ObtemUsuarioLogado() != null)
             {
-                return View("Login");     
+
+                return View("Administrativo");
             }
-            
+            else
+            {
+                return View("Login");
+            }
+
         }
 
         // GET: Usuario/Details/5
@@ -75,9 +78,11 @@ namespace LetsParty.UI.Web.Controllers
                 usuario.Id = Guid.NewGuid();
                 usuario.DataCadastro = DateTime.Now;
                 UsuarioAppService.Grava(usuario);
-                return View("Cadastro");
+                // return View();
 
             }
+
+            ViewBag.Cadastro = "Sucesso";
             return View("Cadastro");
         }
 

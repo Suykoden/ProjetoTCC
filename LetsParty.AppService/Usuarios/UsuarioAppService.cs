@@ -55,7 +55,7 @@ namespace LetsParty.AppService.Usuarios
                 return false;
 
             HttpCookie User = new HttpCookie("LetsPartyUser");
-            HttpCookie Senha   = new HttpCookie("LetsPartyAcess");
+            HttpCookie Senha = new HttpCookie("LetsPartyAcess");
             //FormsAuthentication.SetAuthCookie(usuario.email, true);
             User.Value = usuario.email;
             Senha.Value = usuario.senha;
@@ -64,36 +64,32 @@ namespace LetsParty.AppService.Usuarios
             Senha.Expires = DateTime.Now.AddDays(1);
             HttpContext.Current.Response.Cookies.Add(User);
             HttpContext.Current.Response.Cookies.Add(Senha);
-            
+
             return true;
 
         }
 
-       
+
         public Usuario ObtemUsuarioLogado()
         {
-
-            string User = HttpContext.Current.Request.Cookies["LetsPartyUser"].Value.ToString();
-            string Senha = HttpContext.Current.Request.Cookies["LetsPartyAcess"].Value.ToString();
-
-            
-
-            if ((User == "") || (Senha == ""))
+            if ((HttpContext.Current.Request.Cookies["LetsPartyUser"].Value != null) && (HttpContext.Current.Request.Cookies["LetsPartyAcess"].Value != null))
             {
-                return null;
+                string User = HttpContext.Current.Request.Cookies["LetsPartyUser"].Value.ToString();
+                string Senha = HttpContext.Current.Request.Cookies["LetsPartyAcess"].Value.ToString();
+                
+                var Valida = UsuarioRepository.All().SingleOrDefault(u => u.email == User && u.senha == Senha);
+                return Valida;
+                
             }
             else
             {
-                var Valida = UsuarioRepository.All().SingleOrDefault(u => u.email == User && u.senha == Senha);
-                return Valida;
+                return null;
             }
 
+        }
 
 
-        } 
 
-       
 
-        
     }
 }
