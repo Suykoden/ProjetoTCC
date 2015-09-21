@@ -27,17 +27,17 @@ namespace LetsParty.AppService.Anuncios
             LetsPartyContext.SaveChanges();
         }
 
-        public Anuncio getIDFornecedor()
-        {
+        //public Anuncio getIDFornecedor()
+        //{
 
 
-            string Login = HttpContext.Current.User.Identity.Name;
+        //    string Login = HttpContext.Current.User.Identity.Name;
 
-            var IdFornecedor = AnuncioRepository.All().SingleOrDefault(u => u.Fornecedor == Login);
-            return IdFornecedor;
+        //    var IdFornecedor = AnuncioRepository.All().SingleOrDefault(u => u.Fornecedor == Login);
+        //    return IdFornecedor;
 
 
-        }
+        //}
 
 
     }
