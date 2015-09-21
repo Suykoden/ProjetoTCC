@@ -49,7 +49,7 @@
                         @using (Html.BeginForm("Logon", "Usuario", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                         {
                             @Html.AntiForgeryToken()
-                            
+
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-4">
                                     <h1> <span class="label label-primary">Faça seu Login</span></h1>
@@ -71,7 +71,7 @@
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-6">
                                         @Html.ActionLink("Esqueceu sua senha?", "") @Html.ActionLink("Cadastre-se", "Cadastro")
-                                                                                
+
                                     </div>
                                 </div>
 
@@ -80,6 +80,12 @@
                                 <div class="col-sm-offset-2 col-sm-4">
                                     <button type="submit" class="btn btn-primary">Entrar</button>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                @if (ViewBag.Erro != null)
+                                {
+                                    <div class="alert alert-danger" role="alert">@ViewBag.Erro</div>
+                                }
                             </div>
                         }
                     </div> <!--fim div 1-->

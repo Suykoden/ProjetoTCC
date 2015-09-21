@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Anuncios\AnunciosServices.cs" />
+    <Compile Include="Anuncios\IAnunciosServices.cs" />
     <Compile Include="Fornecedores\FornecedorServices.cs" />
     <Compile Include="Fornecedores\IFornecedorServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

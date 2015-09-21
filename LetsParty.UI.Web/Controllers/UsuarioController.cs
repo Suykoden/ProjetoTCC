@@ -63,7 +63,7 @@ namespace LetsParty.UI.Web.Controllers
             if (UsuarioAppService.ObtemUsuarioLogado() != null)
             {
 
-                return View("Administrativo");
+                return View("Anuncio");
             }
             else
             {
@@ -113,11 +113,14 @@ namespace LetsParty.UI.Web.Controllers
             if (ModelState.IsValid)
             {
 
-                UsuarioAppService.AutenticarUsuario(usuario);
-                return View("Anuncio");///Todo após logado definir para qual página o usuario será enviado.
+                if (UsuarioAppService.AutenticarUsuario(usuario) == false)
+                {
+                    ViewBag.Erro = "Senha ou Login inválidos"; ///Todo após logado definir para qual página o usuario será enviado.
+                    return View("Login");
+                }
 
             }
-            return View("Login");
+            return RedirectToAction("Index", "Home");
         }
 
 
@@ -166,9 +169,9 @@ namespace LetsParty.UI.Web.Controllers
             }
         }
 
-      
-       
-       
+
+
+
         public ActionResult Deslogar()
         {
 
@@ -177,10 +180,10 @@ namespace LetsParty.UI.Web.Controllers
             {
 
                 UsuarioAppService.Deslogar();
-                
+
 
             }
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
 
 

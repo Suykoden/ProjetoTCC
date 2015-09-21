@@ -46,7 +46,7 @@ namespace LetsParty.Infra.Data.Context
 
         public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.Usuario> Usuarios { get; set; }
         public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.Fornecedor> Fornecedor { get; set; }
-        public System.Data.Entity.DbSet<LetsParty.Domain.Model.Servicos.Anuncio> Anuncio { get; set; }
+        public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.Anuncio> Anuncio { get; set; }
 
     }
 }

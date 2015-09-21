@@ -40,7 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Servicos\Anuncio.cs" />
+    <Compile Include="Model\Atores\Anuncio.cs" />
+    <Compile Include="Repository\IAnuncioRepository.cs" />
     <Compile Include="Repository\IFornecedorRepository.cs" />
     <Compile Include="Repository\IUsuarioRepository.cs" />
     <Compile Include="Model\Atores\Fornecedor.cs" />
@@ -53,6 +54,9 @@
       <Project>{3f8979b0-b1a2-4b2b-9adb-f0edca82257b}</Project>
       <Name>LetsParty.Seedwork</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\Servicos\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

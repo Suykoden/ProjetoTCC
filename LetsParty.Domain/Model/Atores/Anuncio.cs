@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LetsParty.Seedwork;
-using LetsParty.Domain.Model.Atores;
 
-namespace LetsParty.Domain.Model.Servicos
+
+namespace LetsParty.Domain.Model.Atores
 {
     public class Anuncio : EntityWithCodeAndName
     {
