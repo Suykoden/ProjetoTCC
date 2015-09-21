@@ -5,13 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using LetsParty.AppService.Usuarios.DTO;
 using LetsParty.Domain.Model.Atores;
-using LetsParty.Domain.Repository;
 
-namespace LetsParty.AppService.Anuncios
+namespace LetsParty.AppService.Usuarios
 {
-   public interface IAnunciosServices
+    public interface IBaseService<T> where T: class
     {
-       void Grava(Anuncio anuncio);
+       void Insert(T entity);
 
     }
 }

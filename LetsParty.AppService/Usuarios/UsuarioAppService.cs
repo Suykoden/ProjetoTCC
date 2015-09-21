@@ -98,7 +98,6 @@ namespace LetsParty.AppService.Usuarios
             }
 
 
-
         }
 
         public void Deslogar()

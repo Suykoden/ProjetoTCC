@@ -7,6 +7,7 @@ using LetsParty.Domain.Model.Atores;
 using LetsParty.Domain.Repository;
 using LetsParty.Infra.Data.Context;
 
+
 namespace LetsParty.AppService.Fornecedores
 {
     public class FornecedorServices : IFornecedorServices
@@ -26,6 +27,8 @@ namespace LetsParty.AppService.Fornecedores
             FornecedorRepository.Insert(fornecedor);
             LetsPartyContext.SaveChanges();
         }
+
+
 
     }
 }

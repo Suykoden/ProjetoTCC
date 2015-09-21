@@ -66,6 +66,9 @@
                     }@if (ViewBag.Logado == true)
                     {
                         <li>
+                            @User.Identity.Name
+                        </li>
+                        <li>
                             @Html.ActionLink("Sair", "Deslogar", "Usuario")
                         </li>
                     }
