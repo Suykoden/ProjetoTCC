@@ -948,6 +948,8 @@
     <Content Include="Views\Usuario\Administrativo.cshtml" />
     <Content Include="Views\View.cshtml" />
     <Content Include="Views\Usuario\Anuncio.cshtml" />
+    <Content Include="Views\Usuario\SelecaoTipoUsuario.cshtml" />
+    <Content Include="Views\Usuario\CadastroFornecedor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -32,6 +32,16 @@ namespace LetsParty.UI.Web.Controllers
             return View();
         }
 
+
+        public ActionResult SelecaoTipoUsuario()
+        {
+            return View("SelecaoTipoUsuario");
+        }
+        public ActionResult CadastroFornecedor()
+        {
+            return View("CadastroFornecedor");
+        }
+
         public ActionResult Cadastro()
         {
             return View("Cadastro");
@@ -172,6 +182,8 @@ namespace LetsParty.UI.Web.Controllers
             }
             return RedirectToAction("Index","Home");
         }
+
+
 
 
 
