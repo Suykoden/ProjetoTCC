@@ -56,16 +56,25 @@
                         @Html.ActionLink("Minha conta", "Administrativo", "Usuario")
                     </li>
                     <li>
-                        @Html.ActionLink("Cadastre-se", "Cadastro","Usuario")
+                        @Html.ActionLink("Cadastre-se", "Cadastro", "Usuario")
                     </li>
-                    <li>
-                       @Html.ActionLink("Entrar", "Login", "Usuario")
-                    </li>
+                    @if (ViewBag.Logado == false)
+                    {
+                        <li>
+                            @Html.ActionLink("Entrar", "Login", "Usuario")
+                        </li>
+                    }@if (ViewBag.Logado == true)
+                    {
+                        <li>
+                            @Html.ActionLink("Sair", "Deslogar", "Usuario")
+                        </li>
+                    }
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
-         <!-- /.container -->
+        <!-- /.container -->
     </nav>
     <!-- Page Content -->
     <div class="container">
@@ -222,7 +231,7 @@
                             </div>
                         </div>
                     </div>
-                   
+
                 </div>
             </div>
         </div>

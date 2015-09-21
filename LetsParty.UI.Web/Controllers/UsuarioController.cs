@@ -24,6 +24,11 @@ namespace LetsParty.UI.Web.Controllers
         // GET: Usuario
         public ActionResult Index()
         {
+            if (UsuarioAppService.ObtemUsuarioLogado() != null)
+            {
+
+                ViewBag.Logado = true;
+            }
             return View();
         }
 
@@ -99,7 +104,7 @@ namespace LetsParty.UI.Web.Controllers
             {
 
                 UsuarioAppService.AutenticarUsuario(usuario);
-                return View("Anuncio");
+                return View("Anuncio");///Todo após logado definir para qual página o usuario será enviado.
 
             }
             return View("Login");
@@ -150,5 +155,25 @@ namespace LetsParty.UI.Web.Controllers
                 return View();
             }
         }
+
+      
+       
+       
+        public ActionResult Deslogar()
+        {
+
+
+            if (ModelState.IsValid)
+            {
+
+                UsuarioAppService.Deslogar();
+                
+
+            }
+            return RedirectToAction("Index","Home");
+        }
+
+
+
     }
 }

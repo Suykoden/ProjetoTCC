@@ -14,5 +14,7 @@ namespace LetsParty.AppService.Usuarios
         void Grava(Usuario usuario);
         bool AutenticarUsuario(Usuario usuario);
         Usuario ObtemUsuarioLogado();
+        void Deslogar();
+
     }
 }
