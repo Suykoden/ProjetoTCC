@@ -14,5 +14,6 @@ namespace LetsParty.AppService.Fornecedores
     {
        
         void Grava(Fornecedor fornecedor);
+        Guid getIDFornecedor();
     }
 }

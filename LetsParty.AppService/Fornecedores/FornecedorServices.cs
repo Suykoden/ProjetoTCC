@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using LetsParty.Domain.Model.Atores;
 using LetsParty.Domain.Repository;
 using LetsParty.Infra.Data.Context;
+using System.Web.Security;
+using System.Web;
 
 
 namespace LetsParty.AppService.Fornecedores
@@ -29,6 +31,17 @@ namespace LetsParty.AppService.Fornecedores
         }
 
 
+        public Guid getIDFornecedor()
+        {
+
+
+            string Login = HttpContext.Current.User.Identity.Name;
+
+            var IdFornecedor = FornecedorRepository.All().SingleOrDefault(u => u.email == Login).Id;
+            return IdFornecedor;
+
+
+        }
 
     }
 }
