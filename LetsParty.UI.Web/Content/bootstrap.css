@@ -1750,6 +1750,7 @@ fieldset[disabled] .form-control {
 
 textarea.form-control {
   height: auto;
+
 }
 
 .form-group {
@@ -6813,4 +6814,7 @@ td.visible-print {
   td.hidden-print {
     display: none !important;
   }
+}
+.long-textbox{
+    height:500px;
 }

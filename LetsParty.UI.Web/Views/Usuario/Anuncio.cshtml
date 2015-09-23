@@ -1,196 +1,202 @@
 ﻿@model LetsParty.Domain.Model.Atores.Anuncio
 
-    @{
+@{
     ViewBag.Title = "Anuncio";
-    }
-    <!DOCTYPE html>
-    <html lang="pt-br">
-    <head>
-        <meta charset="iso-8859-1">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <title>f</title>
-        <!-- Bootstrap Core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <!-- Custom CSS -->
-        <link href="css/shop-homepage.css" rel="stylesheet">
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    </head>
-    <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="http://localhost:34417/Home">Festeje - O Seu site de festas</a>
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container -->
-        </nav>
+}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="iso-8859-1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>f</title>
+    <!-- Bootstrap Core CSS -->
+   
+    <!-- Custom CSS -->
+  
+
+  
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-sm-6 col-lg-6 col-md-6">
-                            @using (Html.BeginForm("Create", "Anuncio", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://localhost:34417/Home">Festeje - O Seu site de festas</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-6 col-md-6">
+                        @using (Html.BeginForm("Create", "Anuncio", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                         {
-                                <div class="form-group">
-                                    <div class="col-sm-offset-2 col-sm-4">
-                                        <h1> <span class="label label-primary">Faça aqui o seu anúncio</span></h1>
-                                    </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-4">
+                                    <h1> <span class="label label-primary">Faça aqui o seu anúncio</span></h1>
                                 </div>
-                                <div class="form-group">
+                            </div>
+                            <div class="form-group">
 
-                                    <label class="control-label col-sm-2">Categoria</label>
-                                    <div class="col-xs-5 selectContainer">
-                                        <select class="form-control" name="size">
-                                            <option value=""></option>
-                                            <option value="s">Buffet </option>
-                                            <option value="m">Organização de festas</option>
-                                            <option value="l">Produtos festivos</option>
-                                            <option value="xl">Casamentos</option>
-                                        </select>
-                                    </div>
-
+                                <label class="control-label col-sm-2">Categoria</label>
+                                <div class="col-md-6 col-md-6 col-md-6">
+                                    @Html.DropDownListFor(model => model.Categoria, new List<SelectListItem>{
+                                  new SelectListItem(){Text = "", Value=""},
+                                  new SelectListItem(){Text = "Buffet", Value="Buffet"},
+                                  new SelectListItem() {Text = "Organização de festas", Value="Organização de festas"},
+                                  new SelectListItem() {Text = "Produtos festivos", Value="Produtos festivos"},
+                                  new SelectListItem() {Text = "Casamentos", Value="Casamentos"}
+                                   }, new { @class = "form-control", placeholder = "Categoria" })
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label col-sm-2" for="Titulo">Titulo:</label>
-                                    <div class="col-sm-6 col-lg-6 col-md-6">
-                                        @Html.EditorFor(model => model.Titulo, new { htmlAttributes = new { @class = "form-control", placeholder = "Titulo do Anúncio" } })
-                                    </div>
-                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="Titulo">Titulo:</label>
+                                <div class="col-sm-6 col-lg-6 col-md-6">
 
-                                <div class="form-row">
-                                    <div class="form-col col-1">
-                                        <label class="control-label col-sm-2" for="">Descrição:</label>
-                                    </div>
-                                    <div class="form-col col-3">
-                                        <textarea cols="40" rows="8" name="body" id="body" class="form-field form-field-textarea form-field-larger"></textarea>
-                                    </div>
+                                    @Html.EditorFor(model => model.Titulo, new { htmlAttributes = new { @class = "form-control", placeholder = "Titulo do Anúncio" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="Descrição">Descricao:</label>
+                                <div class="col-sm-6 col-lg-6 col-md-6">
+                                    @Html.TextAreaFor(model => model.Descricao, 10, 120, htmlAttributes: new { style = "width: 100%; max-width: 100%;", placeholder = "Descrição" })
+                                </div>
+                            </div>
+
+
+                            @*<div class="form-row">
+    <div class="form-col col-1">
+        <label class="control-label col-sm-2" for="">Descrição:</label>
+    </div>
+    <div class="form-col col-3">
+        <textarea cols="40" rows="8" name="body" id="body" class="form-field form-field-textarea form-field-larger"></textarea>
+    </div>
+                            *@
                                     <div class="form-group">
                                         <div class="col-sm-offset-2 col-sm-4">
                                             <button type="submit" class="btn btn-primary">Adicionar imagens</button>
                                         </div>
                                     </div>
-                                </div>
+                              
 
-                                <br />
-                                <div class="form-group">
-                                    <label class="control-label col-sm-2" for="Preco">Preço:</label>
-                                    <div class="col-sm-6 col-lg-6 col-md-6">
-                                        @Html.EditorFor(model => model.Preco, new { htmlAttributes = new { @class = "form-control", placeholder = "Titulo do Anúncio" } })
-                                    </div>
+                            <br />
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="Preco">Preço:</label>
+                                <div class="col-sm-6 col-lg-6 col-md-6">
+                                    @Html.EditorFor(model => model.Preco, new { htmlAttributes = new { @class = "form-control", placeholder = "Titulo do Anúncio" } })
                                 </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <label class="control-label col-sm-2" for="Cep">Cep:</label>
-                                    <div class="col-sm-6 col-lg-6 col-md-6">
-                                        @Html.EditorFor(model => model.Cep, new { htmlAttributes = new { @class = "form-control", placeholder = "Informe o Cep", type = "text" } })
-                                    </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="Cep">Cep:</label>
+                                <div class="col-sm-6 col-lg-6 col-md-6">
+                                    @Html.EditorFor(model => model.Cep, new { htmlAttributes = new { @class = "form-control", placeholder = "Informe o Cep", type = "text" } })
                                 </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <label class="control-label col-sm-2" for="Telefone">Telefone:</label>
-                                    <div class="col-sm-6 col-lg-6 col-md-6">
-                                        @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { @class = "form-control", placeholder = "Telefone", type = "text" } })
-                                    </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="Telefone">Telefone:</label>
+                                <div class="col-sm-6 col-lg-6 col-md-6">
+                                    @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { @class = "form-control", placeholder = "Telefone", type = "text" } })
                                 </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <label class="control-label col-sm-2" for="Rua">Rua:</label>
-                                    <div class="col-sm-6 col-lg-6 col-md-6">
-                                        @Html.EditorFor(model => model.Rua, new { htmlAttributes = new { @class = "form-control", placeholder = "Nome da rua", type = "text" } })
-                                    </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="Rua">Rua:</label>
+                                <div class="col-sm-6 col-lg-6 col-md-6">
+                                    @Html.EditorFor(model => model.Rua, new { htmlAttributes = new { @class = "form-control", placeholder = "Nome da rua", type = "text" } })
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label col-sm-2" for="Numero">Número:</label>
-                                    <div class="col-sm-6 col-lg-2 col-md-6">
-                                        @Html.EditorFor(model => model.Numero, new { htmlAttributes = new { @class = "form-control", placeholder = "nº", type = "text" } })
-                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="Numero">Número:</label>
+                                <div class="col-sm-6 col-lg-2 col-md-6">
+                                    @Html.EditorFor(model => model.Numero, new { htmlAttributes = new { @class = "form-control", placeholder = "nº", type = "text" } })
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label col-sm-2">Estado</label>
-                                    <div class="col-xs-5 selectContainer">
-                                        <select class="form-control" name="size">
-                                            <option value="16">Alagoas</option>
-                                            <option value="26">Amapá</option>
-                                            <option value="15">Amazonas</option>
-                                            <option value="4">Bahia</option>
-                                            <option value="8">Ceará</option>
-                                            <option value="20">Distrito Federal</option>
-                                            <option value="14">Espírito Santo</option>
-                                            <option value="12">Goiás</option>
-                                            <option value="10">Maranhão</option>
-                                            <option value="19">Mato Grosso</option>
-                                            <option value="21">Mato Grosso do Sul</option>
-                                            <option value="2">Minas Gerais</option>
-                                            <option value="9">Pará</option>
-                                            <option value="13">Paraíba</option>
-                                            <option value="6">Paraná</option>
-                                            <option value="7">Pernambuco</option>
-                                            <option value="17">Piauí</option>
-                                            <option value="3">Rio de Janeiro</option>
-                                            <option value="18">Rio Grande do Norte</option>
-                                            <option value="5">Rio Grande do Sul</option>
-                                            <option value="23">Rondônia</option>
-                                            <option value="27">Roraima</option>
-                                            <option value="11">Santa Catarina</option>
-                                            <option value="1">São Paulo</option>
-                                            <option value="22">Sergipe</option>
-                                            <option value="24">Tocantins</option>
-                                        </select>
-                                    </div>
+                            </div>
+                            <div class="form-group">
+
+                                <label class="control-label col-sm-2">Estado</label>
+                                <div class="col-md-6 col-md-6 col-md-6">
+                                    @Html.DropDownListFor(model => model.Estado, new List<SelectListItem>{
+                                   new SelectListItem(){Text = "", Value=""},
+                                   new SelectListItem(){Text = "Alagoas", Value="Alagoas"},
+                                   new SelectListItem() {Text = "Amapá", Value="Amapá"},
+                                   new SelectListItem() {Text = "Amazonas", Value="Amazonas"},
+                                   new SelectListItem() {Text = "Bahia", Value="Bahia"},
+                                   new SelectListItem() {Text = "Ceará", Value="Ceará"},
+                                   new SelectListItem() {Text = "Distrito Federal", Value="Distrito Federal"},
+                                   new SelectListItem() {Text = "Espiríto Santo", Value="Espírito Santo"},
+                                   new SelectListItem() {Text = "Goiás", Value="Goiás"},
+                                   new SelectListItem() {Text = "Maranhão", Value="Maranhão"},
+                                   new SelectListItem() {Text = "Mato Grosso", Value="Mato Grosso"},
+                                   new SelectListItem() {Text = "Mato Grosso do Sul", Value="Mato Grosso do Sul"},
+                                   new SelectListItem() {Text = "Minas Gerais", Value="Minas Gerais"},
+                                   new SelectListItem() {Text = "Pará", Value="Pará"},
+                                   new SelectListItem() {Text = "Paraíba", Value="Paraíba"},
+                                   new SelectListItem() {Text = "Pernambuco", Value="Pernambuco"},
+                                   new SelectListItem() {Text = "Pará", Value="Pará"},
+                                   new SelectListItem() {Text = "Piauí", Value="Piauí"},
+                                   new SelectListItem() {Text = "Rio de Janeiro", Value="Rio de Janeiro"},
+                                   new SelectListItem() {Text = "Rio Grande do Norte", Value="Rio Grande do Norte"},
+                                   new SelectListItem() {Text = "Rio Grande do Sul", Value="Rio Grande do Sul"},
+                                   new SelectListItem() {Text = "Rondônia", Value="Rondônia"},
+                                   new SelectListItem() {Text = "Roraima", Value="Roraima"},
+                                   new SelectListItem() {Text = "Santa Catarina", Value="Santa Catarina"},
+                                   new SelectListItem() {Text = "São Paulo", Value="São Paulo"},
+                                   new SelectListItem() {Text = "Sergipe", Value="Sergipe"},
+                                   new SelectListItem() {Text = "Tocantins", Value="Tocantins"}
+                                   }, new { @class = "form-control" })
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label col-sm-2" for="Municipio">Município:</label>
-                                    <div class="col-sm-6 col-lg-6 col-md-6">
-                                        @Html.EditorFor(model => model.Municipio, new { htmlAttributes = new { @class = "form-control", placeholder = "Informe o municiipo", type = "text" } })
-                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="Municipio">Município:</label>
+                                <div class="col-sm-6 col-lg-6 col-md-6">
+                                    @Html.EditorFor(model => model.Municipio, new { htmlAttributes = new { @class = "form-control", placeholder = "Informe o municiipo", type = "text" } })
                                 </div>
-                                <br />
-                                <div class="ai-actions col-sm-8 col-lg-9 col-md-9">
-                                    <button type="submit" class="btn btn-primary">Anunciar</button>
-                                    <button type="submit" class="btn btn-primary">Visualizar</button>
-                                </div>
+                            </div>
+                            <br />
+                            <div class="ai-actions col-sm-8 col-lg-9 col-md-9">
+                                <button type="submit" class="btn btn-primary">Anunciar</button>
+                                <button type="submit" class="btn btn-primary">Visualizar</button>
+                            </div>
                         }
-                        </div> <!--fim div 1-->
-                        <div class="col-sm-6 col-lg-6 col-md-4">
-                            <img src="http://blog.festabox.com.br/wp-content/uploads/2013/02/festaanimada_festabox.jpg" alt="">
-                        </div>
+                    </div> <!--fim div 1-->
+                    <div class="col-sm-6 col-lg-6 col-md-4">
+                        <img src="http://blog.festabox.com.br/wp-content/uploads/2013/02/festaanimada_festabox.jpg" alt="">
                     </div>
-                </div> <!--fim conteudo painel-->
-            </div> <!--fim painel-->
-            <br />
-            <br />
-            <br />
-            <br />
-        </div>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Festeje.com 2015</p>
                 </div>
+            </div> <!--fim conteudo painel-->
+        </div> <!--fim painel-->
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Festeje.com 2015</p>
             </div>
-        </footer>
-        <!-- jQuery -->
-        <script src="js/jquery.js"></script>
-        <!-- Bootstrap Core JavaScript -->
-        <script src="js/bootstrap.min.js"></script>
-    </body>
+        </div>
+    </footer>
+    <!-- jQuery -->
+   
+    <!-- Bootstrap Core JavaScript -->
+  
+</body>
 </html>

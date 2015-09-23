@@ -12,6 +12,7 @@ namespace LetsParty.Domain.Model.Atores
     {
         public string Titulo { get; set; }
         public string Categoria { get; set; }
+        public string Descricao { get; set; }
         public float  Preco { get; set; }
         public string Cep { get; set; }
         public string Telefone { get; set; }

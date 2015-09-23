@@ -2587,7 +2587,7 @@ fieldset[disabled] .form-control {
   cursor: not-allowed;
 }
 textarea.form-control {
-  height: auto;
+  height: 300px;
 }
 input[type="search"] {
   -webkit-appearance: none;
@@ -6580,5 +6580,8 @@ button.close {
   .hidden-print {
     display: none !important;
   }
+}
+.long-textbox{
+    height:1000px;
 }
 /*# sourceMappingURL=bootstrap.css.map */
