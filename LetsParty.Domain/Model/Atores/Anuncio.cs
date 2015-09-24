@@ -20,8 +20,8 @@ namespace LetsParty.Domain.Model.Atores
         public string Estado { get; set; }
         public string Municipio { get; set; }
         public string Numero { get; set; }
-        public Guid FornecedorID { get; set; }
-        public Fornecedor Fornecedor { get; set; }
+        public Guid UsuarioID { get; set; }
+        public Usuario usuario { get; set; }
 
 
     }

@@ -43,8 +43,6 @@
   <ItemGroup>
     <Compile Include="Anuncios\AnunciosServices.cs" />
     <Compile Include="Anuncios\IAnunciosServices.cs" />
-    <Compile Include="Fornecedores\FornecedorServices.cs" />
-    <Compile Include="Fornecedores\IFornecedorServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuarios\DTO\UsuarioDTO.cs" />
     <Compile Include="Usuarios\IUsuarioAppService.cs" />

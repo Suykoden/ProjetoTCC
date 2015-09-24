@@ -14,7 +14,6 @@ namespace LetsParty.UI.Web.App_Start
     using LetsParty.Infra.Data.Repository;
     using LetsParty.Domain.Repository;
     using LetsParty.AppService.Usuarios;
-    using LetsParty.AppService.Fornecedores;
     using LetsParty.AppService.Anuncios;
 
     public static class NinjectWebCommon 
@@ -71,12 +70,10 @@ namespace LetsParty.UI.Web.App_Start
 
             //Repositorio
             kernel.Bind<IUsuarioRepository>().To<UsuarioRepository>();
-            kernel.Bind<IFornecedorRepository>().To<FornecedorRepository>();
             kernel.Bind<IAnuncioRepository>().To<AnuncioRepositorio>();
 
             //Sevicos
             kernel.Bind<IUsuarioAppService>().To<UsuarioAppService>();
-            kernel.Bind<IFornecedorServices>().To<FornecedorServices>();
             kernel.Bind<IAnunciosServices>().To<AnunciosServices>();
 
         }        

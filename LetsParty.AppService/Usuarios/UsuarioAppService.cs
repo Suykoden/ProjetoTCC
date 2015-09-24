@@ -105,6 +105,18 @@ namespace LetsParty.AppService.Usuarios
             FormsAuthentication.SignOut();
         }
 
+        public Guid getIDUsuario()
+        {
+
+
+            string Login = HttpContext.Current.User.Identity.Name;
+
+            var IdUsuario = UsuarioRepository.All().SingleOrDefault(u => u.email == Login).Id;
+            return IdUsuario;
+
+
+        }
+
 
 
     }

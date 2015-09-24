@@ -6,17 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
- 
+
 
 namespace LetsParty.Infra.Data.Context
 {
     public class LetsPartyContext : DbContext, ILetsPartyContext
     {
-        public LetsPartyContext() : base("TCCBanco")
+        public LetsPartyContext()
+            : base("TCCBanco")
         {
 
         }
-        public LetsPartyContext(string connectionString) : base(connectionString)
+        public LetsPartyContext(string connectionString)
+            : base(connectionString)
         {
 
         }
@@ -39,13 +41,11 @@ namespace LetsParty.Infra.Data.Context
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Configurations.Add(new UsuarioDbMapping());
-            modelBuilder.Configurations.Add(new FornecedorMapping());
             modelBuilder.Configurations.Add(new AnuncioMapping());
 
         }
 
         public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.Usuario> Usuarios { get; set; }
-        public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.Fornecedor> Fornecedor { get; set; }
         public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.Anuncio> Anuncio { get; set; }
 
     }

@@ -42,10 +42,7 @@
   <ItemGroup>
     <Compile Include="Model\Atores\Anuncio.cs" />
     <Compile Include="Repository\IAnuncioRepository.cs" />
-    <Compile Include="Repository\IFornecedorRepository.cs" />
     <Compile Include="Repository\IUsuarioRepository.cs" />
-    <Compile Include="Model\Atores\Fornecedor.cs" />
-    <Compile Include="Model\Atores\Comprador.cs" />
     <Compile Include="Model\Atores\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

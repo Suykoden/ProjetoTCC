@@ -133,7 +133,6 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AnuncioController.cs" />
-    <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
@@ -950,8 +949,6 @@
     <Content Include="Views\Usuario\Administrativo.cshtml" />
     <Content Include="Views\View.cshtml" />
     <Content Include="Views\Usuario\Anuncio.cshtml" />
-    <Content Include="Views\Usuario\SelecaoTipoUsuario.cshtml" />
-    <Content Include="Views\Usuario\CadastroFornecedor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

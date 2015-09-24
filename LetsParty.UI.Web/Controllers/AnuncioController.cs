@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using LetsParty.AppService.Usuarios;
 using LetsParty.AppService.Anuncios;
-using LetsParty.AppService.Fornecedores;
 using LetsParty.Domain.Model.Atores;
 using LetsParty.Domain.Repository;
 using LetsParty.Infra.Data.Repository;
@@ -15,12 +15,12 @@ namespace LetsParty.UI.Web.Controllers
     public class AnuncioController : Controller
     {
         private IAnunciosServices AnunciosServices { get; set; }
-        private IFornecedorServices FornecedorServices { get; set; }
+        private IUsuarioAppService UsuarioService { get; set; }
 
-        public AnuncioController(IAnunciosServices anunciosservices, IFornecedorServices fornecedoresServices)
+        public AnuncioController(IAnunciosServices anunciosservices, IUsuarioAppService usuarioService)
         {
             AnunciosServices = anunciosservices;
-            FornecedorServices = fornecedoresServices;
+            UsuarioService = usuarioService;
         }
 
 
@@ -43,7 +43,7 @@ namespace LetsParty.UI.Web.Controllers
             if (ModelState.IsValid)
             {
                 anuncio.Id = Guid.NewGuid();
-                anuncio.FornecedorID = FornecedorServices.getIDFornecedor();
+                anuncio.UsuarioID = UsuarioService.getIDUsuario();
                 AnunciosServices.Grava(anuncio);
 
             }

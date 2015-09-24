@@ -15,6 +15,8 @@ namespace LetsParty.AppService.Usuarios
         bool AutenticarUsuario(Usuario usuario);
         Usuario ObtemUsuarioLogado();
         void Deslogar();
+        Guid getIDUsuario();
+
 
     }
 }
