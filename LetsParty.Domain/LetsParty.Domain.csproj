@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Atores\Acesso.cs" />
     <Compile Include="Model\Atores\Anuncio.cs" />
+    <Compile Include="Model\Atores\Perfil.cs" />
     <Compile Include="Repository\IAnuncioRepository.cs" />
     <Compile Include="Repository\IUsuarioRepository.cs" />
     <Compile Include="Model\Atores\Usuario.cs" />

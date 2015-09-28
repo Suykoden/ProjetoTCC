@@ -29,12 +29,5 @@ namespace LetsParty.Domain.Model.Atores
         public string Imagem { get; set; }
         public string Ativo { get; set; }
 
-
-       
-
-
-
-       
-
     }
 }
