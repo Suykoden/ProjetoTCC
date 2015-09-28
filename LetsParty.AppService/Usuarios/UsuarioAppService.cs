@@ -34,7 +34,6 @@ namespace LetsParty.AppService.Usuarios
                         .Select(p => new UsuarioDTO()
                         {
                             Id = p.Id,
-                            Codigo = p.Codigo,
                             Nome = p.Nome
                         });
         }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 
 namespace LetsParty.Infra.Data.Context
@@ -42,11 +43,16 @@ namespace LetsParty.Infra.Data.Context
 
             modelBuilder.Configurations.Add(new UsuarioDbMapping());
             modelBuilder.Configurations.Add(new AnuncioMapping());
+            modelBuilder.Configurations.Add(new EventoMapping());
+
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>(); 
 
         }
 
         public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.Usuario> Usuarios { get; set; }
         public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.Anuncio> Anuncio { get; set; }
+        public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.Evento> Evento { get; set; }
 
     }
 }

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace LetsParty.Domain.Model.Atores
 {
-    public class Usuario : EntityWithCodeAndName
+    public class Usuario : EntityWithName
     {
-        public string Senha { get; set; }
-        public string Email { get; set; }
+        public string senha { get; set; }
+        public string email { get; set; }
         public DateTime DataCadastro { get; set; }
         public string Documento { get; set; }
         public string Telefone { get; set; }
@@ -28,6 +28,9 @@ namespace LetsParty.Domain.Model.Atores
         public string Ponto_Referencia { get; set; }
         public string Imagem { get; set; }
         public string Ativo { get; set; }
+        public Guid PerfilID { get; set; }
+        public Perfil perfil { get; set; }
+
 
     }
 }

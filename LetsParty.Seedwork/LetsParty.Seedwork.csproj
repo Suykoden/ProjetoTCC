@@ -40,12 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\DtoWithName.cs" />
     <Compile Include="DTO\Dto.cs" />
     <Compile Include="DTO\DtoWithCode.cs" />
     <Compile Include="DTO\DtoWithCodeAndName.cs" />
     <Compile Include="EntityBase.cs" />
     <Compile Include="EntityWithCode.cs" />
     <Compile Include="EntityWithCodeAndName.cs" />
+    <Compile Include="EntityWithName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IRepository.cs" />
   </ItemGroup>

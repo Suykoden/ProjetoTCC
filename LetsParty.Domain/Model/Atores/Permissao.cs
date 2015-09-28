@@ -7,8 +7,8 @@ using LetsParty.Seedwork;
 
 namespace LetsParty.Domain.Model.Atores
 {
-    public class Perfil : EntityWithName
+    public class Permissao : EntityBase
     {
-
+        public string ItemPermitido { get; set; }
     }
 }
