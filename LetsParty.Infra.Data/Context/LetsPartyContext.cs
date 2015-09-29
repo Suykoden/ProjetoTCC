@@ -47,6 +47,10 @@ namespace LetsParty.Infra.Data.Context
             modelBuilder.Configurations.Add(new PermissaoMapping());
             modelBuilder.Configurations.Add(new ServicoMapping());
             modelBuilder.Configurations.Add(new ServicoUsuarioMapping());
+            modelBuilder.Configurations.Add(new StatusEventoMapping());
+            modelBuilder.Configurations.Add(new FotoAnuncioMapping());
+            modelBuilder.Configurations.Add(new LogEventoMapping());
+            modelBuilder.Configurations.Add(new AcessoMapping());
 
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>(); 
@@ -59,6 +63,10 @@ namespace LetsParty.Infra.Data.Context
         public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.Permissao> Permissao { get; set; }
         public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.Servico> Servico { get; set; }
         public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.ServicoUsuario> ServicoUsuario { get; set; }
+        public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.StatusEvento> StatusEvento { get; set; }
+        public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.FotoAnuncio> FotoAnuncio { get; set; }
+        public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.LogEventos> LogEventos { get; set; }
+        public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.Acesso> Acesso { get; set; }
 
     }
 }

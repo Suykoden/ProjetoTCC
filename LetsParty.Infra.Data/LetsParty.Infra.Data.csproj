@@ -50,11 +50,15 @@
   <ItemGroup>
     <Compile Include="Context\ILetsPartyContext.cs" />
     <Compile Include="Context\LetsPartyContext.cs" />
+    <Compile Include="DbMapping\AcessoMapping.cs" />
     <Compile Include="DbMapping\AnuncioMapping.cs" />
+    <Compile Include="DbMapping\FotoAnuncioMapping.cs" />
+    <Compile Include="DbMapping\LogEventoMapping.cs" />
     <Compile Include="DbMapping\ServicoUsuarioMapping.cs" />
     <Compile Include="DbMapping\EventoMapping.cs" />
     <Compile Include="DbMapping\PermissaoMapping.cs" />
     <Compile Include="DbMapping\ServicoMapping.cs" />
+    <Compile Include="DbMapping\StatusEventoMapping.cs" />
     <Compile Include="DbMapping\UsuarioDbMapping.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
