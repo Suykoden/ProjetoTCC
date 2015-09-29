@@ -5,19 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using LetsParty.Seedwork;
 
-
 namespace LetsParty.Domain.Model.Atores
 {
-    public class Anuncio : EntityWithName
+    public class ServicoUsuario:EntityBase
     {
-        public string Titulo { get; set; }
-        public string Categoria { get; set; }
-        public DateTime Data { get; set; }
         public Guid UsuarioID { get; set; }
         public Usuario usuario { get; set; }
         public Guid ServicoID { get; set; }
         public Servico servico { get; set; }
-
-
     }
 }

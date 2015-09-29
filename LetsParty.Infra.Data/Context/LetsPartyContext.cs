@@ -44,6 +44,9 @@ namespace LetsParty.Infra.Data.Context
             modelBuilder.Configurations.Add(new UsuarioDbMapping());
             modelBuilder.Configurations.Add(new AnuncioMapping());
             modelBuilder.Configurations.Add(new EventoMapping());
+            modelBuilder.Configurations.Add(new PermissaoMapping());
+            modelBuilder.Configurations.Add(new ServicoMapping());
+            modelBuilder.Configurations.Add(new ServicoUsuarioMapping());
 
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>(); 
@@ -53,6 +56,9 @@ namespace LetsParty.Infra.Data.Context
         public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.Usuario> Usuarios { get; set; }
         public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.Anuncio> Anuncio { get; set; }
         public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.Evento> Evento { get; set; }
+        public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.Permissao> Permissao { get; set; }
+        public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.Servico> Servico { get; set; }
+        public System.Data.Entity.DbSet<LetsParty.Domain.Model.Atores.ServicoUsuario> ServicoUsuario { get; set; }
 
     }
 }
