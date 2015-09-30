@@ -28,8 +28,8 @@ namespace LetsParty.Domain.Model.Atores
         public string Ponto_Referencia { get; set; }
         public string Imagem { get; set; }
         public string Ativo { get; set; }
-        public Guid PerfilID { get; set; }
-        public Perfil perfil { get; set; }
+        public Guid? PerfilID{ get; set; }
+        public virtual Perfil perfil { get; set; }
 
 
     }

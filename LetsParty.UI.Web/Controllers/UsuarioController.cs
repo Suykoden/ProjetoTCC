@@ -86,12 +86,13 @@ namespace LetsParty.UI.Web.Controllers
 
         // POST: Usuario/Create
         [HttpPost]
-        public ActionResult Create(Usuario usuario)
+            public ActionResult Create(Usuario usuario)
         {
             if (ModelState.IsValid)
             {
                 usuario.Id = Guid.NewGuid();
                 usuario.DataCadastro = DateTime.Now;
+                usuario.DataNascimento = DateTime.Now;
                 UsuarioAppService.Grava(usuario);
                 // return View();
 
