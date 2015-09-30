@@ -10,6 +10,7 @@ using LetsParty.Domain.Model.Atores;
 using LetsParty.Domain.Repository;
 using Ninject.Activation;
 using LetsParty.AppService.Usuarios;
+using LetsParty.AppService.Servicos;
 
 
 namespace LetsParty.UI.Web.Controllers
@@ -17,9 +18,12 @@ namespace LetsParty.UI.Web.Controllers
     public class UsuarioController : Controller
     {
         private IUsuarioAppService UsuarioAppService { get; set; }
-        public UsuarioController(IUsuarioAppService usuarioApp)
+        private IServicoServices ServicoService { get; set; }
+
+        public UsuarioController(IUsuarioAppService usuarioApp, IServicoServices servicoServices)
         {
             UsuarioAppService = usuarioApp;
+            ServicoService = servicoServices;
         }
         // GET: Usuario
         public ActionResult Index()
@@ -62,7 +66,9 @@ namespace LetsParty.UI.Web.Controllers
         {
             if (UsuarioAppService.ObtemUsuarioLogado() != null)
             {
-
+                ViewBag.ListaServico = ServicoService.RetornaServicos().ToList();
+                //IQueryable<Servico> ListaServico;
+                //ListaServico = ServicoService.RetornaServicos();
                 return View("Anuncio");
             }
             else
@@ -86,7 +92,7 @@ namespace LetsParty.UI.Web.Controllers
 
         // POST: Usuario/Create
         [HttpPost]
-            public ActionResult Create(Usuario usuario)
+        public ActionResult Create(Usuario usuario)
         {
             if (ModelState.IsValid)
             {

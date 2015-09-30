@@ -44,6 +44,7 @@ namespace LetsParty.UI.Web.Controllers
             {
                 anuncio.Id = Guid.NewGuid();
                 anuncio.UsuarioID = UsuarioService.getIDUsuario();
+                anuncio.Data = DateTime.Now;
                 AnunciosServices.Grava(anuncio);
 
             }

@@ -65,6 +65,7 @@
     <Compile Include="Repository\AnuncioRepositorio.cs" />
     <Compile Include="Repository\CriptografiaRepositorycs.cs" />
     <Compile Include="Repository\RepositoryBase.cs" />
+    <Compile Include="Repository\ServicosRepository.cs" />
     <Compile Include="Repository\UsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup>

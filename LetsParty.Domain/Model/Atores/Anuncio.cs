@@ -8,7 +8,7 @@ using LetsParty.Seedwork;
 
 namespace LetsParty.Domain.Model.Atores
 {
-    public class Anuncio : EntityWithName
+    public class Anuncio : EntityBase
     {
         public string Titulo { get; set; }
         public string Descricao { get; set; }

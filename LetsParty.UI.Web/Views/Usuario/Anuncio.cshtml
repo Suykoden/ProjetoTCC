@@ -48,7 +48,13 @@
                                     <h1> <span class="label label-primary">Faça aqui o seu anúncio</span></h1>
                                 </div>
                             </div>
-                          
+                            <div class="form-group">
+
+                                <label class="control-label col-sm-2">Categoria</label>
+                                <div class="col-md-6 col-md-6 col-md-6">
+                                    @Html.DropDownListFor(model => model.ServicoID, new SelectList(ViewBag.ListaServico, "Id", "Nome"), new { @class = "form-control", placeholder = "Categoria" })
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="Titulo">Titulo:</label>
                                 <div class="col-sm-6 col-lg-6 col-md-6">

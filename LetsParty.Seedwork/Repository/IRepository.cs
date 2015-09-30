@@ -20,6 +20,6 @@ namespace LetsParty.Seedwork.Repository
         void Delete(T entity);
 
         void Delete(Guid entityId);
-              
+
     }
 }
