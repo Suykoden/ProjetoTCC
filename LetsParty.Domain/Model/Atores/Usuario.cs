@@ -31,6 +31,5 @@ namespace LetsParty.Domain.Model.Atores
         public Guid? PerfilID{ get; set; }
         public virtual Perfil perfil { get; set; }
 
-
     }
 }

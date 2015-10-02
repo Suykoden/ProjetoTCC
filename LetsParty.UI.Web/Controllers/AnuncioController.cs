@@ -18,9 +18,9 @@ namespace LetsParty.UI.Web.Controllers
     {
         private IAnunciosServices AnunciosServices { get; set; }
         private IUsuarioAppService UsuarioService { get; set; }
-        private IFotoService FotoService { get; set; }  
+        private IFotoService FotoService { get; set; }
 
-        public AnuncioController(IAnunciosServices anunciosservices, IUsuarioAppService usuarioService,IFotoService fotoService)
+        public AnuncioController(IAnunciosServices anunciosservices, IUsuarioAppService usuarioService, IFotoService fotoService)
         {
             AnunciosServices = anunciosservices;
             UsuarioService = usuarioService;
