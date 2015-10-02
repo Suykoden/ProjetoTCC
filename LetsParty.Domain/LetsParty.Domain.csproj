@@ -51,10 +51,12 @@
     <Compile Include="Model\Atores\ServicoUsuario.cs" />
     <Compile Include="Model\Atores\StatusEvento.cs" />
     <Compile Include="Repository\IAnuncioRepository.cs" />
+    <Compile Include="Repository\IFotoRepository.cs" />
     <Compile Include="Repository\IServicoRepository.cs" />
     <Compile Include="Repository\IUsuarioRepository.cs" />
     <Compile Include="Model\Atores\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\AnuncioViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LetsParty.Seedwork\LetsParty.Seedwork.csproj">
