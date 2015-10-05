@@ -40,7 +40,7 @@ namespace LetsParty.UI.Web.Controllers
 
         public ActionResult AdminListaAnuncio()
         {
-            var ListaAnuncio = AnuncioService.RetornaAnuncios(UsuarioService.getIDUsuario()).ToList();
+            var ListaAnuncio = AnuncioService.RetornaAnuncios().ToList();
             AnuncioViewModel _AnuncioViewModel = new AnuncioViewModel();
     
             foreach(var anuncios in ListaAnuncio ){

@@ -29,7 +29,7 @@ namespace LetsParty.AppService.Anuncios
             LetsPartyContext.SaveChanges();
         }
 
-        public IEnumerable<Anuncio> RetornaAnuncios(Guid id)
+        public IEnumerable<Anuncio> RetornaAnuncios()
         {
             var teste = AnuncioRepository.Listar(); 
             return AnuncioRepository.Listar();
