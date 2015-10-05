@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LetsParty.Domain.Model.Atores;
+using LetsParty.Domain.ViewModel;
 using LetsParty.Domain.Repository;
 using LetsParty.Infra.Data.Context;
 using System.Web.Security;
 using System.Web;
+
 namespace LetsParty.AppService.Anuncios
 {
     public class AnunciosServices : IAnunciosServices
@@ -27,10 +29,11 @@ namespace LetsParty.AppService.Anuncios
             LetsPartyContext.SaveChanges();
         }
 
-        public IQueryable<Anuncio> RetornaAnuncios(Guid id)
+        public IEnumerable<Anuncio> RetornaAnuncios(Guid id)
         {
-            Anuncio anuncio = new Anuncio();
-            return AnuncioRepository.All().Where(a => anuncio.Id == id);
+            var teste = AnuncioRepository.Listar(); 
+            return AnuncioRepository.Listar();
+            
         }
 
 

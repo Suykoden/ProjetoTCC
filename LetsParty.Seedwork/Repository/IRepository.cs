@@ -21,5 +21,7 @@ namespace LetsParty.Seedwork.Repository
 
         void Delete(Guid entityId);
 
+        IEnumerable<T> Listar();
+
     }
 }

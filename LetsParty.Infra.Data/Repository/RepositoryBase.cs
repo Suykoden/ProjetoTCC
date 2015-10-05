@@ -66,7 +66,11 @@ namespace LetsParty.Infra.Data.Repository
             Delete(entity);
         }
 
-       
+        public IEnumerable<T> Listar()
+        {
+            return Context.Set<T>().AsEnumerable();
+        }
+
     }
 
 
