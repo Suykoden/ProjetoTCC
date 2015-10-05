@@ -132,6 +132,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AnuncioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -980,16 +981,14 @@
     <Content Include="Template\less\variables.less" />
     <Content Include="Template\LICENSE" />
     <Content Include="Template\README.md" />
-    <Content Include="Views\Usuario\Administrativo.cshtml" />
+    <Content Include="Views\Admin\Administrativo.cshtml" />
     <Content Include="Views\View.cshtml" />
-    <Content Include="Views\Usuario\Anuncio.cshtml" />
-    <Content Include="Views\Usuario\AdminUsuario.cshtml" />
+    <Content Include="Views\Anuncio\Anuncio.cshtml" />
+    <Content Include="Views\Admin\AdminEdicaoAnuncio.cshtml" />
+    <Content Include="Views\Admin\AdminListaAnuncio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Anuncio\" />
-    <Folder Include="Views\Default\" />
-    <Folder Include="Views\Fornecedor\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

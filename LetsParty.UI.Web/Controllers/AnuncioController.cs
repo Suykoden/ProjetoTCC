@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using LetsParty.AppService.Usuarios;
 using LetsParty.AppService.Anuncios;
 using LetsParty.AppService.Fotos;
+using LetsParty.AppService.Servicos;
 using LetsParty.Domain.Model.Atores;
 using LetsParty.Domain.Repository;
 using LetsParty.Infra.Data.Repository;
@@ -19,14 +20,15 @@ namespace LetsParty.UI.Web.Controllers
         private IAnunciosServices AnunciosServices { get; set; }
         private IUsuarioAppService UsuarioService { get; set; }
         private IFotoService FotoService { get; set; }
+        private IServicoServices ServicoService { get; set; }
 
-        public AnuncioController(IAnunciosServices anunciosservices, IUsuarioAppService usuarioService, IFotoService fotoService)
+        public AnuncioController(IAnunciosServices anunciosservices, IUsuarioAppService usuarioService, IFotoService fotoService, IServicoServices servicoServices)
         {
             AnunciosServices = anunciosservices;
             UsuarioService = usuarioService;
             FotoService = fotoService;
+            ServicoService = servicoServices;
         }
-
 
         public ActionResult Create()
         {
@@ -74,7 +76,26 @@ namespace LetsParty.UI.Web.Controllers
             }
 
             ViewBag.Cadastro = "Sucesso";
-            return RedirectToAction("Anuncio", "Usuario");
+            return View("Anuncio");
         }
+
+
+        public ActionResult Anuncio(Usuario usuario)
+        {
+            if (UsuarioService.ObtemUsuarioLogado() != null)
+            {
+                ViewBag.ListaServico = ServicoService.RetornaServicos().ToList();
+                //IQueryable<Servico> ListaServico;
+                //ListaServico = ServicoService.RetornaServicos();
+                return View("Anuncio");
+            }
+            else
+            {
+                return RedirectToAction("Login", "Usuario");
+            }
+
+        }
+
+
     }
 }

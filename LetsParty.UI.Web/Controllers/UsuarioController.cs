@@ -36,16 +36,6 @@ namespace LetsParty.UI.Web.Controllers
             return View();
         }
 
-
-        public ActionResult SelecaoTipoUsuario()
-        {
-            return View("SelecaoTipoUsuario");
-        }
-        public ActionResult CadastroFornecedor()
-        {
-            return View("CadastroFornecedor");
-        }
-
         public ActionResult Cadastro()
         {
             return View("Cadastro");
@@ -55,33 +45,8 @@ namespace LetsParty.UI.Web.Controllers
         {
             return View("Login");
         }
-        public ActionResult Administrativo()
-        {
-            return View("Administrativo");
-        }
-
-        public ActionResult AdminUsuario()
-        {
-            return View("AdminUsuario");
-        }
-
-
-
-        public ActionResult Anuncio(Usuario usuario)
-        {
-            if (UsuarioAppService.ObtemUsuarioLogado() != null)
-            {
-                ViewBag.ListaServico = ServicoService.RetornaServicos().ToList();
-                //IQueryable<Servico> ListaServico;
-                //ListaServico = ServicoService.RetornaServicos();
-                return View("Anuncio");
-            }
-            else
-            {
-                return View("Login");
-            }
-
-        }
+       
+             
 
         // GET: Usuario/Details/5
         public ActionResult Details(int id)
