@@ -27,7 +27,11 @@ namespace LetsParty.AppService.Anuncios
             LetsPartyContext.SaveChanges();
         }
 
-      
+        public IQueryable<Anuncio> RetornaAnuncios(Guid id)
+        {
+            Anuncio anuncio = new Anuncio();
+            return AnuncioRepository.All().Where(a => anuncio.Id == id);
+        }
 
 
     }

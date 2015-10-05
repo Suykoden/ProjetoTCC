@@ -12,6 +12,7 @@ namespace LetsParty.AppService.Anuncios
    public interface IAnunciosServices
     {
        void Grava(Anuncio anuncio);
+       IQueryable<Anuncio> RetornaAnuncios(Guid id);
 
     }
 }

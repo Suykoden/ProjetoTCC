@@ -9,8 +9,10 @@ namespace LetsParty.UI.Web.Controllers
     public class AdminController : Controller
     {
 
+
         public ActionResult Administrativo()
         {
+            
             return View("Administrativo");
         }
 
