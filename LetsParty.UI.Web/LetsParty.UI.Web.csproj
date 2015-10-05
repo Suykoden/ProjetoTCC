@@ -983,6 +983,7 @@
     <Content Include="Views\Usuario\Administrativo.cshtml" />
     <Content Include="Views\View.cshtml" />
     <Content Include="Views\Usuario\Anuncio.cshtml" />
+    <Content Include="Views\Usuario\AdminUsuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

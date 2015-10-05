@@ -60,6 +60,11 @@ namespace LetsParty.UI.Web.Controllers
             return View("Administrativo");
         }
 
+        public ActionResult AdminUsuario()
+        {
+            return View("AdminUsuario");
+        }
+
 
 
         public ActionResult Anuncio(Usuario usuario)
