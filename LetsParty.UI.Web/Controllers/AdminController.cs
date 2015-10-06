@@ -33,9 +33,13 @@ namespace LetsParty.UI.Web.Controllers
             return View();
         }
 
-        public ActionResult AdminEdicaoAnuncio()
+        public ActionResult AdminEdicaoAnuncio(Guid id)
         {
-            return View("AdminEdicaoAnuncio");
+            Anuncio anuncio = AnuncioService.BuscaPorId(id);
+            AnuncioViewModel _AnuncioViewModel = new AnuncioViewModel();
+            _AnuncioViewModel.Titulo = anuncio.Titulo;
+            _AnuncioViewModel.Descricao = anuncio.Descricao;
+            return View(_AnuncioViewModel);
         }
 
         public ActionResult AdminListaAnuncio()

@@ -9,10 +9,12 @@ using LetsParty.Domain.Repository;
 
 namespace LetsParty.AppService.Anuncios
 {
-   public interface IAnunciosServices
+    public interface IAnunciosServices
     {
-       void Grava(Anuncio anuncio);
-       IEnumerable<Anuncio> RetornaAnuncios(Guid Id);
+        void Grava(Anuncio anuncio);
+        IEnumerable<Anuncio> RetornaAnuncios(Guid Id);
+        Anuncio BuscaPorId(Guid Id);
+        void EditarAnuncio(Anuncio anuncio);
 
     }
 }

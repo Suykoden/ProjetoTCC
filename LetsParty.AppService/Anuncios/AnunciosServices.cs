@@ -36,6 +36,14 @@ namespace LetsParty.AppService.Anuncios
             
         }
 
+        public Anuncio BuscaPorId(Guid Id)
+        {
+            return AnuncioRepository.GetById(Id);
+        }
 
+        public void EditarAnuncio(Anuncio anuncio)
+        {
+            AnuncioRepository.Update(anuncio);
+        }
     }
 }

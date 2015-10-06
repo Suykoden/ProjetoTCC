@@ -21,13 +21,15 @@ namespace LetsParty.UI.Web.Controllers
         private IUsuarioAppService UsuarioService { get; set; }
         private IFotoService FotoService { get; set; }
         private IServicoServices ServicoService { get; set; }
+        private ILetsPartyContext Context { get; set; }
 
-        public AnuncioController(IAnunciosServices anunciosservices, IUsuarioAppService usuarioService, IFotoService fotoService, IServicoServices servicoServices)
+        public AnuncioController(IAnunciosServices anunciosservices, IUsuarioAppService usuarioService, IFotoService fotoService, IServicoServices servicoServices, ILetsPartyContext context)
         {
             AnunciosServices = anunciosservices;
             UsuarioService = usuarioService;
             FotoService = fotoService;
             ServicoService = servicoServices;
+            Context = context;
         }
 
         public ActionResult Create()
@@ -95,6 +97,42 @@ namespace LetsParty.UI.Web.Controllers
             }
 
         }
+
+
+
+
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        // POST: Usuario/Edit/5
+        [HttpPost]
+        public ActionResult EditarAnuncio(AnuncioViewModel _AnuncioViewModel)
+        {
+
+            if (ModelState.IsValid)
+            {
+                Anuncio _Anuncio = new Anuncio();
+                FotoAnuncio foto = new FotoAnuncio();
+
+                _Anuncio.Titulo = _AnuncioViewModel.Titulo;
+                _Anuncio.Descricao = _AnuncioViewModel.Descricao;
+                _Anuncio.Id = _AnuncioViewModel.Id;
+                _Anuncio.UsuarioID = _AnuncioViewModel.UsuarioID;
+                _Anuncio.Data = _AnuncioViewModel.Data;
+                _Anuncio.ServicoID = _AnuncioViewModel.ServicoID;
+
+                AnunciosServices.EditarAnuncio(_Anuncio);
+                Context.SaveChanges();
+
+            }
+
+            return RedirectToAction("AdminListaAnuncio", "Admin");
+
+
+        }
+
 
 
     }

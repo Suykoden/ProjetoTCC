@@ -321,16 +321,23 @@
                                             <th>Titulo</th>
                                             <th>Descricao</th>
                                             <th>Data</th>
+                                            <th>Alterar</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach (var Anuncio in Model.ListaAnuncio)
                                         {
                                             <tr class="odd gradeX">
+                                                @Html.HiddenFor(modelItem => Anuncio.Id)
+                                                @Html.HiddenFor(modelItem => Anuncio.UsuarioID)
+                                                @Html.HiddenFor(modelItem => Anuncio.ServicoID)
+                                                @Html.HiddenFor(modelItem => Anuncio.Data)
                                                 <td>@Html.DisplayFor(modelItem => Anuncio.Titulo)</td>
                                                 <td>@Html.DisplayFor(modelItem => Anuncio.Descricao)</td>
                                                 <td>@Html.DisplayFor(modelItem => Anuncio.Data)</td>
+                                                <td>@Html.ActionLink("Editar", "AdminEdicaoAnuncio", "Admin", new { id = Anuncio.Id }, new { @class = "btn btn-primary" }) </td>
                                             </tr>
+
                                         }
                                     </tbody>
                                 </table>

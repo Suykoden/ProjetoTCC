@@ -9,7 +9,7 @@ using LetsParty.Domain.Model.Atores;
 
 namespace LetsParty.Domain.ViewModel
 {
-    public class AnuncioViewModel
+    public class AnuncioViewModel:EntityBase
     {
         public string Titulo { get; set; }
         public string Descricao { get; set; }
