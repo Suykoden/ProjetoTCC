@@ -55,6 +55,8 @@ namespace LetsParty.UI.Web.Controllers
                 _Anuncio.UsuarioID = UsuarioService.getIDUsuario();
                 _Anuncio.Data = DateTime.Now;
                 _Anuncio.ServicoID = anuncio.ServicoID;
+                _Anuncio.Titulo = anuncio.Titulo;
+                _Anuncio.Descricao = anuncio.Descricao;
 
                 if (file != null)
                 {
@@ -76,7 +78,7 @@ namespace LetsParty.UI.Web.Controllers
             }
 
             ViewBag.Cadastro = "Sucesso";
-            return View("Anuncio");
+            return RedirectToAction("Anuncio");
         }
 
 
@@ -85,8 +87,6 @@ namespace LetsParty.UI.Web.Controllers
             if (UsuarioService.ObtemUsuarioLogado() != null)
             {
                 ViewBag.ListaServico = ServicoService.RetornaServicos().ToList();
-                //IQueryable<Servico> ListaServico;
-                //ListaServico = ServicoService.RetornaServicos();
                 return View("Anuncio");
             }
             else

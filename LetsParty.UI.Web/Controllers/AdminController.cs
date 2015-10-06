@@ -40,22 +40,15 @@ namespace LetsParty.UI.Web.Controllers
 
         public ActionResult AdminListaAnuncio()
         {
-            var ListaAnuncio = AnuncioService.RetornaAnuncios().ToList();
-           // AnuncioViewModel _AnuncioViewModel = new AnuncioViewModel();
-           List<AnuncioViewModel> ListaModelo = new List<AnuncioViewModel>();
-           AnuncioViewModel _AnuncioViewModel = new AnuncioViewModel();
-    
-            foreach(var anuncios in ListaAnuncio ){
-
-                _AnuncioViewModel.Data = anuncios.Data;
-                _AnuncioViewModel.Descricao = anuncios.Descricao;
-                _AnuncioViewModel.Titulo = anuncios.Titulo;
-                ListaModelo.Add(_AnuncioViewModel);
+           
+            var ListaModelo = new AnuncioViewModel
+            {
+                ListaAnuncio = AnuncioService.RetornaAnuncios(UsuarioService.getIDUsuario()).ToList()
                 
-            }
+            };
+           
             return View(ListaModelo);
         }
-
 
     }
 }

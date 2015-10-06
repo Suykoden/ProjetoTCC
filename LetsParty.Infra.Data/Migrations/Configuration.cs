@@ -20,13 +20,13 @@ namespace LetsParty.Infra.Data.Migrations
             //{
             //    var servicoDbSet = context.Set<Servico>();
             //    servicoDbSet.Add(new Servico()
-            //    {
-            //        Id = Guid.Parse("fd7b53a9-95b5-49c9-a52f-b36ef7bc76d8"),
-            //        Nome = "Buffet"
-            //    });
+            //  {
+            //       Id = Guid.Parse("fd7b53a9-95b5-49c9-a52f-b36ef7bc76d8"),
+            //       Nome = "Buffet"
+            //  });
 
-            //    servicoDbSet.Add(new Servico()
-            //    {
+            //   servicoDbSet.Add(new Servico()
+            //   {
             //        Id = Guid.Parse("30373dd0-2bce-4a96-a8d4-db1b1a1a9098"),
             //        Nome = "Aluguel de espaço"
             //    });

@@ -1,4 +1,4 @@
-﻿@model List<LetsParty.Domain.ViewModel.AnuncioViewModel>
+﻿@model LetsParty.Domain.ViewModel.AnuncioViewModel
 @{
     ViewBag.Title = "Administrativo";
 }
@@ -324,12 +324,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach (var item in Model)
+                                        @foreach (var Anuncio in Model.ListaAnuncio)
                                         {
                                             <tr class="odd gradeX">
-                                                <td>@Html.DisplayFor(modelItem => item.Titulo)</td>
-                                                <td>@Html.DisplayFor(modelItem => item.Descricao)</td>
-                                                <td>@Html.DisplayFor(modelItem => item.Data)</td>
+                                                <td>@Html.DisplayFor(modelItem => Anuncio.Titulo)</td>
+                                                <td>@Html.DisplayFor(modelItem => Anuncio.Descricao)</td>
+                                                <td>@Html.DisplayFor(modelItem => Anuncio.Data)</td>
                                             </tr>
                                         }
                                     </tbody>
