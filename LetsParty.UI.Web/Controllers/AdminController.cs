@@ -39,6 +39,11 @@ namespace LetsParty.UI.Web.Controllers
             AnuncioViewModel _AnuncioViewModel = new AnuncioViewModel();
             _AnuncioViewModel.Titulo = anuncio.Titulo;
             _AnuncioViewModel.Descricao = anuncio.Descricao;
+            _AnuncioViewModel.Id = anuncio.Id;
+            _AnuncioViewModel.Data = anuncio.Data;
+            _AnuncioViewModel.ServicoID = anuncio.ServicoID;
+            _AnuncioViewModel.UsuarioID = anuncio.UsuarioID;
+
             return View(_AnuncioViewModel);
         }
 
