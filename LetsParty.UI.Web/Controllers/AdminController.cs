@@ -20,11 +20,13 @@ namespace LetsParty.UI.Web.Controllers
 
         private IAnunciosServices AnuncioService { get; set; }
         private IUsuarioAppService UsuarioService { get; set; }
+        private IServicoServices ServicoService { get; set; }
 
-        public AdminController(IAnunciosServices anuncioService, IUsuarioAppService usuarioService)
+        public AdminController(IAnunciosServices anuncioService, IUsuarioAppService usuarioService, IServicoServices servicoService)
         {
             AnuncioService = anuncioService;
             UsuarioService = usuarioService;
+            ServicoService = servicoService;
         }
 
         public ActionResult Administrativo()
@@ -44,6 +46,7 @@ namespace LetsParty.UI.Web.Controllers
             _AnuncioViewModel.ServicoID = anuncio.ServicoID;
             _AnuncioViewModel.UsuarioID = anuncio.UsuarioID;
 
+            ViewBag.ListaServico = ServicoService.RetornaServicos().ToList();
             return View(_AnuncioViewModel);
         }
 
