@@ -335,7 +335,10 @@
                                                 <td>@Html.DisplayFor(modelItem => Anuncio.Titulo)</td>
                                                 <td>@Html.DisplayFor(modelItem => Anuncio.Descricao)</td>
                                                 <td>@Html.DisplayFor(modelItem => Anuncio.Data)</td>
-                                                <td>@Html.ActionLink("Editar", "AdminEdicaoAnuncio", "Admin", new { id = Anuncio.Id }, new { @class = "btn btn-primary" }) </td>
+                                                <td>@Html.ActionLink("Editar", "AdminEdicaoAnuncio", "Admin", new { id = Anuncio.Id }, new { @class = "btn btn-primary" })
+                                                    @Html.ActionLink("Excluir", "AdminEdicaoAnuncio", "Admin", new { id = Anuncio.Id }, new { @class = "btn btn-danger" })
+                                                    @Html.ActionLink("Visualizar", "AdminEdicaoAnuncio", "Admin", new { id = Anuncio.Id }, new { @class = "btn btn-info" })
+                                                 </td>
                                             </tr>
 
                                         }
