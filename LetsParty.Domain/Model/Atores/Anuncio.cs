@@ -17,6 +17,7 @@ namespace LetsParty.Domain.Model.Atores
         public Usuario usuario { get; set; }
         public Guid ServicoID { get; set; }
         public Servico servico { get; set; }
+        public Boolean Ativo { get; set; }
 
 
     }

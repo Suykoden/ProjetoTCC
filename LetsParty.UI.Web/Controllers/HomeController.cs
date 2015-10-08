@@ -28,7 +28,7 @@ namespace LetsParty.UI.Web.Controllers
 
         public ActionResult Index()
         {
-            if (UsuarioAppService.ObtemUsuarioLogado() != null)
+            if (UsuarioAppService.ObtemUsuarioLogado() != null) //Define se o botão na tela index será entrar ou sair
             {
 
                 ViewBag.Logado = true;

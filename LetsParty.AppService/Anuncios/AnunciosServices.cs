@@ -32,7 +32,7 @@ namespace LetsParty.AppService.Anuncios
         public IEnumerable<Anuncio> RetornaAnuncios(Guid Id)
         {
 
-            return AnuncioRepository.Listar().Where(a => a.UsuarioID == Id);
+            return AnuncioRepository.Listar().Where(a => a.UsuarioID == Id && a.Ativo == true);
             
         }
 

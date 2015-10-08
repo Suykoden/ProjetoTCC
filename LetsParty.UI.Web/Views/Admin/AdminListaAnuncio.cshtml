@@ -288,7 +288,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="@Url.Action("AdminEdicaoAnuncio", "Admin")"><i class="fa fa-dashboard fa-fw"></i> Meus Anúncios</a>
+                            <a href="@Url.Action("AdminListaAnuncio", "Admin")"><i class="fa fa-dashboard fa-fw"></i> Meus Anúncios</a>
                         </li>
 
                     </ul>
@@ -336,7 +336,7 @@
                                                 <td>@Html.DisplayFor(modelItem => Anuncio.Descricao)</td>
                                                 <td>@Html.DisplayFor(modelItem => Anuncio.Data)</td>
                                                 <td>@Html.ActionLink("Editar", "AdminEdicaoAnuncio", "Admin", new { id = Anuncio.Id }, new { @class = "btn btn-primary" })
-                                                    @Html.ActionLink("Excluir", "AdminEdicaoAnuncio", "Admin", new { id = Anuncio.Id }, new { @class = "btn btn-danger" })
+                                                    @Html.ActionLink("Excluir", "ExclusaoAnuncio", "Anuncio", new { id = Anuncio.Id }, new { @class = "btn btn-danger" })
                                                     @Html.ActionLink("Visualizar", "AdminEdicaoAnuncio", "Admin", new { id = Anuncio.Id }, new { @class = "btn btn-info" })
                                                  </td>
                                             </tr>

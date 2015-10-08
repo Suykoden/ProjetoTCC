@@ -31,8 +31,15 @@ namespace LetsParty.UI.Web.Controllers
 
         public ActionResult Administrativo()
         {
+            if (UsuarioService.ObtemUsuarioLogado() != null)
+            {
 
-            return View();
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Usuario");
+            }
         }
 
         public ActionResult AdminEdicaoAnuncio(Guid id)
@@ -52,14 +59,21 @@ namespace LetsParty.UI.Web.Controllers
 
         public ActionResult AdminListaAnuncio()
         {
-           
-            var ListaModelo = new AnuncioViewModel
+            if (UsuarioService.ObtemUsuarioLogado() != null)
             {
-                ListaAnuncio = AnuncioService.RetornaAnuncios(UsuarioService.getIDUsuario()).ToList()
-                
-            };
-           
-            return View(ListaModelo);
+                var ListaModelo = new AnuncioViewModel
+                {
+                    ListaAnuncio = AnuncioService.RetornaAnuncios(UsuarioService.getIDUsuario()).ToList()
+
+                };
+
+                return View(ListaModelo);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Usuario");
+            }
+
         }
 
     }
