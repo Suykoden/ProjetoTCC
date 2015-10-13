@@ -11,6 +11,7 @@ using LetsParty.Domain.Repository;
 using Ninject.Activation;
 using LetsParty.AppService.Usuarios;
 using LetsParty.AppService.Servicos;
+using LetsParty.AppService.Anuncios;
 
 
 namespace LetsParty.UI.Web.Controllers
@@ -19,11 +20,15 @@ namespace LetsParty.UI.Web.Controllers
     {
         private IUsuarioAppService UsuarioAppService { get; set; }
         private IServicoServices ServicoService { get; set; }
+        private ILetsPartyContext Context { get; set; }
+        private IAnunciosServices AnunciosServices { get; set; }
 
-        public UsuarioController(IUsuarioAppService usuarioApp, IServicoServices servicoServices)
+        public UsuarioController(IUsuarioAppService usuarioApp, IServicoServices servicoServices, ILetsPartyContext context, IAnunciosServices anunciosServices)
         {
             UsuarioAppService = usuarioApp;
             ServicoService = servicoServices;
+            Context = context;
+            AnunciosServices = anunciosServices;
         }
         // GET: Usuario
         public ActionResult Index()
@@ -45,8 +50,8 @@ namespace LetsParty.UI.Web.Controllers
         {
             return View("Login");
         }
-       
-             
+
+
 
         // GET: Usuario/Details/5
         public ActionResult Details(int id)
@@ -69,6 +74,7 @@ namespace LetsParty.UI.Web.Controllers
                 usuario.Id = Guid.NewGuid();
                 usuario.DataCadastro = DateTime.Now;
                 usuario.DataNascimento = DateTime.Now;
+                usuario.Ativo = true;
                 UsuarioAppService.Grava(usuario);
                 // return View();
 
@@ -101,27 +107,33 @@ namespace LetsParty.UI.Web.Controllers
         }
 
 
-
-        // GET: Usuario/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Usuario/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult EditarUsuario(Usuario usuario)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                UsuarioAppService.EditarUsuario(usuario);
+                Context.SaveChanges();
             }
-            catch
+            return RedirectToAction("AdminListaUsuario", "Admin");
+        }
+        public ActionResult ExclusaoUsuario(Guid id)
+        {
+            var _Usuario = UsuarioAppService.BuscaUsuarioPorID(id);
+            if (ModelState.IsValid)
             {
-                return View();
+                _Usuario.Ativo = false;
+                UsuarioAppService.EditarUsuario(_Usuario);
+                var ListaAnuncio = AnunciosServices.RetornaAnuncios(_Usuario.Id);
+                foreach (var anuncios in ListaAnuncio)
+                {
+                    anuncios.Ativo = false;
+                    AnunciosServices.EditarAnuncio(anuncios);
+                   
+                }
             }
+            Context.SaveChanges();
+            return RedirectToAction("Deslogar");
         }
 
         // GET: Usuario/Delete/5

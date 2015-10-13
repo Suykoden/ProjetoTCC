@@ -291,7 +291,7 @@
                             <a href="@Url.Action("AdminListaAnuncio", "Admin")"><i class="fa fa-dashboard fa-fw"></i> Meus Anúncios</a>
                         </li>
                         <li>
-                            <a href="@Url.Action("AdminListaAnuncio", "Admin")"><i class="fa fa-dashboard fa-fw"></i> Minha Conta</a>
+                            <a href="@Url.Action("AdminListaUsuario", "Admin")"><i class="fa fa-dashboard fa-fw"></i> Minha Conta</a>
                         </li>
 
                     </ul>
@@ -304,7 +304,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Meus Anúncios</h1>
+                    <h1 class="page-header">Minha Conta</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -313,7 +313,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Edição de Anúncios
+                            Dados do usuário
                         </div>
                         <div class="panel-body">
 
@@ -321,20 +321,19 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Titulo</th>
-                                            <th>Descricao</th>
-                                            <th>Data</th>
+                                            <th>Nome</th>
+                                            <th>Data Cadastro</th>
                                             <th>Alterar</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                             <tr class="odd gradeX">
-                                                @Html.HiddenFor(modelItem => Usuario.ID)
-                                                <td>@Html.DisplayFor(modelItem => Usuario.Nome)</td>
-                                                <td>@Html.DisplayFor(modelItem => Usuario.Data)</td>
-                                                <td>@Html.ActionLink("Editar", "AdminEdicaoUsuario", "Admin", new { id = Usuario.Id }, new { @class = "btn btn-primary" })
-                                                    @Html.ActionLink("Excluir", "ExclusaoUsuario", "Anuncio", new { id = Usuario.Id }, new { @class = "btn btn-danger" })
-                                                    @Html.ActionLink("Ver Dados", "AdminEdicaoUsuario", "Admin", new { id = Usuario.Id }, new { @class = "btn btn-info" })
+                                                @Html.HiddenFor(modelItem => modelItem.Id)
+                                                <td>@Html.DisplayFor(modelItem => modelItem.Nome)</td>
+                                                <td>@Html.DisplayFor(modelItem => modelItem.DataCadastro)</td>
+                                                <td>@Html.ActionLink("Editar", "AdminEdicaoUsuario", "Admin", new { id = Model.Id }, new { @class = "btn btn-primary" })
+                                                    @Html.ActionLink("Excluir", "ExclusaoUsuario", "Usuario", new { id = Model.Id }, new { @class = "btn btn-danger" })
+                                                    @Html.ActionLink("Ver Dados", "AdminEdicaoUsuario", "Admin", new { id = Model.Id }, new { @class = "btn btn-info" })
                                                  </td>
                                             </tr>
                                     </tbody>

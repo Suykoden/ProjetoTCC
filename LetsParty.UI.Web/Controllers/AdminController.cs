@@ -90,10 +90,9 @@ namespace LetsParty.UI.Web.Controllers
 
         }
 
-        public ActionResult AdminEdicaoUsuario(Usuario usuario)
+        public ActionResult AdminEdicaoUsuario(Guid Id )
         {
-            return View (usuario);
-
+            return View(UsuarioService.BuscaUsuarioPorID(Id));
         }
     }
 }

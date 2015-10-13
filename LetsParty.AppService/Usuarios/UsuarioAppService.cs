@@ -48,7 +48,8 @@ namespace LetsParty.AppService.Usuarios
 
         public bool AutenticarUsuario(Usuario usuario)
         {
-            var Valida = UsuarioRepository.All().SingleOrDefault(u => u.email == usuario.email && u.senha == usuario.senha);
+
+            var Valida = UsuarioRepository.All().SingleOrDefault(u => u.email == usuario.email && u.senha == usuario.senha && u.Ativo == true);
 
             if (Valida == null)
                 return false;
@@ -119,7 +120,7 @@ namespace LetsParty.AppService.Usuarios
         }
 
 
-        public void EditarAnuncio(Usuario usuario)
+        public void EditarUsuario(Usuario usuario)
         {
             UsuarioRepository.Update(usuario);
         }

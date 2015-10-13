@@ -17,7 +17,7 @@ namespace LetsParty.AppService.Usuarios
         void Deslogar();
         Guid getIDUsuario();
         Usuario BuscaUsuarioPorID(Guid Id);
-        void EditarAnuncio(Usuario usuario);
+        void EditarUsuario(Usuario usuario);
 
     }
 }

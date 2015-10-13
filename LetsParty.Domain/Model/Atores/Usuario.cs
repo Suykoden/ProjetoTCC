@@ -27,7 +27,7 @@ namespace LetsParty.Domain.Model.Atores
         public string Pais { get; set; }
         public string Ponto_Referencia { get; set; }
         public string Imagem { get; set; }
-        public string Ativo { get; set; }
+        public Boolean Ativo { get; set; }
         public Guid? PerfilID{ get; set; }
         public virtual Perfil perfil { get; set; }
 

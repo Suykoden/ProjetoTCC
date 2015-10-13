@@ -104,11 +104,9 @@ namespace LetsParty.UI.Web.Controllers
             return View();
         }
 
-       
         [HttpPost]
         public ActionResult EditarAnuncio(AnuncioViewModel _AnuncioViewModel)
         {
-
             if (ModelState.IsValid)
             {
                 Anuncio _Anuncio = new Anuncio();
@@ -123,12 +121,8 @@ namespace LetsParty.UI.Web.Controllers
 
                 AnunciosServices.EditarAnuncio(_Anuncio);
                 Context.SaveChanges();
-
             }
-
             return RedirectToAction("AdminListaAnuncio", "Admin");
-
-
         }
 
         public ActionResult ExclusaoAnuncio(Guid id)
@@ -144,7 +138,20 @@ namespace LetsParty.UI.Web.Controllers
             return RedirectToAction("AdminListaAnuncio", "Admin");
         }
 
+        public ActionResult ExclusaoAnuncioUsuario(Usuario usuario)
+        {
+            if (ModelState.IsValid)
+            {
+                var ListaAnuncio = AnunciosServices.RetornaAnuncios(usuario.Id);
+                foreach (var anuncios in ListaAnuncio)
+                {
+                    anuncios.Ativo = false;
+                    AnunciosServices.EditarAnuncio(anuncios);
+                    Context.SaveChanges();
+                }
 
-
+            }
+            return RedirectToAction("Logon", "Usuario");
+        }
     }
 }
