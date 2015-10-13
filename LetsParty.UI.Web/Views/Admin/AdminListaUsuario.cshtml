@@ -1,4 +1,4 @@
-﻿@model LetsParty.Domain.ViewModel.AnuncioViewModel
+﻿@model LetsParty.Domain.Model.Atores.Usuario
 @{
     ViewBag.Title = "Administrativo";
 }
@@ -328,23 +328,15 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach (var Anuncio in Model.ListaAnuncio)
-                                        {
                                             <tr class="odd gradeX">
-                                                @Html.HiddenFor(modelItem => Anuncio.Id)
-                                                @Html.HiddenFor(modelItem => Anuncio.UsuarioID)
-                                                @Html.HiddenFor(modelItem => Anuncio.ServicoID)
-                                                @Html.HiddenFor(modelItem => Anuncio.Data)
-                                                <td>@Html.DisplayFor(modelItem => Anuncio.Titulo)</td>
-                                                <td>@Html.DisplayFor(modelItem => Anuncio.Descricao)</td>
-                                                <td>@Html.DisplayFor(modelItem => Anuncio.Data)</td>
-                                                <td>@Html.ActionLink("Editar", "AdminEdicaoAnuncio", "Admin", new { id = Anuncio.Id }, new { @class = "btn btn-primary" })
-                                                    @Html.ActionLink("Excluir", "ExclusaoAnuncio", "Anuncio", new { id = Anuncio.Id }, new { @class = "btn btn-danger" })
-                                                    @Html.ActionLink("Visualizar", "AdminEdicaoAnuncio", "Admin", new { id = Anuncio.Id }, new { @class = "btn btn-info" })
+                                                @Html.HiddenFor(modelItem => Usuario.ID)
+                                                <td>@Html.DisplayFor(modelItem => Usuario.Nome)</td>
+                                                <td>@Html.DisplayFor(modelItem => Usuario.Data)</td>
+                                                <td>@Html.ActionLink("Editar", "AdminEdicaoUsuario", "Admin", new { id = Usuario.Id }, new { @class = "btn btn-primary" })
+                                                    @Html.ActionLink("Excluir", "ExclusaoUsuario", "Anuncio", new { id = Usuario.Id }, new { @class = "btn btn-danger" })
+                                                    @Html.ActionLink("Ver Dados", "AdminEdicaoUsuario", "Admin", new { id = Usuario.Id }, new { @class = "btn btn-info" })
                                                  </td>
                                             </tr>
-
-                                        }
                                     </tbody>
                                 </table>
                             </div>

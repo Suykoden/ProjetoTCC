@@ -96,7 +96,6 @@ namespace LetsParty.AppService.Usuarios
                 return Valida;
             }
 
-
         }
 
         public void Deslogar()
@@ -107,16 +106,23 @@ namespace LetsParty.AppService.Usuarios
         public Guid getIDUsuario()
         {
 
-
             string Login = HttpContext.Current.User.Identity.Name;
 
             var IdUsuario = UsuarioRepository.All().SingleOrDefault(u => u.email == Login).Id;
             return IdUsuario;
 
+        }
+        public Usuario BuscaUsuarioPorID(Guid Id)
+        {
 
+            return UsuarioRepository.GetById(Id);
         }
 
 
+        public void EditarAnuncio(Usuario usuario)
+        {
+            UsuarioRepository.Update(usuario);
+        }
 
     }
 }

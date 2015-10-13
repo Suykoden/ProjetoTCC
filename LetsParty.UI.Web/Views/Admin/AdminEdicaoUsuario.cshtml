@@ -317,37 +317,51 @@
                         </div>
                         <div class="panel-body">
 
-                            <div class="dataTable_wrapper">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th>Titulo</th>
-                                            <th>Descricao</th>
-                                            <th>Data</th>
-                                            <th>Alterar</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var Anuncio in Model.ListaAnuncio)
-                                        {
-                                            <tr class="odd gradeX">
-                                                @Html.HiddenFor(modelItem => Anuncio.Id)
-                                                @Html.HiddenFor(modelItem => Anuncio.UsuarioID)
-                                                @Html.HiddenFor(modelItem => Anuncio.ServicoID)
-                                                @Html.HiddenFor(modelItem => Anuncio.Data)
-                                                <td>@Html.DisplayFor(modelItem => Anuncio.Titulo)</td>
-                                                <td>@Html.DisplayFor(modelItem => Anuncio.Descricao)</td>
-                                                <td>@Html.DisplayFor(modelItem => Anuncio.Data)</td>
-                                                <td>@Html.ActionLink("Editar", "AdminEdicaoAnuncio", "Admin", new { id = Anuncio.Id }, new { @class = "btn btn-primary" })
-                                                    @Html.ActionLink("Excluir", "ExclusaoAnuncio", "Anuncio", new { id = Anuncio.Id }, new { @class = "btn btn-danger" })
-                                                    @Html.ActionLink("Visualizar", "AdminEdicaoAnuncio", "Admin", new { id = Anuncio.Id }, new { @class = "btn btn-info" })
-                                                 </td>
-                                            </tr>
+                            @using (Html.BeginForm("EditarAnuncio", "Anuncio", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+                            {
+                                @Html.AntiForgeryToken()
 
-                                        }
-                                    </tbody>
-                                </table>
-                            </div>
+                                <div class="form-horizontal">
+
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Titulo, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Titulo, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Titulo, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.servico, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.DropDownListFor(model => model.ServicoID, new SelectList(ViewBag.ListaServico, "Id", "Nome"), new { @class = "form-control", placeholder = "Categoria" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.TextAreaFor(model => model.Descricao, 10, 120, htmlAttributes: new { style = "width: 100%; max-width: 100%;", placeholder = "Descrição" })
+                                            @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-10">
+                                            <input type="file" name="file" id="file" />
+                                            @Html.HiddenFor(model => model.Caminho)
+                                        </div>
+                                    </div>
+                                    @Html.HiddenFor(model => model.Id)
+                                    @Html.HiddenFor(model => model.UsuarioID)
+                                    @Html.HiddenFor(model => model.ServicoID)
+                                    @Html.HiddenFor(model => model.Data)
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Gravar" class="btn btn-primary" />
+                                        </div>
+                                    </div>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>

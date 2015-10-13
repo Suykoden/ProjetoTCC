@@ -1,4 +1,4 @@
-﻿@model LetsParty.Domain.ViewModel.AnuncioViewModel
+﻿@model LetsParty.Domain.Model.Atores.Usuario
 @{
     ViewBag.Title = "Administrativo";
 }
@@ -290,6 +290,9 @@
                         <li>
                             <a href="@Url.Action("AdminListaAnuncio", "Admin")"><i class="fa fa-dashboard fa-fw"></i> Meus Anúncios</a>
                         </li>
+                        <li>
+                            <a href="@Url.Action("AdminListaAnuncio", "Admin")"><i class="fa fa-dashboard fa-fw"></i> Minha Conta</a>
+                        </li>
 
                     </ul>
                 </div>
@@ -322,73 +325,110 @@
 
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <div class="form-group">
-                                        @Html.LabelFor(model => model.Titulo, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
                                         <div class="col-md-10">
-                                            @Html.EditorFor(model => model.Titulo, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.Titulo, "", new { @class = "text-danger" })
+                                            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <div class="form-group">
-                                        @Html.LabelFor(model => model.servico, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        @Html.LabelFor(model => model.DataNascimento, htmlAttributes: new { @class = "control-label col-md-2" })
                                         <div class="col-md-10">
-                                            @Html.DropDownListFor(model => model.ServicoID, new SelectList(ViewBag.ListaServico, "Id", "Nome"), new { @class = "form-control", placeholder = "Categoria" })
+                                            @Html.EditorFor(model => model.DataNascimento, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.DataNascimento, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <div class="form-group">
-                                        @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        @Html.LabelFor(model => model.Documento, htmlAttributes: new { @class = "control-label col-md-2" })
                                         <div class="col-md-10">
-                                            @Html.TextAreaFor(model => model.Descricao, 10, 120, htmlAttributes: new { style = "width: 100%; max-width: 100%;", placeholder = "Descrição" })
-                                            @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+                                            @Html.EditorFor(model => model.Documento, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Documento, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <div class="form-group">
+                                        @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
                                         <div class="col-md-10">
-                                            <input type="file" name="file" id="file" />
-                                            @Html.HiddenFor(model => model.Caminho)
+                                            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                    @Html.HiddenFor(model => model.Id)
-                                    @Html.HiddenFor(model => model.UsuarioID)
-                                    @Html.HiddenFor(model => model.ServicoID)
-                                    @Html.HiddenFor(model => model.Data)
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <div class="form-group">
-                                        <div class="col-md-offset-2 col-md-10">
-                                            <input type="submit" value="Gravar" class="btn btn-primary" />
+                                        @Html.LabelFor(model => model.Endereco, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Endereco, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Endereco, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Numero, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Numero, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Numero, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Pais, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Pais, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Pais, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
                                 </div>
+
+                                @Html.HiddenFor(model => model.Id)
+                                @Html.HiddenFor(model => model.DataCadastro)
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Gravar" class="btn btn-primary" />
+                                    </div>
+                                </div>
+                            </div>
                             }
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        </div>
 
-    <script src="~/Template/bower_components/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="~/Template/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="~/Template/bower_components/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="~/Template/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="~/Template/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="~/Template/bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
-    <!-- DataTables JavaScript -->
-    <script src="~/Template/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-    <script src="~/Template/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+        <!-- DataTables JavaScript -->
+        <script src="~/Template/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+        <script src="~/Template/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="~/Template/dist/js/sb-admin-2.js"></script>
-    <script src="~/Template/bower_components/datatables/media/js/jquery.dataTables.js"></script>
-    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-    <script>
-        $(document).ready(function () {
-            $('#dataTables-example').DataTable({
-                responsive: true
+        <!-- Custom Theme JavaScript -->
+        <script src="~/Template/dist/js/sb-admin-2.js"></script>
+        <script src="~/Template/bower_components/datatables/media/js/jquery.dataTables.js"></script>
+        <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+        <script>
+            $(document).ready(function () {
+                $('#dataTables-example').DataTable({
+                    responsive: true
+                });
             });
-        });
-    </script>
+        </script>
 
-</body>
+    </body>
 
 </html>

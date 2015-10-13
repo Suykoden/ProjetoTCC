@@ -76,5 +76,24 @@ namespace LetsParty.UI.Web.Controllers
 
         }
 
+        public ActionResult AdminListaUsuario()
+        {
+            if (UsuarioService.ObtemUsuarioLogado() != null)
+            {
+                var IdUsuario = UsuarioService.getIDUsuario();
+                return View(UsuarioService.BuscaUsuarioPorID(IdUsuario));
+            }
+            else
+            {
+                return RedirectToAction("Login", "Usuario");
+            }
+
+        }
+
+        public ActionResult AdminEdicaoUsuario(Usuario usuario)
+        {
+            return View (usuario);
+
+        }
     }
 }
