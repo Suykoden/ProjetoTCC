@@ -153,5 +153,10 @@ namespace LetsParty.UI.Web.Controllers
             }
             return RedirectToAction("Logon", "Usuario");
         }
+
+        public ActionResult PesquisaAnuncio()
+        {
+            return View("PesquisaAnuncio");
+        }
     }
 }

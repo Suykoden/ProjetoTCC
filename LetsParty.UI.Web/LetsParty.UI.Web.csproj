@@ -623,6 +623,7 @@
     <Content Include="Template\bower_components\raphael\raphael.js" />
     <Content Include="Template\css\bootstrap.css" />
     <Content Include="Template\css\bootstrap.min.css" />
+    <Content Include="Template\css\CarouselRows.css" />
     <Content Include="Template\css\plugins\morris.css" />
     <Content Include="Template\css\shop-homepage.css" />
     <Content Include="Template\dist\css\sb-admin-2.css" />
@@ -988,9 +989,11 @@
     <Content Include="Views\Admin\AdminListaAnuncio.cshtml" />
     <Content Include="Views\Admin\AdminListaUsuario.cshtml" />
     <Content Include="Views\Admin\AdminEdicaoAnuncio.cshtml" />
+    <Content Include="Views\Anuncio\PesquisaAnuncio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Pesquisa\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
