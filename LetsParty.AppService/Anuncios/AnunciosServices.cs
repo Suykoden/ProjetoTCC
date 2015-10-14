@@ -45,5 +45,11 @@ namespace LetsParty.AppService.Anuncios
         {
             AnuncioRepository.Update(anuncio);
         }
+
+        public IEnumerable<Anuncio> PesquisaPorDescricao(AnuncioViewModel anuncio)
+        {
+            return AnuncioRepository.All().Where(a => a.Descricao.ToUpper().Contains(anuncio.Descricao.ToUpper()) && a.Ativo == true);
+
+        }
     }
 }

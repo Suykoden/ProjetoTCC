@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using LetsParty.AppService.Usuarios.DTO;
 using LetsParty.Domain.Model.Atores;
 using LetsParty.Domain.Repository;
+using LetsParty.Domain.ViewModel;
 
 namespace LetsParty.AppService.Anuncios
 {
@@ -15,6 +16,7 @@ namespace LetsParty.AppService.Anuncios
         IEnumerable<Anuncio> RetornaAnuncios(Guid Id);
         Anuncio BuscaPorId(Guid Id);
         void EditarAnuncio(Anuncio anuncio);
+        IEnumerable<Anuncio> PesquisaPorDescricao(AnuncioViewModel anuncio);
 
     }
 }

@@ -158,5 +158,14 @@ namespace LetsParty.UI.Web.Controllers
         {
             return View("PesquisaAnuncio");
         }
+
+        public ActionResult BuscaDeAnuncios(AnuncioViewModel anuncio)
+        {
+
+            var ListaAnuncio = AnunciosServices.PesquisaPorDescricao(anuncio);
+
+            return View("PesquisaAnuncio");
+
+        }
     }
 }
