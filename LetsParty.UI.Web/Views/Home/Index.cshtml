@@ -1,4 +1,5 @@
-﻿@{
+﻿@model LetsParty.Domain.ViewModel.AnuncioViewModel
+@{
     ViewBag.Title = "Home";
 }
 
@@ -38,15 +39,17 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <form class="navbar-form navbar-left" role="search">
+                @using (Html.BeginForm("PesquisaAnuncio", "Anuncio", FormMethod.Post, new { @class = "navbar-form navbar-left", role = "search" }))
+                {
                     <div class="form-group">
-                        <input type="text" size="100" class="form-control" placeholder="Buscar">
+                        @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @class = "form-control", placeholder = " Procurar", size = "100" } })
+
                     </div>
                     <button type="submit" class="btn btn-primary">
                         <span class="glyphicons glyphicons-search"></span>
                         Procurar
                     </button>
-                </form>
+                }
                 <ul class="nav navbar-nav">
                     <li>
                         @Html.ActionLink("a", "PesquisaAnuncio", "Anuncio")
