@@ -169,6 +169,14 @@ namespace LetsParty.UI.Web.Controllers
             };
             return View(ListaModelo);
 
+
+
+        }
+
+
+        public ActionResult PaginaProduto()
+        {
+            return View("PaginaProduto");
         }
     }
 }
