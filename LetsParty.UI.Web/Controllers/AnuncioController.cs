@@ -12,6 +12,7 @@ using LetsParty.Domain.Repository;
 using LetsParty.Infra.Data.Repository;
 using LetsParty.Infra.Data.Context;
 using LetsParty.Domain.ViewModel;
+using System.Web.Helpers;
 
 namespace LetsParty.UI.Web.Controllers
 {
@@ -63,11 +64,20 @@ namespace LetsParty.UI.Web.Controllers
 
                 if (file != null)
                 {
+                    
                     String[] strName = file.FileName.Split('.');
                     String strExt = strName[strName.Count() - 1];
-                    string pathSave = String.Format("{0}{1}.{2}", Server.MapPath("~/ImagensAnuncio/"), _Anuncio.UsuarioID, strExt);
+                    string pathSave = String.Format("{0}{1}.{2}", Server.MapPath("~/ImagensAnuncio/"), _Anuncio.Id, strExt);
                     String pathBase = String.Format("/ImagensAnuncio/{0}.{1}", _Anuncio.UsuarioID, strExt);
-                    file.SaveAs(pathSave);
+                                       
+
+                    WebImage _WebImagem = new WebImage(file.InputStream);
+                    _WebImagem.Resize(150, 150,false,true);
+                    _WebImagem.Crop(1, 1);
+
+                    _WebImagem.Save(pathSave);
+                    
+                   // file.SaveAs(pathSave);
                     foto.Caminho = pathBase;
                 }
                 foto.Id = Guid.NewGuid();
@@ -169,9 +179,6 @@ namespace LetsParty.UI.Web.Controllers
             };
 
             return View(ListaModelo);
-
-
-
         }
 
 
@@ -179,5 +186,15 @@ namespace LetsParty.UI.Web.Controllers
         {
             return View("PaginaProduto");
         }
+
+
+        public ActionResult ThumbNail(int largura, int altura)
+        {
+            WebImage webImagem = new WebImage(@"C:\imagem.png")
+                .Resize(largura, altura, false, false);
+
+            return File(webImagem.GetBytes(), "image/png");
+        }
+
     }
 }

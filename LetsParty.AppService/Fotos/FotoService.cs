@@ -32,6 +32,7 @@ namespace LetsParty.AppService.Fotos
             LetsPartyContext.SaveChanges();
         }
 
+
     }
 
 }
