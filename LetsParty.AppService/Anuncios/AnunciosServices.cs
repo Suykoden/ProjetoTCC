@@ -58,7 +58,6 @@ namespace LetsParty.AppService.Anuncios
                                where (a.Descricao.ToUpper().Contains(anuncio.Descricao.ToUpper()) && a.Ativo == true)
                                select new AnuncioViewModel()
                                {
-
                                    Descricao = a.Descricao,
                                    Titulo = a.Titulo,
                                    Data = a.Data,

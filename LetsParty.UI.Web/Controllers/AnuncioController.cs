@@ -165,9 +165,8 @@ namespace LetsParty.UI.Web.Controllers
             
             var ListaModelo = new AnuncioViewModel
             {
-                ListaAnuncio =  AnunciosServices.PesquisaPorDescricao(anuncio).ToList()
+                ListaViewModel = AnunciosServices.PesquisaPorDescricao(anuncio).ToList()
             };
-
 
             return View(ListaModelo);
 

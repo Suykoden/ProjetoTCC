@@ -16,7 +16,7 @@ namespace LetsParty.AppService.Anuncios
         IEnumerable<Anuncio> RetornaAnuncios(Guid Id);
         Anuncio BuscaPorId(Guid Id);
         void EditarAnuncio(Anuncio anuncio);
-        IEnumerable<Anuncio> PesquisaPorDescricao(AnuncioViewModel anuncio);
+        IEnumerable<AnuncioViewModel> PesquisaPorDescricao(AnuncioViewModel anuncio);
 
     }
 }
