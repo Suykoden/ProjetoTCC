@@ -35,7 +35,7 @@ namespace LetsParty.AppService.Anuncios
         {
 
             return AnuncioRepository.Listar().Where(a => a.UsuarioID == Id && a.Ativo == true);
-            
+
         }
 
         public Anuncio BuscaPorId(Guid Id)
@@ -48,23 +48,28 @@ namespace LetsParty.AppService.Anuncios
             AnuncioRepository.Update(anuncio);
         }
 
-        public IEnumerable<Anuncio> PesquisaPorDescricao(AnuncioViewModel anuncio)
+        public IEnumerable<AnuncioViewModel> PesquisaPorDescricao(AnuncioViewModel anuncio)
         {
             var _Anuncios = AnuncioRepository.All();
             var _Fotos = FotoRepository.All();
 
             var AnuncioFoto = (from a in _Anuncios
-                                join foto in _Fotos on a.Id equals  foto.AnuncioID 
-                                   where(a.Descricao.ToUpper().Contains(anuncio.Descricao.ToUpper()) && a.Ativo == true)
-                                   select a);
+                               join f in _Fotos on a.Id equals f.AnuncioID
+                               where (a.Descricao.ToUpper().Contains(anuncio.Descricao.ToUpper()) && a.Ativo == true)
+                               select new AnuncioViewModel()
+                               {
 
-
+                                   Descricao = a.Descricao,
+                                   Titulo = a.Titulo,
+                                   Data = a.Data,
+                                   Caminho = f.Caminho
+                               });
 
             return AnuncioFoto.ToList();
-                
-                //AnuncioRepository.All().Where(a => a.Descricao.ToUpper().Contains(anuncio.Descricao.ToUpper()) && a.Ativo == true)                                                                                                                                                                                                                                                                       ;
+
+            //AnuncioRepository.All().Where(a => a.Descricao.ToUpper().Contains(anuncio.Descricao.ToUpper()) && a.Ativo == true)                                                                                                                                                                                                                                                                       ;
 
         }
-       
+
     }
 }
