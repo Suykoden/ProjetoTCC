@@ -64,20 +64,21 @@ namespace LetsParty.UI.Web.Controllers
 
                 if (file != null)
                 {
-                    
+
                     String[] strName = file.FileName.Split('.');
                     String strExt = strName[strName.Count() - 1];
+
                     string pathSave = String.Format("{0}{1}.{2}", Server.MapPath("~/ImagensAnuncio/"), _Anuncio.Id, strExt);
-                    String pathBase = String.Format("/ImagensAnuncio/{0}.{1}", _Anuncio.UsuarioID, strExt);
-                                       
+                    String pathBase = String.Format("/ImagensAnuncio/{0}.{1}", _Anuncio.Id, strExt);
+
 
                     WebImage _WebImagem = new WebImage(file.InputStream);
-                    _WebImagem.Resize(150, 150,false,true);
-                    _WebImagem.Crop(1, 1);
 
+
+                    _WebImagem.Resize(150, 150, false, true);
                     _WebImagem.Save(pathSave);
-                    
-                   // file.SaveAs(pathSave);
+
+                    // file.SaveAs(pathSave);
                     foto.Caminho = pathBase;
                 }
                 foto.Id = Guid.NewGuid();
@@ -172,7 +173,7 @@ namespace LetsParty.UI.Web.Controllers
         [HttpPost]
         public ActionResult PesquisaAnuncio(AnuncioViewModel anuncio)
         {
-            
+
             var ListaModelo = new AnuncioViewModel
             {
                 ListaViewModel = AnunciosServices.PesquisaPorDescricao(anuncio).ToList()
