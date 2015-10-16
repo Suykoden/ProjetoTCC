@@ -16,11 +16,13 @@ namespace LetsParty.AppService.Anuncios
     {
         private IAnuncioRepository AnuncioRepository { get; set; }
         private ILetsPartyContext LetsPartyContext { get; set; }
+        private IFotoRepository FotoRepository { get; set; }
 
-        public AnunciosServices(IAnuncioRepository anunciorepository, ILetsPartyContext context)
+        public AnunciosServices(IAnuncioRepository anunciorepository, IFotoRepository fotoRepository, ILetsPartyContext context)
         {
             AnuncioRepository = anunciorepository;
             LetsPartyContext = context;
+            FotoRepository = fotoRepository;
         }
 
         public void Grava(Anuncio anuncio)
@@ -48,8 +50,21 @@ namespace LetsParty.AppService.Anuncios
 
         public IEnumerable<Anuncio> PesquisaPorDescricao(AnuncioViewModel anuncio)
         {
-            return AnuncioRepository.All().Where(a => a.Descricao.ToUpper().Contains(anuncio.Descricao.ToUpper()) && a.Ativo == true);
+            var _Anuncios = AnuncioRepository.All();
+            var _Fotos = FotoRepository.All();
+
+            var AnuncioFoto = (from a in _Anuncios
+                                join foto in _Fotos on a.Id equals  foto.AnuncioID 
+                                   where(a.Descricao.ToUpper().Contains(anuncio.Descricao.ToUpper()) && a.Ativo == true)
+                                   select a);
+
+
+
+            return AnuncioFoto.ToList();
+                
+                //AnuncioRepository.All().Where(a => a.Descricao.ToUpper().Contains(anuncio.Descricao.ToUpper()) && a.Ativo == true)                                                                                                                                                                                                                                                                       ;
 
         }
+       
     }
 }
