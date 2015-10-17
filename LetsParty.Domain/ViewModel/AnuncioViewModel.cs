@@ -20,6 +20,11 @@ namespace LetsParty.Domain.ViewModel
         public Servico servico { get; set; }
         public DateTime DataFoto { get; set; }
         public string Caminho { get; set; }
+        public string Thumbnail { get; set; }
+        public string Caminho2 { get; set; }
+        public string Thumbnail2 { get; set; }
+        public string Caminho3 { get; set; }
+        public string Thumbnail3 { get; set; } 
         public Guid AnuncioID { get; set; }
         public Anuncio anuncio { get; set; }
         public IEnumerable<Anuncio> ListaAnuncio { get; set; }

@@ -61,7 +61,9 @@ namespace LetsParty.AppService.Anuncios
                                    Descricao = a.Descricao,
                                    Titulo = a.Titulo,
                                    Data = a.Data,
-                                   Caminho = f.Caminho
+                                   Thumbnail = f.Thumbnail,
+                                   Thumbnail2 = f.Thumbnail2,
+                                   Thumbnail3 = f.Thumbnail3
                                });
 
             return AnuncioFoto.ToList();

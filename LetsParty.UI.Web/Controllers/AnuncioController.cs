@@ -40,7 +40,7 @@ namespace LetsParty.UI.Web.Controllers
 
         // POST: Fornecedor/Create
         [HttpPost]
-        public ActionResult Create(AnuncioViewModel anuncio, HttpPostedFileBase file)
+        public ActionResult Create(AnuncioViewModel anuncio, HttpPostedFileBase file, HttpPostedFileBase file2,HttpPostedFileBase file3)
         {
             if (!ModelState.IsValid)
             {
@@ -49,6 +49,8 @@ namespace LetsParty.UI.Web.Controllers
                 // Breakpoint, Log or examine the list with Exceptions.
 
             }
+
+
             if (ModelState.IsValid)
             {
                 Anuncio _Anuncio = new Anuncio();
@@ -64,18 +66,22 @@ namespace LetsParty.UI.Web.Controllers
 
                 if (file != null)
                 {
+                    
 
                     String[] strName = file.FileName.Split('.');
                     String strExt = strName[strName.Count() - 1];
+                    String NomeFoto = strName[0];
 
-                    string pathSave1 = String.Format("{0}{1}.{2}", Server.MapPath("~/ImagensAnuncio/150x150/"), _Anuncio.Id, strExt);
-                    String pathBase1 = String.Format("/ImagensAnuncio/150x150/{0}.{1}", _Anuncio.Id, strExt);
+                    string Identificador = "Imagem1" + NomeFoto + _Anuncio.Id;
 
-                    string pathSave2 = String.Format("{0}{1}.{2}", Server.MapPath("~/ImagensAnuncio/800x300/"), _Anuncio.Id, strExt);
-                    String pathBase2 = String.Format("/ImagensAnuncio/800x300/{0}.{1}", _Anuncio.Id, strExt);
+                    string pathSaveThumb = String.Format("{0}{1}.{2}", Server.MapPath("~/ImagensAnuncio/150x150/"), Identificador, strExt);
+                    String pathBaseThumb = String.Format("/ImagensAnuncio/150x150/{0}.{1}", Identificador, strExt);
 
-                    HttpPostedFileBase banner = file;
+                    string pathSaveBanner = String.Format("{0}{1}.{2}", Server.MapPath("~/ImagensAnuncio/800x300/"), Identificador, strExt);
+                    String pathBaseBanner = String.Format("/ImagensAnuncio/800x300/{0}.{1}", Identificador, strExt);
 
+
+                    file.SaveAs(pathSaveBanner);
                     WebImage WebImagemThumb = new WebImage(file.InputStream);
 
                     if (WebImagemThumb.Height != 150 || WebImagemThumb.Width != 150)
@@ -84,28 +90,68 @@ namespace LetsParty.UI.Web.Controllers
                         
                     }
 
-                    WebImagemThumb.Save(pathSave1);
+                    WebImagemThumb.Save(pathSaveThumb);
+                    foto.Thumbnail = pathBaseThumb;
+                    foto.Caminho = pathBaseBanner;
+                }
 
-                    WebImage WebImagemBanner = new WebImage(banner.InputStream);
+                if (file2 != null)
+                {
+                    String[] strName = file2.FileName.Split('.');
+                    String strExt = strName[strName.Count() - 1];
+                    String NomeFoto = strName[0];
 
-                    if (WebImagemBanner.Height != 800 || WebImagemBanner.Width != 300)
+                    string Identificador = "Imagem2" + NomeFoto + _Anuncio.Id;
+
+                    string pathSaveThumb2 = String.Format("{0}{1}.{2}", Server.MapPath("~/ImagensAnuncio/150x150/"), Identificador, strExt);
+                    String pathBaseTHumb2 = String.Format("/ImagensAnuncio/150x150/{0}.{1}", Identificador, strExt);
+
+                    string pathSaveBanner2 = String.Format("{0}{1}.{2}", Server.MapPath("~/ImagensAnuncio/800x300/"), Identificador, strExt);
+                    String pathBaseBanner2 = String.Format("/ImagensAnuncio/800x300/{0}.{1}", Identificador, strExt);
+
+                    file2.SaveAs(pathSaveBanner2);
+
+                    WebImage WebImagemThumb2 = new WebImage(file2.InputStream);
+                    if (WebImagemThumb2.Height != 150 || WebImagemThumb2.Width != 150)
                     {
-                        WebImagemBanner.Resize(800, 300, false, true);
+                        WebImagemThumb2.Resize(150, 150, false, true);
                     }
-                    WebImagemBanner.Save(pathSave2);
+                    WebImagemThumb2.Save(pathSaveThumb2);
+                    foto.Thumbnail2 = pathBaseTHumb2;
+                    foto.Caminho2 = pathBaseBanner2;
+                }
 
-                    // file.SaveAs(pathSave);
-                    foto.Thumbnail = pathSave1;
-                    foto.Caminho = pathBase2;
+                if (file3 != null)
+                {
+                    String[] strName = file3.FileName.Split('.');
+                    String strExt = strName[strName.Count() - 1];
+                    String NomeFoto = strName[0];
+
+                    string Identificador = "Imagem3" + NomeFoto + _Anuncio.Id;
+
+                    string pathSaveThumb3 = String.Format("{0}{1}.{2}", Server.MapPath("~/ImagensAnuncio/150x150/"), Identificador, strExt);
+                    String pathBaseThumb3 = String.Format("/ImagensAnuncio/150x150/{0}.{1}", Identificador, strExt);
+
+                    string pathSaveBanner3 = String.Format("{0}{1}.{2}", Server.MapPath("~/ImagensAnuncio/800x300/"), Identificador, strExt);
+                    String pathBaseBanner3 = String.Format("/ImagensAnuncio/800x300/{0}.{1}", Identificador, strExt);
+
+                    file3.SaveAs(pathSaveBanner3);
+
+                    WebImage WebImagemThumb3 = new WebImage(file3.InputStream);
+                    if (WebImagemThumb3.Height != 150 || WebImagemThumb3.Width != 150)
+                    {
+                        WebImagemThumb3.Resize(150, 150, false, true);
+                    }
+                    WebImagemThumb3.Save(pathSaveThumb3);
+                    foto.Thumbnail3 = pathBaseThumb3;
+                    foto.Caminho3 = pathBaseBanner3;
                 }
                 foto.Id = Guid.NewGuid();
                 foto.Data = DateTime.Now;
                 foto.AnuncioID = _Anuncio.Id;
                 foto.ServicoID = anuncio.ServicoID;
-
                 AnunciosServices.Grava(_Anuncio);
                 FotoService.Grava(foto);
-
             }
 
             ViewBag.Cadastro = "Sucesso";
@@ -206,13 +252,7 @@ namespace LetsParty.UI.Web.Controllers
         }
 
 
-        public ActionResult ThumbNail(int largura, int altura)
-        {
-            WebImage webImagem = new WebImage(@"C:\imagem.png")
-                .Resize(largura, altura, false, false);
-
-            return File(webImagem.GetBytes(), "image/png");
-        }
+        
 
     }
 }
