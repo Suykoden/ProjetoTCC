@@ -68,18 +68,35 @@ namespace LetsParty.UI.Web.Controllers
                     String[] strName = file.FileName.Split('.');
                     String strExt = strName[strName.Count() - 1];
 
-                    string pathSave = String.Format("{0}{1}.{2}", Server.MapPath("~/ImagensAnuncio/"), _Anuncio.Id, strExt);
-                    String pathBase = String.Format("/ImagensAnuncio/{0}.{1}", _Anuncio.Id, strExt);
+                    string pathSave1 = String.Format("{0}{1}.{2}", Server.MapPath("~/ImagensAnuncio/150x150/"), _Anuncio.Id, strExt);
+                    String pathBase1 = String.Format("/ImagensAnuncio/150x150/{0}.{1}", _Anuncio.Id, strExt);
 
+                    string pathSave2 = String.Format("{0}{1}.{2}", Server.MapPath("~/ImagensAnuncio/800x300/"), _Anuncio.Id, strExt);
+                    String pathBase2 = String.Format("/ImagensAnuncio/800x300/{0}.{1}", _Anuncio.Id, strExt);
 
-                    WebImage _WebImagem = new WebImage(file.InputStream);
+                    HttpPostedFileBase banner = file;
 
+                    WebImage WebImagemThumb = new WebImage(file.InputStream);
 
-                    _WebImagem.Resize(150, 150, false, true);
-                    _WebImagem.Save(pathSave);
+                    if (WebImagemThumb.Height != 150 || WebImagemThumb.Width != 150)
+                    {
+                        WebImagemThumb.Resize(150, 150, false, true);
+                        
+                    }
+
+                    WebImagemThumb.Save(pathSave1);
+
+                    WebImage WebImagemBanner = new WebImage(banner.InputStream);
+
+                    if (WebImagemBanner.Height != 800 || WebImagemBanner.Width != 300)
+                    {
+                        WebImagemBanner.Resize(800, 300, false, true);
+                    }
+                    WebImagemBanner.Save(pathSave2);
 
                     // file.SaveAs(pathSave);
-                    foto.Caminho = pathBase;
+                    foto.Thumbnail = pathSave1;
+                    foto.Caminho = pathBase2;
                 }
                 foto.Id = Guid.NewGuid();
                 foto.Data = DateTime.Now;

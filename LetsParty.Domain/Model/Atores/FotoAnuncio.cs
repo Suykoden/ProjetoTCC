@@ -12,6 +12,7 @@ namespace LetsParty.Domain.Model.Atores
 
         public DateTime Data { get; set; }
         public string Caminho { get; set; }
+        public string Thumbnail { get; set; }
         public Guid AnuncioID { get; set; }
         public Anuncio anuncio { get; set; }
         public Guid ServicoID { get; set; }
