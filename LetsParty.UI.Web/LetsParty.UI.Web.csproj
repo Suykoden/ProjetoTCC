@@ -626,6 +626,7 @@
     <Content Include="Template\css\CarouselRows.css" />
     <Content Include="Template\css\plugins\morris.css" />
     <Content Include="Template\css\PaginaProduto.css" />
+    <Content Include="Template\css\ProfileCss.css" />
     <Content Include="Template\css\shop-homepage.css" />
     <Content Include="Template\dist\css\sb-admin-2.css" />
     <Content Include="Template\dist\css\timeline.css" />
@@ -637,6 +638,7 @@
     <Content Include="Template\js\flot-data.js" />
     <Content Include="Template\js\jquery.js" />
     <Content Include="Template\js\morris-data.js" />
+    <Content Include="Template\js\ProfileJs.js" />
     <Content Include="Template\pages\blank.html" />
     <Content Include="Template\pages\buttons.html" />
     <Content Include="Template\pages\flot.html" />

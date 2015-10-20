@@ -13,7 +13,7 @@
     <title>Shop Homepage - Start Bootstrap Template</title>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Custom CSS -->
     <link href="css/shop-homepage.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -52,19 +52,17 @@
                 }
                 <ul class="nav navbar-nav">
                     <li>
-                        @Html.ActionLink("a", "PesquisaAnuncio", "Anuncio")
-                    </li>
-                    <li>
                         @Html.ActionLink("Anunciar", "Anuncio", "Anuncio")
                     </li>
                     <li>
                         @Html.ActionLink("Minha conta", "Administrativo", "Admin")
                     </li>
+                    
+                    @if (ViewBag.Logado == false)
+                    {
                     <li>
                         @Html.ActionLink("Cadastre-se", "Cadastro", "Usuario")
                     </li>
-                    @if (ViewBag.Logado == false)
-                    {
                         <li>
                             @Html.ActionLink("Entrar", "Login", "Usuario")
                         </li>

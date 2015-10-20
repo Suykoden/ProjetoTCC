@@ -14,9 +14,11 @@
     <!-- Bootstrap Core CSS -->
     <link href="~/Template/css/PaginaProduto.css" rel="stylesheet" />
     <link href="/Template/css/bootstrap.css" rel="stylesheet" />
+
     <!-- Custom CSS -->
     <link href="~/Template/css/CarouselRows.css" rel="stylesheet" />
     <link href="/Template/css/shop-homepage.css" rel="stylesheet">
+    <link href="~/Template/css/ProfileCss.css" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -177,7 +179,7 @@
                                     <div class="product-title">@Html.DisplayFor(ModelItem => Model.Titulo)</div>
                                     <div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>
                                     <hr>
-                                    <div class="product-price">R$ 1234.00</div>
+                                    <div class="product-price">R$@Html.DisplayFor(ModelItem => Model.Valor) </div>
                                     <hr>
                                     <div class="btn-group cart">
                                         <button type="button" class="btn btn-success">
@@ -203,12 +205,56 @@
 
                                     </div>
                                     <div class="tab-pane fade" id="service-two">
-
+                                        <br />
                                         <section class="container"></section>
-
+                                        <div class="container">
+                                            <div class="row">
+                                                <br/>
+                                                <div class="col-md-12">
+                                                    <div class="panel panel-primary">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Sheena Kristin A.Eschor</h3>
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <div class="row">
+                                                                <div class=" col-md-9 col-lg-9 ">
+                                                                    <table class="table table-user-information">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>Department:</td>
+                                                                                <td>Programming</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Hire date:</td>
+                                                                                <td>06/23/2013</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Date of Birth</td>
+                                                                                <td>01/24/1988</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Gender</td>
+                                                                                <td>Male</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Home Address</td>
+                                                                                <td>Metro Manila,Philippines</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Email</td>
+                                                                                <td><a href="mailto:info@support.com">info@support.com</a></td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="tab-pane fade" id="service-three">
-
                                     </div>
                                 </div>
                                 <hr>
@@ -236,5 +282,6 @@
     <script src="js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="~/Template/js/ProfileJs.js"></script>
 </body>
 </html>
