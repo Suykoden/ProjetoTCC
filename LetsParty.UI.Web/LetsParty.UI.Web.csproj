@@ -152,7 +152,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="ImagensAnuncio\260a8df0-e818-420f-9ad9-e54161b6d025.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.eot" />
@@ -993,9 +992,13 @@
     <Content Include="Views\Admin\AdminEdicaoAnuncio.cshtml" />
     <Content Include="Views\Anuncio\PesquisaAnuncio.cshtml" />
     <Content Include="Views\Anuncio\PaginaProduto.cshtml" />
+    <Content Include="Views\Anuncio\PartialPesquisaAnuncio.cshtml" />
+    <Content Include="Views\Anuncio\PaginaProduto - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ImagensAnuncio\150x150\" />
+    <Folder Include="ImagensAnuncio\800x300\" />
     <Folder Include="Views\Pesquisa\" />
   </ItemGroup>
   <ItemGroup>

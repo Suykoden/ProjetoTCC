@@ -55,7 +55,7 @@ namespace LetsParty.AppService.Anuncios
 
             var AnuncioFoto = (from a in _Anuncios
                                join f in _Fotos on a.Id equals f.AnuncioID
-                               where (a.Descricao.ToUpper().Contains(anuncio.Descricao.ToUpper()) && a.Ativo == true)
+                               where (a.Descricao.ToUpper().Contains(anuncio.Busca.ToUpper()) && a.Ativo == true)
                                select new AnuncioViewModel()
                                {
                                    Descricao = a.Descricao,
@@ -63,7 +63,10 @@ namespace LetsParty.AppService.Anuncios
                                    Data = a.Data,
                                    Thumbnail = f.Thumbnail,
                                    Thumbnail2 = f.Thumbnail2,
-                                   Thumbnail3 = f.Thumbnail3
+                                   Thumbnail3 = f.Thumbnail,
+                                   Caminho = f.Caminho,   
+                                   Caminho2 = f.Caminho2,
+                                   Caminho3 = f.Caminho3
                                });
 
             return AnuncioFoto.ToList();

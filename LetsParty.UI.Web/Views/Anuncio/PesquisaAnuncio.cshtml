@@ -43,7 +43,7 @@
                 @using (Html.BeginForm("PesquisaAnuncio", "Anuncio", FormMethod.Post, new { @class = "navbar-form navbar-left", role = "search" }))
                 {
                     <div class="form-group">
-                        @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @class = "form-control", placeholder = " Procurar", size = "100" } })
+                        @Html.EditorFor(model => model.Busca, new { htmlAttributes = new { @class = "form-control", placeholder = " Procurar", size = "100" } })
 
                     </div>
                     <button type="submit" class="btn btn-primary">
@@ -144,45 +144,9 @@
                 <!-- Begin of rows -->
                 @if (Model != null)
                 {
-                    foreach (var Anuncio in Model.ListaViewModel)
+                    foreach (var anuncios in Model.ListaViewModel)
                     {
-                        <div class="row carousel-row">
-                            <div class="col-xs-8 col-xs-offset-2 slide-row">
-                                <div id="carousel-1" class="carousel slide slide-carousel" data-ride="carousel">
-                                    <!-- Indicators -->
-                                    <ol class="carousel-indicators">
-                                        <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
-                                        <
-                                    </ol>
-                                    <!-- Wrapper for slides -->
-
-                                    <div class="carousel-inner">
-                                        <div class="item active">
-                                            <img src="@Html.DisplayFor(modelItem => Anuncio.Thumbnail)" alt="Image">
-                                        </div>
-                                        <div class="item">
-                                            <img src="@Html.DisplayFor(modelItem => Anuncio.Thumbnail2)" alt="Image">
-                                        </div>
-                                        <div class="item">
-                                            <img src="@Html.DisplayFor(modelItem => Anuncio.Thumbnail3)" alt="Image">
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="slide-content">
-                                    <h4>@Html.DisplayFor(modelItem => Anuncio.Titulo)</h4>
-                                    <p>
-                                        @Html.DisplayFor(modelItem => Anuncio.Descricao)
-                                    </p>
-                                </div>
-                                <div class="slide-footer">
-                                    <span class="pull-right buttons">
-                                        <button class="btn btn-sm btn-default"><i class="fa fa-fw fa-eye"></i> Ver</button>
-                                        <button class="btn btn-sm btn-primary"><i class="fa fa-fw fa-shopping-cart"></i>Contratar</button>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+                        { Html.RenderPartial("PartialPesquisaAnuncio", anuncios); }
                     }
                 }
                 <div class="row carousel-row">
@@ -191,7 +155,6 @@
                             <!-- Indicators -->
                             <ol class="carousel-indicators">
                                 <li data-target="#carousel-3" data-slide-to="0" class="active"></li>
-                                <
                             </ol>
 
                             <!-- Wrapper for slides -->

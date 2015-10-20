@@ -63,6 +63,14 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="control-label col-sm-2" for="Valor">Preço:</label>
+                                <div class="col-sm-6 col-lg-6 col-md-6">
+
+                                   @Html.EditorFor(model => model.Valor, new { htmlAttributes = new { @class = "form-control", placeholder = "Titulo do Anúncio" } })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 <label class="control-label col-sm-2" for="Descrição">Descricao:</label>
                                 <div class="col-sm-6 col-lg-6 col-md-6">
                                     @Html.TextAreaFor(model => model.Descricao, 10, 120, htmlAttributes: new { style = "width: 100%; max-width: 100%;", placeholder = "Descrição" })

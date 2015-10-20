@@ -24,7 +24,9 @@ namespace LetsParty.Domain.ViewModel
         public string Caminho2 { get; set; }
         public string Thumbnail2 { get; set; }
         public string Caminho3 { get; set; }
-        public string Thumbnail3 { get; set; } 
+        public string Thumbnail3 { get; set; }
+        public string Busca { get; set; }
+        public decimal Valor { get; set; } 
         public Guid AnuncioID { get; set; }
         public Anuncio anuncio { get; set; }
         public IEnumerable<Anuncio> ListaAnuncio { get; set; }

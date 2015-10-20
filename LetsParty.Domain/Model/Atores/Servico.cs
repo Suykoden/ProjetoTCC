@@ -9,7 +9,6 @@ namespace LetsParty.Domain.Model.Atores
 {
    public  class Servico: EntityWithName
     {
-       
-        public float Valor { get; set; }
+               
     }
 }

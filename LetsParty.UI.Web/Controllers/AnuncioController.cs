@@ -47,9 +47,7 @@ namespace LetsParty.UI.Web.Controllers
                 var errors = ModelState.SelectMany(x => x.Value.Errors.Select(z => z.Exception));
 
                 // Breakpoint, Log or examine the list with Exceptions.
-
             }
-
 
             if (ModelState.IsValid)
             {
@@ -62,6 +60,7 @@ namespace LetsParty.UI.Web.Controllers
                 _Anuncio.ServicoID = anuncio.ServicoID;
                 _Anuncio.Titulo = anuncio.Titulo;
                 _Anuncio.Descricao = anuncio.Descricao;
+                _Anuncio.Valor = anuncio.Valor;
                 _Anuncio.Ativo = true;
 
                 if (file != null)
@@ -246,9 +245,11 @@ namespace LetsParty.UI.Web.Controllers
         }
 
 
-        public ActionResult PaginaProduto()
+        [HttpPost]
+        public ActionResult PaginaProduto(AnuncioViewModel _anuncio)
         {
-            return View("PaginaProduto");
+                       
+            return View(_anuncio);
         }
 
 
