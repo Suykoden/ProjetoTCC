@@ -177,7 +177,6 @@
 
                                 <div class="col-md-7">
                                     <div class="product-title">@Html.DisplayFor(ModelItem => Model.Titulo)</div>
-                                    <div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>
                                     <hr>
                                     <div class="product-price">R$@Html.DisplayFor(ModelItem => Model.Valor) </div>
                                     <hr>
@@ -221,28 +220,32 @@
                                                                     <table class="table table-user-information">
                                                                         <tbody>
                                                                             <tr>
-                                                                                <td>Department:</td>
-                                                                                <td>Programming</td>
+                                                                                <td>Vendedor:</td>
+                                                                                <td>@Html.DisplayFor(ModelItem => Model.NomeUsuario)</td>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td>Hire date:</td>
-                                                                                <td>06/23/2013</td>
+                                                                                <td>Endereço:</td>
+                                                                                <td>@Html.DisplayFor(ModelItem => Model.Endereco)</td>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td>Date of Birth</td>
-                                                                                <td>01/24/1988</td>
+                                                                                <td>Numero:</td>
+                                                                                <td>@Html.DisplayFor(ModelItem => Model.Numero)</td>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td>Gender</td>
-                                                                                <td>Male</td>
+                                                                                <td>Bairro:</td>
+                                                                                <td>@Html.DisplayFor(ModelItem => Model.Bairro)</td>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td>Home Address</td>
-                                                                                <td>Metro Manila,Philippines</td>
+                                                                                <td>Cidade</td>
+                                                                                <td>@Html.DisplayFor(ModelItem => Model.Cidade)</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Telefone</td>
+                                                                                <td>@Html.DisplayFor(ModelItem => Model.Telefone)</td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td>Email</td>
-                                                                                <td><a href="mailto:info@support.com">info@support.com</a></td>
+                                                                                <td><a href="mailto:@Html.DisplayFor(ModelItem => Model.Email)">@Html.DisplayFor(ModelItem => Model.Email)</a></td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
