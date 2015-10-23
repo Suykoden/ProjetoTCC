@@ -19,6 +19,7 @@ namespace LetsParty.Domain.ViewModel
         public Guid ServicoID { get; set; }
         public Servico servico { get; set; }
         public DateTime DataFoto { get; set; }
+        public string Categoria { get; set; }
         public string Caminho { get; set; }
         public string Thumbnail { get; set; }
         public string Caminho2 { get; set; }

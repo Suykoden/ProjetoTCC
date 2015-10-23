@@ -251,9 +251,16 @@ namespace LetsParty.UI.Web.Controllers
                        
             return View(_anuncio);
         }
-
-
         
+        public ActionResult PesquisaAnuncioCategoria(String Categoria)
+        {
 
+            var ListaModelo = new AnuncioViewModel
+            {
+                ListaViewModel = AnunciosServices.PesquisaPorCategoria(Categoria).ToList()
+            };
+
+            return RedirectToAction("PesquisaAnuncio", new { _anuncio = ListaModelo });
+        }
     }
 }

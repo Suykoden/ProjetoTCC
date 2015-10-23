@@ -57,12 +57,12 @@
                     <li>
                         @Html.ActionLink("Minha conta", "Administrativo", "Admin")
                     </li>
-                    
+
                     @if (ViewBag.Logado == false)
                     {
-                    <li>
-                        @Html.ActionLink("Cadastre-se", "Cadastro", "Usuario")
-                    </li>
+                        <li>
+                            @Html.ActionLink("Cadastre-se", "Cadastro", "Usuario")
+                        </li>
                         <li>
                             @Html.ActionLink("Entrar", "Login", "Usuario")
                         </li>
@@ -85,13 +85,13 @@
             <div class="col-md-3">
                 <p class="lead">Categorias</p>
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Festas Infantis</a>
-                    <a href="#" class="list-group-item">Casamentos</a>
-                    <a href="#" class="list-group-item">15 anos</a>
-                    <a href="#" class="list-group-item">Formaturas</a>
-                    <a href="#" class="list-group-item">Recepções</a>
-                    <a href="#" class="list-group-item">Produtos festivos</a>
-                    <a href="#" class="list-group-item">Salões</a>
+                    @Html.ActionLink("Pegue e Monte", "PesquisaAnuncioCategoria", "Anuncio", new { Categoria = "Pegue e Monte" }, new { @class = "list-group-item" })
+                    @Html.ActionLink("Casamentos", "PesquisaAnuncioCategoria", "Anuncio", new { Categoria = "Casamentos" }, new { @class = "list-group-item" })
+                    @Html.ActionLink("15 anos", "PesquisaAnuncioCategoria", "Anuncio", new { Categoria = "15 anos" }, new { @class = "list-group-item" })
+                    @Html.ActionLink("Formaturas", "PesquisaAnuncioCategoria", "Anuncio", new { Categoria = "Formaturas" }, new { @class = "list-group-item" })
+                    @Html.ActionLink("Recepções", "AdminEdicaoAnuncio", "Anuncio", new { Categoria = "Recepções" }, new { @class = "list-group-item" })
+                    @Html.ActionLink("Produtos festivos", "PesquisaAnuncioCategoria", "Anuncio", new { Categoria = "Produtos festivos" }, new { @class = "list-group-item" })
+                    @Html.ActionLink("Salões", "PesquisaAnuncioCategoria", "Anuncio", new { Categoria = "Salões" }, new { @class = "list-group-item" })
                 </div>
             </div>
             <div class="col-md-9">

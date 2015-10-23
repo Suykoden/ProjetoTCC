@@ -17,6 +17,6 @@ namespace LetsParty.AppService.Anuncios
         Anuncio BuscaPorId(Guid Id);
         void EditarAnuncio(Anuncio anuncio);
         IEnumerable<AnuncioViewModel> PesquisaPorDescricao(AnuncioViewModel anuncio);
-
+        IEnumerable<AnuncioViewModel> PesquisaPorCategoria(String Categoria);
     }
 }

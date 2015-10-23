@@ -42,9 +42,7 @@
     <![endif]-->
 
 </head>
-
 <body>
-
     <div id="wrapper">
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container">
@@ -79,13 +77,11 @@
                     <li>
                         <a href="@Url.Action("AdminListaUsuario", "Admin")"><i class="fa fa-dashboard fa-fw"></i> Minha Conta</a>
                     </li>
-
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
         </div>
         <!-- /.navbar-static-side -->
-
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -125,11 +121,10 @@
                                                 <td>@Html.DisplayFor(modelItem => Anuncio.Data)</td>
                                                 <td>
                                                     @Html.ActionLink("Editar", "AdminEdicaoAnuncio", "Admin", new { id = Anuncio.Id }, new { @class = "btn btn-primary" })
-                                                @Html.ActionLink("Excluir", "ExclusaoAnuncio", "Anuncio", new { id = Anuncio.Id }, new { @class = "btn btn-danger" })
-                                                @Html.ActionLink("Visualizar", "AdminEdicaoAnuncio", "Admin", new { id = Anuncio.Id }, new { @class = "btn btn-info" })
-                                            </td>
-                                        </tr>
-
+                                                    @Html.ActionLink("Excluir", "ExclusaoAnuncio", "Anuncio", new { id = Anuncio.Id }, new { @class = "btn btn-danger" })
+                                                    @Html.ActionLink("Visualizar", "AdminEdicaoAnuncio", "Admin", new { id = Anuncio.Id }, new { @class = "btn btn-info" })
+                                                </td>
+                                            </tr>
                                         }
                                     </tbody>
                                 </table>
