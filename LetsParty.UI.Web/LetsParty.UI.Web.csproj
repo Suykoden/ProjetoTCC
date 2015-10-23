@@ -995,7 +995,6 @@
     <Content Include="Views\Anuncio\PesquisaAnuncio.cshtml" />
     <Content Include="Views\Anuncio\PaginaProduto.cshtml" />
     <Content Include="Views\Anuncio\PartialPesquisaAnuncio.cshtml" />
-    <Content Include="Views\Anuncio\PaginaProduto - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
