@@ -1,0 +1,173 @@
+﻿@model LetsParty.Domain.Model.Atores.Evento
+
+@{
+    ViewBag.Title = "Cadastro de evento";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="iso-8859-1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>f</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://localhost:34417/Home">Festeje - O Seu site de festas</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-6 col-md-6">
+                        @using (Html.BeginForm("Create", "Usuario", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            <div class="form-group">
+                                <div class="col-sm-6 col-lg-6 col-md-6">
+                                    <h1> <span class="label label-primary">Faça seu cadastro</span></h1>
+                                </div>
+
+                            </div>
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.DataEvento, htmlAttributes: new { @class = "control-label col-sm-2" })
+                                <div class="col-sm-6 col-lg-6 col-md-6">
+                                    @Html.EditorFor(model => model.DataEvento, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.DataEvento, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Endereco, htmlAttributes: new { @class = "control-label col-sm-2" })
+                                <div class="col-sm-6 col-lg-6 col-md-6">
+                                    @Html.EditorFor(model => model.Endereco, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Endereco, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Numero, htmlAttributes: new { @class = "control-label col-sm-2" })
+                                <div class="col-sm-6 col-lg-6 col-md-6">
+                                    @Html.EditorFor(model => model.Numero, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Numero, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Complemento, htmlAttributes: new { @class = "control-label col-sm-2" })
+                                <div class="col-sm-6 col-lg-6 col-md-6">
+                                    @Html.EditorFor(model => model.Complemento, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Complemento, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Bairro, htmlAttributes: new { @class = "control-label col-sm-2" })
+                                <div class="col-sm-6 col-lg-6 col-md-6">
+                                    @Html.EditorFor(model => model.Bairro, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Bairro, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Cidade, htmlAttributes: new { @class = "control-label col-sm-2" })
+                                <div class="col-sm-6 col-lg-6 col-md-6">
+                                    @Html.EditorFor(model => model.Cidade, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Cidade, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-sm-2" })
+                                <div class="col-sm-6 col-lg-6 col-md-6">
+                                    @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Cep, htmlAttributes: new { @class = "control-label col-sm-2" })
+                                <div class="col-sm-6 col-lg-6 col-md-6">
+                                    @Html.EditorFor(model => model.Cep, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Cep, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Pais, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-sm-6 col-lg-6 col-md-6">
+                                    @Html.EditorFor(model => model.Pais, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Pais, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="Ponto_Referencia">Referência:</label>
+                                <div class="col-sm-6 col-lg-6 col-md-6">
+                                    @Html.EditorFor(model => model.Ponto_Referencia, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Ponto_Referencia, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-4">
+                                    <button type="submit" class="btn btn-primary">Solicitar Evento</button>
+                                </div>
+                            </div>
+                        }
+                    </div> <!--fim div 1-->
+                    <div class="col-sm-6 col-lg-6 col-md-4">
+                        <img src="http://www.familiavingebuffet.com.br/wp-content/uploads/2012/09/festa-balada-15-anos.jpg" alt="">
+                    </div>
+                </div>
+
+            </div> <!--fim conteudo painel-->
+        </div> <!--fim painel-->
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+    <!-- Footer -->
+    <footer>
+         <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Festeje.com 2015</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

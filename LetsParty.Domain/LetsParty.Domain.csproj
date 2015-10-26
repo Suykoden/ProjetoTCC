@@ -51,6 +51,7 @@
     <Compile Include="Model\Atores\ServicoUsuario.cs" />
     <Compile Include="Model\Atores\StatusEvento.cs" />
     <Compile Include="Repository\IAnuncioRepository.cs" />
+    <Compile Include="Repository\IEventoRepository.cs" />
     <Compile Include="Repository\IFotoRepository.cs" />
     <Compile Include="Repository\IServicoRepository.cs" />
     <Compile Include="Repository\IUsuarioRepository.cs" />

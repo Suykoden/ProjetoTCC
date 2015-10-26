@@ -82,7 +82,8 @@ namespace LetsParty.AppService.Anuncios
                                    Telefone = u.Telefone,
                                    Cidade = u.Cidade,
                                    NomeUsuario = u.Nome,
-                                   Email = u.email
+                                   Email = u.email,
+                                   UsuarioID = a.UsuarioID
                                });
 
             return AnuncioFoto.ToList();

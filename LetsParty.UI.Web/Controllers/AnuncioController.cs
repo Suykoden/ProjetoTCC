@@ -40,7 +40,7 @@ namespace LetsParty.UI.Web.Controllers
 
         // POST: Fornecedor/Create
         [HttpPost]
-        public ActionResult Create(AnuncioViewModel anuncio, HttpPostedFileBase file, HttpPostedFileBase file2,HttpPostedFileBase file3)
+        public ActionResult Create(AnuncioViewModel anuncio, HttpPostedFileBase file, HttpPostedFileBase file2, HttpPostedFileBase file3)
         {
             if (!ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace LetsParty.UI.Web.Controllers
 
                 if (file != null)
                 {
-                    
+
 
                     String[] strName = file.FileName.Split('.');
                     String strExt = strName[strName.Count() - 1];
@@ -86,7 +86,7 @@ namespace LetsParty.UI.Web.Controllers
                     if (WebImagemThumb.Height != 150 || WebImagemThumb.Width != 150)
                     {
                         WebImagemThumb.Resize(150, 150, false, true);
-                        
+
                     }
 
                     WebImagemThumb.Save(pathSaveThumb);
@@ -248,10 +248,10 @@ namespace LetsParty.UI.Web.Controllers
         [HttpPost]
         public ActionResult PaginaProduto(AnuncioViewModel _anuncio)
         {
-                       
+
             return View(_anuncio);
         }
-        
+
         public ActionResult PesquisaAnuncioCategoria(String Categoria)
         {
 
@@ -261,6 +261,27 @@ namespace LetsParty.UI.Web.Controllers
             };
 
             return RedirectToAction("PesquisaAnuncio", new { _anuncio = ListaModelo });
+        }
+
+        [HttpPost]
+        public ActionResult CadastroEvento(AnuncioViewModel _anuncio)
+        {
+            Evento _evento = new Evento();
+            Usuario _usuario = new Usuario();
+            _usuario = UsuarioService.BuscaUsuarioPorID(UsuarioService.getIDUsuario());
+            _evento.UsuarioClienteID = _usuario.Id;
+            _evento.UsuarioPrestadorID = _anuncio.UsuarioID;
+            _evento.DataSolicitacao = DateTime.Now;
+            return View(_evento);
+        }
+
+
+        [HttpPost]
+        public ActionResult SolicitacaoEvento(Evento _evento)
+        {
+
+
+            return View("CadastroEvento");
         }
     }
 }

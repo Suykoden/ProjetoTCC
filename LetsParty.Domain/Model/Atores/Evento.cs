@@ -11,7 +11,7 @@ namespace LetsParty.Domain.Model.Atores
     {
         public DateTime DataSolicitacao { get; set; }
         public DateTime DataEvento { get; set; }
-        public DateTime DataCancelamento { get; set; }
+        public DateTime? DataCancelamento { get; set; }
         public string MotivoCancelamento { get; set; }
         public string Endereco { get; set; }
         public string Numero { get; set; }
@@ -23,8 +23,8 @@ namespace LetsParty.Domain.Model.Atores
         public string Pais { get; set; }
         public string Ponto_Referencia { get; set; }
         public string Depoimento { get; set; }
-        public int AvaliacaoCliente { get; set; }
-        public int AvaliacaoFornecedor { get; set; }
+        public int? AvaliacaoCliente { get; set; }
+        public int? AvaliacaoFornecedor { get; set; }
         public Guid UsuarioPrestadorID { get; set; }
         public Usuario UsuarioPrestador { get; set; }
         public Guid UsuarioClienteID { get; set; }

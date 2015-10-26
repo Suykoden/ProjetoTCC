@@ -180,11 +180,32 @@
                                     <hr>
                                     <div class="product-price">R$@Html.DisplayFor(ModelItem => Model.Valor) </div>
                                     <hr>
-                                    <div class="btn-group cart">
-                                        <button type="button" class="btn btn-success">
-                                            Solicitar
-                                        </button>
-                                    </div>
+                                    @using (Html.BeginForm("CadastroEvento", "Anuncio", FormMethod.Post, new { @class = "navbar-form navbar-left", role = "search" }))
+                                    {
+                                        <div style="display:none">
+                                           
+                                            @Html.HiddenFor(model => Model.Titulo);
+                                            @Html.HiddenFor(model => Model.Descricao);
+                                            @Html.HiddenFor(model => Model.Valor);
+                                            @Html.HiddenFor(model => Model.Endereco);
+                                            @Html.HiddenFor(model => Model.Bairro);
+                                            @Html.HiddenFor(model => Model.Cep);
+                                            @Html.HiddenFor(model => Model.Numero);
+                                            @Html.HiddenFor(model => Model.Pais);
+                                            @Html.HiddenFor(model => Model.Cidade);
+                                            @Html.HiddenFor(model => Model.NomeUsuario);
+                                            @Html.HiddenFor(model => Model.Complemento);
+                                            @Html.HiddenFor(model => Model.Ponto_Referencia);
+                                            @Html.HiddenFor(model => Model.Email);
+                                            @Html.HiddenFor(model => Model.Telefone);
+                                            @Html.HiddenFor(model => Model.UsuarioID);
+                                        </div>
+                                        <div class="btn-group cart">
+                                            <button type="submit" class="btn btn-success">
+                                                Solicitar
+                                            </button>
+                                        </div>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -208,7 +229,7 @@
                                         <section class="container"></section>
                                         <div class="container">
                                             <div class="row">
-                                                <br/>
+                                                <br />
                                                 <div class="col-md-12">
                                                     <div class="panel panel-primary">
                                                         <div class="panel-heading">

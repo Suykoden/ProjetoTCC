@@ -43,32 +43,23 @@ namespace LetsParty.AppService.Usuarios
             UsuarioRepository.Insert(usuario);
             LetsPartyContext.SaveChanges();
         }
-
-
-
         public bool AutenticarUsuario(Usuario usuario)
         {
-
             var Valida = UsuarioRepository.All().SingleOrDefault(u => u.email == usuario.email && u.senha == usuario.senha && u.Ativo == true);
-
             if (Valida == null)
                 return false;
-
             // HttpCookie User = new HttpCookie("LetsPartyUser");
             //   HttpCookie Senha = new HttpCookie("LetsPartyAcess");
             FormsAuthentication.SetAuthCookie(usuario.email, true);
             //User.Value = usuario.email;
             //Senha.Value = usuario.senha;
-
             //User.Expires = DateTime.Now.AddDays(1);
             //Senha.Expires = DateTime.Now.AddDays(1);
             //HttpContext.Current.Response.Cookies.Add(User);
             //HttpContext.Current.Response.Cookies.Add(Senha);
 
             return true;
-
         }
-
 
         public Usuario ObtemUsuarioLogado()
         {

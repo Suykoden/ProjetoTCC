@@ -986,7 +986,6 @@
     <Content Include="Template\LICENSE" />
     <Content Include="Template\README.md" />
     <Content Include="Views\Admin\Administrativo.cshtml" />
-    <Content Include="Views\View.cshtml" />
     <Content Include="Views\Anuncio\Anuncio.cshtml" />
     <Content Include="Views\Admin\AdminEdicaoUsuario.cshtml" />
     <Content Include="Views\Admin\AdminListaAnuncio.cshtml" />
@@ -995,6 +994,7 @@
     <Content Include="Views\Anuncio\PesquisaAnuncio.cshtml" />
     <Content Include="Views\Anuncio\PaginaProduto.cshtml" />
     <Content Include="Views\Anuncio\PartialPesquisaAnuncio.cshtml" />
+    <Content Include="Views\Anuncio\CadastroEvento.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
