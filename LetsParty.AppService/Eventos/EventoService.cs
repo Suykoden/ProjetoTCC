@@ -26,7 +26,6 @@ namespace LetsParty.AppService.Eventos
             EventoRepository = eventoRepository;
         }
 
-
         public void GravaEvento(Evento evento)
         {
             EventoRepository.Insert(evento);

@@ -11,7 +11,7 @@ namespace LetsParty.AppService.Eventos
 {
     public interface IEventoService
     {
-        public void GravaEvento(Evento evento);
+         void GravaEvento(Evento evento);
     }
 
 }

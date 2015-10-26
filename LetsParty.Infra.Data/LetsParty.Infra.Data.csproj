@@ -64,6 +64,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AnuncioRepositorio.cs" />
     <Compile Include="Repository\CriptografiaRepositorycs.cs" />
+    <Compile Include="Repository\EventoRepository.cs" />
     <Compile Include="Repository\FotoRepository.cs" />
     <Compile Include="Repository\RepositoryBase.cs" />
     <Compile Include="Repository\ServicosRepository.cs" />

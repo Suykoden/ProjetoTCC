@@ -7,6 +7,7 @@ using LetsParty.AppService.Usuarios;
 using LetsParty.AppService.Anuncios;
 using LetsParty.AppService.Fotos;
 using LetsParty.AppService.Servicos;
+using LetsParty.AppService.Eventos;
 using LetsParty.Domain.Model.Atores;
 using LetsParty.Domain.Repository;
 using LetsParty.Infra.Data.Repository;
@@ -23,13 +24,16 @@ namespace LetsParty.UI.Web.Controllers
         private IFotoService FotoService { get; set; }
         private IServicoServices ServicoService { get; set; }
         private ILetsPartyContext Context { get; set; }
+        private IEventoService EventoService { get; set; }
 
-        public AnuncioController(IAnunciosServices anunciosservices, IUsuarioAppService usuarioService, IFotoService fotoService, IServicoServices servicoServices, ILetsPartyContext context)
+        public AnuncioController(IAnunciosServices anunciosservices, IUsuarioAppService usuarioService, IFotoService fotoService, IServicoServices servicoServices,
+                                 ILetsPartyContext context, IEventoService eventoService)
         {
             AnunciosServices = anunciosservices;
             UsuarioService = usuarioService;
             FotoService = fotoService;
             ServicoService = servicoServices;
+            EventoService = eventoService;
             Context = context;
         }
 
@@ -184,14 +188,12 @@ namespace LetsParty.UI.Web.Controllers
             {
                 Anuncio _Anuncio = new Anuncio();
                 FotoAnuncio foto = new FotoAnuncio();
-
                 _Anuncio.Titulo = _AnuncioViewModel.Titulo;
                 _Anuncio.Descricao = _AnuncioViewModel.Descricao;
                 _Anuncio.Id = _AnuncioViewModel.Id;
                 _Anuncio.UsuarioID = _AnuncioViewModel.UsuarioID;
                 _Anuncio.Data = _AnuncioViewModel.Data;
                 _Anuncio.ServicoID = _AnuncioViewModel.ServicoID;
-
                 AnunciosServices.EditarAnuncio(_Anuncio);
                 Context.SaveChanges();
             }
@@ -271,7 +273,7 @@ namespace LetsParty.UI.Web.Controllers
             _usuario = UsuarioService.BuscaUsuarioPorID(UsuarioService.getIDUsuario());
             _evento.UsuarioClienteID = _usuario.Id;
             _evento.UsuarioPrestadorID = _anuncio.UsuarioID;
-            _evento.DataSolicitacao = DateTime.Now;
+            _evento.DataEvento = DateTime.Now;
             return View(_evento);
         }
 
@@ -279,7 +281,9 @@ namespace LetsParty.UI.Web.Controllers
         [HttpPost]
         public ActionResult SolicitacaoEvento(Evento _evento)
         {
-
+            _evento.Id = Guid.NewGuid(); 
+            _evento.DataSolicitacao = DateTime.Now;
+            EventoService.GravaEvento(_evento);
 
             return View("CadastroEvento");
         }
