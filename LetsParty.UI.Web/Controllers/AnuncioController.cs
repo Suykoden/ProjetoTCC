@@ -276,13 +276,12 @@ namespace LetsParty.UI.Web.Controllers
             _evento.DataEvento = DateTime.Now;
             return View(_evento);
         }
-
-
         [HttpPost]
         public ActionResult SolicitacaoEvento(Evento _evento)
         {
-            _evento.Id = Guid.NewGuid(); 
+            _evento.Id = Guid.NewGuid();
             _evento.DataSolicitacao = DateTime.Now;
+            _evento.Ativo = true;
             EventoService.GravaEvento(_evento);
 
             return View("CadastroEvento");

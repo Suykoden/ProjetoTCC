@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using LetsParty.AppService.Usuarios;
 using LetsParty.AppService.Anuncios;
+using LetsParty.AppService.Eventos;
 using LetsParty.AppService.Fotos;
 using LetsParty.AppService.Servicos;
 using LetsParty.Domain.Model.Atores;
@@ -21,12 +22,14 @@ namespace LetsParty.UI.Web.Controllers
         private IAnunciosServices AnuncioService { get; set; }
         private IUsuarioAppService UsuarioService { get; set; }
         private IServicoServices ServicoService { get; set; }
+        private IEventoService EventoService { get; set; }
 
-        public AdminController(IAnunciosServices anuncioService, IUsuarioAppService usuarioService, IServicoServices servicoService)
+        public AdminController(IAnunciosServices anuncioService, IUsuarioAppService usuarioService, IServicoServices servicoService, IEventoService eventoService)
         {
             AnuncioService = anuncioService;
             UsuarioService = usuarioService;
             ServicoService = servicoService;
+            EventoService = eventoService;
         }
 
         public ActionResult Administrativo()
@@ -90,9 +93,27 @@ namespace LetsParty.UI.Web.Controllers
 
         }
 
-        public ActionResult AdminEdicaoUsuario(Guid Id )
+        public ActionResult AdminEdicaoUsuario(Guid Id)
         {
             return View(UsuarioService.BuscaUsuarioPorID(Id));
+        }
+
+        public ActionResult AdminListaPedido()
+        {
+            if (UsuarioService.ObtemUsuarioLogado() != null)
+            {  
+                var ListaModelo = new EventoViewModel
+                {
+                    ListaEvento = EventoService.RetornaEventos( UsuarioService.getIDUsuario()).ToList() 
+                };
+
+                return View(ListaModelo);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Usuario");
+            }
+
         }
     }
 }

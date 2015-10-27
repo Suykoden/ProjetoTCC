@@ -1,4 +1,4 @@
-﻿@model LetsParty.Domain.ViewModel.AnuncioViewModel
+﻿@model  LetsParty.Domain.ViewModel.EventoViewModel
 @{
     ViewBag.Title = "Administrativo";
 }
@@ -105,27 +105,27 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Titulo</th>
-                                            <th>Descricao</th>
-                                            <th>Data</th>
-                                            <th>Alterar</th>
+                                            <th>Solicitação</th>
+                                            <th>Data solicitação</th>
+                                            <th>Data evento</th>
+                                            <th>Fornecedor</th>
+                                            <th>Valor</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach (var Anuncio in Model.ListaAnuncio)
+                                        @foreach (var evento in Model.ListaEvento)
                                         {
                                             <tr class="odd gradeX">
-                                                @Html.HiddenFor(modelItem => Anuncio.Id)
-                                                @Html.HiddenFor(modelItem => Anuncio.UsuarioID)
-                                                @Html.HiddenFor(modelItem => Anuncio.ServicoID)
-                                                @Html.HiddenFor(modelItem => Anuncio.Data)
-                                                <td>@Html.DisplayFor(modelItem => Anuncio.Titulo)</td>
-                                                <td>@Html.DisplayFor(modelItem => Anuncio.Descricao)</td>
-                                                <td>@Html.DisplayFor(modelItem => Anuncio.Data)</td>
+                                                @Html.HiddenFor(modelItem => evento.EventoID)
+                                                <td>@Html.DisplayFor(modelItem => evento.Titulo)</td>
+                                                <td>@Html.DisplayFor(modelItem => evento.DataSolicitacao)</td>
+                                                <td>@Html.DisplayFor(modelItem => evento.DataEvento)</td>
+                                                <td>@Html.DisplayFor(modelItem => evento.Fornecedor)</td>
+                                                <td>@Html.DisplayFor(modelItem => evento.Valor)</td>
                                                 <td>
-                                                    @Html.ActionLink("Editar", "AdminEdicaoAnuncio", "Admin", new { id = Anuncio.Id }, new { @class = "btn btn-primary" })
-                                                    @Html.ActionLink("Excluir", "ExclusaoAnuncio", "Anuncio", new { id = Anuncio.Id }, new { @class = "btn btn-danger" })
-                                                    @Html.ActionLink("Visualizar", "AdminEdicaoAnuncio", "Admin", new { id = Anuncio.Id }, new { @class = "btn btn-info" })
+                                                    @Html.ActionLink("Editar", "AdminEdicaoAnuncio", "Admin", new { id = evento.EventoID }, new { @class = "btn btn-primary" })
+                                                    @Html.ActionLink("Excluir", "ExclusaoAnuncio", "Anuncio", new { id = evento.EventoID }, new { @class = "btn btn-danger" })
+                                                    @Html.ActionLink("Visualizar", "AdminEdicaoAnuncio", "Admin", new { id = evento.EventoID }, new { @class = "btn btn-info" })
                                                 </td>
                                             </tr>
                                         }
