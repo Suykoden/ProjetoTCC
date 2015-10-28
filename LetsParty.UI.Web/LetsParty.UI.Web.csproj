@@ -134,6 +134,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AnuncioController.cs" />
+    <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
@@ -994,7 +995,7 @@
     <Content Include="Views\Anuncio\PesquisaAnuncio.cshtml" />
     <Content Include="Views\Anuncio\PaginaProduto.cshtml" />
     <Content Include="Views\Anuncio\PartialPesquisaAnuncio.cshtml" />
-    <Content Include="Views\Anuncio\CadastroEvento.cshtml" />
+    <Content Include="Views\Evento\CadastroEvento.cshtml" />
     <Content Include="Views\Admin\AdminListaPedido.cshtml" />
   </ItemGroup>
   <ItemGroup>

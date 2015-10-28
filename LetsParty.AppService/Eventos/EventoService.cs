@@ -44,7 +44,7 @@ namespace LetsParty.AppService.Eventos
             var Evento = (from e in _Evento
                           join u in _Usuario on e.UsuarioPrestadorID equals u.Id
                           join a in _Anuncios on u.Id equals a.UsuarioID
-                          where (u.Id == Id)
+                          where (u.Id == Id && e.Ativo == true)
                           select new EventoViewModel()
                           {
                               EventoID = e.Id,
@@ -65,5 +65,9 @@ namespace LetsParty.AppService.Eventos
             EventoRepository.Update(evento);
         }
 
+        public Evento BuscaPorId(Guid Id)
+        {
+            return EventoRepository.GetById(Id);
+        }
     }
 }

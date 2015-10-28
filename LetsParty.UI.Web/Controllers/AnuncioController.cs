@@ -265,26 +265,6 @@ namespace LetsParty.UI.Web.Controllers
             return RedirectToAction("PesquisaAnuncio", new { _anuncio = ListaModelo });
         }
 
-        [HttpPost]
-        public ActionResult CadastroEvento(AnuncioViewModel _anuncio)
-        {
-            Evento _evento = new Evento();
-            Usuario _usuario = new Usuario();
-            _usuario = UsuarioService.BuscaUsuarioPorID(UsuarioService.getIDUsuario());
-            _evento.UsuarioClienteID = _usuario.Id;
-            _evento.UsuarioPrestadorID = _anuncio.UsuarioID;
-            _evento.DataEvento = DateTime.Now;
-            return View(_evento);
-        }
-        [HttpPost]
-        public ActionResult SolicitacaoEvento(Evento _evento)
-        {
-            _evento.Id = Guid.NewGuid();
-            _evento.DataSolicitacao = DateTime.Now;
-            _evento.Ativo = true;
-            EventoService.GravaEvento(_evento);
-
-            return View("CadastroEvento");
-        }
+      
     }
 }
