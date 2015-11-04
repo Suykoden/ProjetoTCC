@@ -40,26 +40,23 @@ namespace LetsParty.AppService.Eventos
             var _Anuncios = AnuncioRepository.All();
             var _Usuario = UsuarioRepository.All();
             var _Evento = EventoRepository.All();
-
             var Evento = (from e in _Evento
                           join u in _Usuario on e.UsuarioPrestadorID equals u.Id
-                          join a in _Anuncios on u.Id equals a.UsuarioID
-                          where (u.Id == Id && e.Ativo == true)
+                          join a in _Anuncios on e.AnuncioID equals a.Id
+                          where (e.UsuarioClienteID == Id && e.EventoAtivo == true)
                           select new EventoViewModel()
                           {
+                              Ativo = e.EventoAtivo,
                               EventoID = e.Id,
                               Titulo = a.Titulo,
                               Fornecedor =  u.Nome,
                               Valor = a.Valor,
                               DataEvento = e.DataEvento,
                               DataSolicitacao = e.DataSolicitacao
-
                           });
 
             return Evento.ToList();
         }
-
-
         public void EditarEvento(Evento evento)
         {
             EventoRepository.Update(evento);

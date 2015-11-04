@@ -157,8 +157,7 @@ namespace LetsParty.UI.Web.Controllers
                 FotoService.Grava(foto);
             }
 
-            ViewBag.Cadastro = "Sucesso";
-            return RedirectToAction("Anuncio");
+            return RedirectToAction("AdminListaAnuncio", "Admin");
         }
 
 

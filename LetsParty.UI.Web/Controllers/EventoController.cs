@@ -40,7 +40,7 @@ namespace LetsParty.UI.Web.Controllers
             if (ModelState.IsValid)
             {
                 Evento evento = EventosService.BuscaPorId(id);
-                evento.Ativo = false;
+                evento.EventoAtivo = false;
                 EventosService.EditarEvento(evento);
                 Context.SaveChanges();
             }
@@ -57,6 +57,7 @@ namespace LetsParty.UI.Web.Controllers
             _evento.UsuarioClienteID = _usuario.Id;
             _evento.UsuarioPrestadorID = _anuncio.UsuarioID;
             _evento.DataEvento = DateTime.Now;
+            _evento.AnuncioID = _anuncio.AnuncioID;
             return View(_evento);
         }
 
@@ -66,9 +67,8 @@ namespace LetsParty.UI.Web.Controllers
         {
             _evento.Id = Guid.NewGuid();
             _evento.DataSolicitacao = DateTime.Now;
-            _evento.Ativo = true;
+            _evento.EventoAtivo = true;
             EventosService.GravaEvento(_evento);
-
             return RedirectToAction("AdminListaPedido", "Admin");
         }
 

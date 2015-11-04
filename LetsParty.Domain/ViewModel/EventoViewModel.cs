@@ -17,5 +17,6 @@ namespace LetsParty.Domain.ViewModel
        public DateTime DataEvento { get; set; }
        public string Fornecedor { get; set; }
        public IEnumerable<EventoViewModel> ListaEvento {get;set;}
+       public Boolean Ativo { get; set; }
     }
 }

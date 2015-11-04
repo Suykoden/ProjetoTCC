@@ -104,7 +104,7 @@ namespace LetsParty.UI.Web.Controllers
             {  
                 var ListaModelo = new EventoViewModel
                 {
-                    ListaEvento = EventoService.RetornaEventos( UsuarioService.getIDUsuario()).ToList() 
+                    ListaEvento = EventoService.RetornaEventos(UsuarioService.getIDUsuario()).ToList() 
                 };
 
                 return View(ListaModelo);

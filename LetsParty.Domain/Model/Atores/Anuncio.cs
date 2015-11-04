@@ -20,6 +20,5 @@ namespace LetsParty.Domain.Model.Atores
         public Servico servico { get; set; }
         public Boolean Ativo { get; set; }
 
-
     }
 }
