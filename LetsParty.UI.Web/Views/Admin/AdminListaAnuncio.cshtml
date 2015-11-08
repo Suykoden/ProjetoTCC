@@ -71,7 +71,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Edição de Anúncios
+                            Listagem de anúncios
                         </div>
                         <div class="panel-body">
 
@@ -99,7 +99,8 @@
                                                 <td>
                                                     @Html.ActionLink("Editar", "AdminEdicaoAnuncio", "Admin", new { id = Anuncio.Id }, new { @class = "btn btn-primary" })
                                                     @Html.ActionLink("Excluir", "ExclusaoAnuncio", "Anuncio", new { id = Anuncio.Id }, new { @class = "btn btn-danger" })
-                                                    @Html.ActionLink("Visualizar", "AdminEdicaoAnuncio", "Admin", new { id = Anuncio.Id }, new { @class = "btn btn-info" })
+                                                    @Html.ActionLink("Solitações", "EventoSolicitado", "Evento", new { id = Anuncio.Id }, new { @class = "btn btn-success", type = "submit" })
+                                                    @Html.ActionLink("Visualizar", "#", "#", new { id = Anuncio.Id }, new { @class = "btn btn-info", type = "submit" })
                                                 </td>
                                             </tr>
                                         }

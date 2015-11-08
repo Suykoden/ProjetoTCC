@@ -49,7 +49,7 @@ namespace LetsParty.AppService.Eventos
                               Ativo = e.EventoAtivo,
                               EventoID = e.Id,
                               Titulo = a.Titulo,
-                              Fornecedor =  u.Nome,
+                              Fornecedor = u.Nome,
                               Valor = a.Valor,
                               DataEvento = e.DataEvento,
                               DataSolicitacao = e.DataSolicitacao
@@ -65,6 +65,29 @@ namespace LetsParty.AppService.Eventos
         public Evento BuscaPorId(Guid Id)
         {
             return EventoRepository.GetById(Id);
+        }
+
+        public IEnumerable<EventoViewModel> RetornaEventoSolicitado(Guid Id)
+        {
+             var _Evento = EventoRepository.All();
+             var _Usuario = UsuarioRepository.All();
+
+            var Evento = (from e in _Evento
+                          join u in _Usuario on e.UsuarioClienteID equals u.Id
+                          where (e.AnuncioID == Id && e.EventoAtivo == true)
+                          select new EventoViewModel()
+                          {
+                              EventoID = e.Id,
+                              DataEvento = e.DataEvento,
+                              DataSolicitacao = e.DataSolicitacao,
+                              Solicitante = u.Nome,
+                              Endereco = e.Endereco,
+                              Numero = e.Numero,
+                              Bairro = e.Bairro,
+                              Cidade = e.Cidade
+                          });
+
+            return Evento.ToList();
         }
     }
 }
