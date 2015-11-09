@@ -115,5 +115,24 @@ namespace LetsParty.UI.Web.Controllers
             }
 
         }
+
+
+        public ActionResult AdminListaSolicitacoes(Guid Id)
+        {
+            if (UsuarioService.ObtemUsuarioLogado() != null)
+            {
+                var ListaModelo = new EventoViewModel
+                {
+                    ListaEvento = EventoService.RetornaEventoSolicitado(Id).ToList()
+                };
+
+                return View(ListaModelo);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Usuario");
+            }
+        }
+
     }
 }

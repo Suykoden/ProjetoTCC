@@ -1000,6 +1000,7 @@
     <Content Include="Views\Admin\PartialMenuAdmin.cshtml" />
     <Content Include="Views\Shared\_MenuBusca.cshtml" />
     <Content Include="Views\Shared\_MenuLateral.cshtml" />
+    <Content Include="Views\Admin\AdminListaSolicitacoes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

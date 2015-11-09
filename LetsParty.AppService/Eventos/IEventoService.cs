@@ -14,6 +14,7 @@ namespace LetsParty.AppService.Eventos
     {
         void GravaEvento(Evento evento);
         IEnumerable<EventoViewModel> RetornaEventos(Guid Id);
+        IEnumerable<EventoViewModel> RetornaEventoSolicitado(Guid Id);
         void EditarEvento(Evento evento);
         Evento BuscaPorId(Guid Id);
     }

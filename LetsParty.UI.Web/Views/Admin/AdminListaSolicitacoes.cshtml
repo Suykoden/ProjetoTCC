@@ -1,4 +1,4 @@
-﻿@model LetsParty.Domain.ViewModel.AnuncioViewModel
+﻿@model  LetsParty.Domain.ViewModel.EventoViewModel
 @{
     ViewBag.Title = "Administrativo";
 }
@@ -57,12 +57,12 @@
                 </div>
             </div>
         </nav>
-        @Html.Partial("PartialMenuAdmin");
+      @Html.Partial("PartialMenuAdmin");
         <!-- /.navbar-static-side -->
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Meus Anúncios</h1>
+                    <h1 class="page-header">Solicitações do anúncio</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -70,37 +70,38 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Listagem de anúncios
-                        </div>
+                       
                         <div class="panel-body">
 
                             <div class="dataTable_wrapper">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Titulo</th>
-                                            <th>Descricao</th>
-                                            <th>Data</th>
-                                            <th>Alterar</th>
+                                            <th>Solicitante</th>
+                                            <th>Data solicitação</th>
+                                            <th>Data evento</th>
+                                            <th>Endereço</th>
+                                            <th>Bairro</th>
+                                            <th>Cidade</th>
+                                            <th>Número</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach (var Anuncio in Model.ListaAnuncio)
+                                        @foreach (var evento in Model.ListaEvento)
                                         {
                                             <tr class="odd gradeX">
-                                                @Html.HiddenFor(modelItem => Anuncio.Id)
-                                                @Html.HiddenFor(modelItem => Anuncio.UsuarioID)
-                                                @Html.HiddenFor(modelItem => Anuncio.ServicoID)
-                                                @Html.HiddenFor(modelItem => Anuncio.Data)
-                                                <td>@Html.DisplayFor(modelItem => Anuncio.Titulo)</td>
-                                                <td>@Html.DisplayFor(modelItem => Anuncio.Descricao)</td>
-                                                <td>@Html.DisplayFor(modelItem => Anuncio.Data)</td>
+                                                @Html.HiddenFor(modelItem => evento.EventoID)
+                                                <td>@Html.DisplayFor(modelItem => evento.Solicitante)</td>
+                                                <td>@Html.DisplayFor(modelItem => evento.DataSolicitacao)</td>
+                                                <td>@Html.DisplayFor(modelItem => evento.DataEvento)</td>
+                                                <td>@Html.DisplayFor(modelItem => evento.Endereco)</td>
+                                                <td>@Html.DisplayFor(modelItem => evento.Bairro)</td>
+                                                <td>@Html.DisplayFor(modelItem => evento.Cidade)</td>
+                                                <td>@Html.DisplayFor(modelItem => evento.Numero)</td>
                                                 <td>
-                                                    @Html.ActionLink("Editar", "AdminEdicaoAnuncio", "Admin", new { id = Anuncio.Id }, new { @class = "btn btn-primary" })
-                                                    @Html.ActionLink("Excluir", "ExclusaoAnuncio", "Anuncio", new { id = Anuncio.Id }, new { @class = "btn btn-danger" })
-                                                    @Html.ActionLink("Solitações", "AdminListaSolicitacoes", "Admin", new { id = Anuncio.Id }, new { @class = "btn btn-success", type = "submit" })
-                                                    @Html.ActionLink("Visualizar", "#", "#", new { id = Anuncio.Id }, new { @class = "btn btn-info", type = "submit" })
+                                                    @Html.ActionLink("Editar", "AdminEdicaoAnuncio", "Admin", new { id = evento.EventoID }, new { @class = "btn btn-primary" })
+                                                    @Html.ActionLink("Cancelar", "CancelamentoEvento", "Evento", new { id = evento.EventoID }, new { @class = "btn btn-danger" })
+                                                    @Html.ActionLink("Visualizar", "AdminEdicaoAnuncio", "Admin", new { id = evento.EventoID }, new { @class = "btn btn-info" })
                                                 </td>
                                             </tr>
                                         }

@@ -71,23 +71,7 @@ namespace LetsParty.UI.Web.Controllers
             EventosService.GravaEvento(_evento);
             return RedirectToAction("AdminListaPedido", "Admin");
         }
-         [HttpPost]
-        public ActionResult AdminEventoSolicitado(Guid Id)
-        {
-            if (UsuarioService.ObtemUsuarioLogado() != null)
-            {
-                var ListaModelo = new EventoViewModel
-                {
-                    ListaEvento = EventosService.RetornaEventos(Id).ToList()
-                };
 
-                return View(ListaModelo);
-            }
-            else
-            {
-                return RedirectToAction("Login", "Usuario");
-            }
-        }
-
+       
     }
 }
