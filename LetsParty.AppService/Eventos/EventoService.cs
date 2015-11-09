@@ -74,11 +74,13 @@ namespace LetsParty.AppService.Eventos
 
         public IEnumerable<EventoViewModel> RetornaEventoSolicitado(Guid Id)
         {
-             var _Evento = EventoRepository.All();
-             var _Usuario = UsuarioRepository.All();
+            var _Evento = EventoRepository.All();
+            var _Usuario = UsuarioRepository.All();
+            var _Status = StatusRepository.All();
 
             var Evento = (from e in _Evento
                           join u in _Usuario on e.UsuarioClienteID equals u.Id
+                          join s in _Status on e.StatusID equals s.Id
                           where (e.AnuncioID == Id && e.EventoAtivo == true)
                           select new EventoViewModel()
                           {
@@ -89,12 +91,14 @@ namespace LetsParty.AppService.Eventos
                               Endereco = e.Endereco,
                               Numero = e.Numero,
                               Bairro = e.Bairro,
-                              Cidade = e.Cidade
+                              Cidade = e.Cidade,
+                              Status = s.status,
+                              StatusId = s.Id
                           });
 
             return Evento.ToList();
         }
 
-       
+
     }
 }

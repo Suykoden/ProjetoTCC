@@ -8,6 +8,7 @@ using LetsParty.AppService.Anuncios;
 using LetsParty.AppService.Eventos;
 using LetsParty.AppService.Fotos;
 using LetsParty.AppService.Servicos;
+using LetsParty.AppService.Status;
 using LetsParty.Domain.Model.Atores;
 using LetsParty.Domain.Repository;
 using LetsParty.Infra.Data.Repository;
@@ -23,13 +24,15 @@ namespace LetsParty.UI.Web.Controllers
         private IUsuarioAppService UsuarioService { get; set; }
         private IServicoServices ServicoService { get; set; }
         private IEventoService EventoService { get; set; }
+        private IStatusService StatusService { get; set; }
 
-        public AdminController(IAnunciosServices anuncioService, IUsuarioAppService usuarioService, IServicoServices servicoService, IEventoService eventoService)
+        public AdminController(IAnunciosServices anuncioService, IUsuarioAppService usuarioService, IServicoServices servicoService, IEventoService eventoService, IStatusService statusService)
         {
             AnuncioService = anuncioService;
             UsuarioService = usuarioService;
             ServicoService = servicoService;
             EventoService = eventoService;
+            StatusService = statusService;
         }
 
         public ActionResult Administrativo()
@@ -126,6 +129,7 @@ namespace LetsParty.UI.Web.Controllers
                     ListaEvento = EventoService.RetornaEventoSolicitado(Id).ToList()
                 };
 
+                ViewBag.ListaStatus = StatusService.RetornaStatus();
                 return View(ListaModelo);
             }
             else

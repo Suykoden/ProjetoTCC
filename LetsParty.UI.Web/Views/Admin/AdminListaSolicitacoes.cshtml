@@ -57,7 +57,7 @@
                 </div>
             </div>
         </nav>
-      @Html.Partial("PartialMenuAdmin");
+        @Html.Partial("PartialMenuAdmin");
         <!-- /.navbar-static-side -->
         <div id="page-wrapper">
             <div class="row">
@@ -70,7 +70,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
-                       
+
                         <div class="panel-body">
 
                             <div class="dataTable_wrapper">
@@ -84,6 +84,7 @@
                                             <th>Bairro</th>
                                             <th>Cidade</th>
                                             <th>Número</th>
+                                            <th>Status atual</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -99,9 +100,7 @@
                                                 <td>@Html.DisplayFor(modelItem => evento.Cidade)</td>
                                                 <td>@Html.DisplayFor(modelItem => evento.Numero)</td>
                                                 <td>
-                                                    @Html.ActionLink("Editar", "AdminEdicaoAnuncio", "Admin", new { id = evento.EventoID }, new { @class = "btn btn-primary" })
-                                                    @Html.ActionLink("Cancelar", "CancelamentoEvento", "Evento", new { id = evento.EventoID }, new { @class = "btn btn-danger" })
-                                                    @Html.ActionLink("Visualizar", "AdminEdicaoAnuncio", "Admin", new { id = evento.EventoID }, new { @class = "btn btn-info" })
+                                                    @Html.DropDownListFor(modelItem => evento.StatusId, new SelectList(ViewBag.ListaStatus, "Id", "status"), new { @class = "form-control", placeholder = "Status" })
                                                 </td>
                                             </tr>
                                         }

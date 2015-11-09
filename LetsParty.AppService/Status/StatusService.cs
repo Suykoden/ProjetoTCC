@@ -17,17 +17,26 @@ namespace LetsParty.AppService.Status
 
         public StatusService(ILetsPartyContext context, IStatusRepository statusRepository)
         {
-
             Context = context;
             StatusRepository = statusRepository;
         }
 
 
         public Guid ObtemStatusPadrao()
-       {
-           Guid IdStatus = StatusRepository.All().SingleOrDefault(s => s.status.Contains("Aguardando análise do fornecedor")).Id; 
-           return IdStatus;
+        {
+            Guid IdStatus = StatusRepository.All().SingleOrDefault(s => s.status.Contains("Aguardando análise do fornecedor")).Id;
+            return IdStatus;
+        }
 
-       }
+        public string RetornaStatusAtual(Guid Id)
+        {
+            string Status = StatusRepository.All().SingleOrDefault(s => s.Id == Id).status;
+            return Status;
+        }
+
+        public IQueryable<StatusEvento> RetornaStatus()
+        {
+            return StatusRepository.All();
+        }
     }
 }
