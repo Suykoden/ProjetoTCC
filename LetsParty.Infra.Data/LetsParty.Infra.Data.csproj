@@ -68,6 +68,7 @@
     <Compile Include="Repository\FotoRepository.cs" />
     <Compile Include="Repository\RepositoryBase.cs" />
     <Compile Include="Repository\ServicosRepository.cs" />
+    <Compile Include="Repository\StatusRepository.cs" />
     <Compile Include="Repository\UsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup>

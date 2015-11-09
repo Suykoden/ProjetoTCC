@@ -8,6 +8,7 @@ using LetsParty.AppService.Anuncios;
 using LetsParty.AppService.Fotos;
 using LetsParty.AppService.Servicos;
 using LetsParty.AppService.Eventos;
+using LetsParty.AppService.Status;
 using LetsParty.Domain.Model.Atores;
 using LetsParty.Domain.Repository;
 using LetsParty.Infra.Data.Repository;
@@ -25,13 +26,16 @@ namespace LetsParty.UI.Web.Controllers
         private IServicoServices ServicoService { get; set; }
         private IEventoService EventosService { get; set; }
         private ILetsPartyContext Context { get; set; }
+        private IStatusService StatuService { get; set; }
 
-        public EventoController(IAnunciosServices anuncioService, IUsuarioAppService usuarioService, IServicoServices servicoService, IEventoService eventoService, ILetsPartyContext context)
+        public EventoController(IAnunciosServices anuncioService, IUsuarioAppService usuarioService, IServicoServices servicoService,
+                                IEventoService eventoService, ILetsPartyContext context, IStatusService statuService)
         {
             AnuncioService = anuncioService;
             UsuarioService = usuarioService;
             ServicoService = servicoService;
             EventosService = eventoService;
+            StatuService = statuService;
             Context = context;
         }
 
@@ -58,6 +62,7 @@ namespace LetsParty.UI.Web.Controllers
             _evento.UsuarioPrestadorID = _anuncio.UsuarioID;
             _evento.DataEvento = DateTime.Now;
             _evento.AnuncioID = _anuncio.AnuncioID;
+
             return View(_evento);
         }
 
@@ -68,10 +73,11 @@ namespace LetsParty.UI.Web.Controllers
             _evento.Id = Guid.NewGuid();
             _evento.DataSolicitacao = DateTime.Now;
             _evento.EventoAtivo = true;
+            _evento.StatusID = StatuService.ObtemStatusPadrao();
             EventosService.GravaEvento(_evento);
             return RedirectToAction("AdminListaPedido", "Admin");
         }
 
-       
+
     }
 }

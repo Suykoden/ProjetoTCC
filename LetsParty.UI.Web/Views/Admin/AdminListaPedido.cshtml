@@ -84,6 +84,7 @@
                                             <th>Data evento</th>
                                             <th>Fornecedor</th>
                                             <th>Valor</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -96,9 +97,9 @@
                                                 <td>@Html.DisplayFor(modelItem => evento.DataEvento)</td>
                                                 <td>@Html.DisplayFor(modelItem => evento.Fornecedor)</td>
                                                 <td>@Html.DisplayFor(modelItem => evento.Valor)</td>
+                                                <td>@Html.DisplayFor(modelItem => evento.Status)</td>
                                                 <td>
-                                                    @Html.ActionLink("Editar", "AdminEdicaoAnuncio", "Admin", new { id = evento.EventoID }, new { @class = "btn btn-primary" })
-                                                    @Html.ActionLink("Cancelar", "CancelamentoEvento", "Evento", new { id = evento.EventoID }, new { @class = "btn btn-danger" })
+                                                   @Html.ActionLink("Cancelar", "CancelamentoEvento", "Evento", new { id = evento.EventoID }, new { @class = "btn btn-danger" })
                                                     @Html.ActionLink("Visualizar", "AdminEdicaoAnuncio", "Admin", new { id = evento.EventoID }, new { @class = "btn btn-info" })
                                                 </td>
                                             </tr>

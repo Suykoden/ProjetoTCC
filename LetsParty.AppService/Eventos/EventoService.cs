@@ -20,13 +20,15 @@ namespace LetsParty.AppService.Eventos
         private IEventoRepository EventoRepository;
         private IAnuncioRepository AnuncioRepository;
         private IUsuarioRepository UsuarioRepository;
+        private IStatusRepository StatusRepository;
 
-        public EventoService(ILetsPartyContext context, IEventoRepository eventoRepository, IAnuncioRepository anuncioRepository, IUsuarioRepository usuarioRepository)
+        public EventoService(ILetsPartyContext context, IEventoRepository eventoRepository, IAnuncioRepository anuncioRepository, IUsuarioRepository usuarioRepository, IStatusRepository statusRepository)
         {
             Context = context;
             EventoRepository = eventoRepository;
             AnuncioRepository = anuncioRepository;
             UsuarioRepository = usuarioRepository;
+            StatusRepository = statusRepository;
         }
 
         public void GravaEvento(Evento evento)
@@ -40,9 +42,11 @@ namespace LetsParty.AppService.Eventos
             var _Anuncios = AnuncioRepository.All();
             var _Usuario = UsuarioRepository.All();
             var _Evento = EventoRepository.All();
+            var _Status = StatusRepository.All();
             var Evento = (from e in _Evento
                           join u in _Usuario on e.UsuarioPrestadorID equals u.Id
                           join a in _Anuncios on e.AnuncioID equals a.Id
+                          join s in _Status on e.StatusID equals s.Id
                           where (e.UsuarioClienteID == Id && e.EventoAtivo == true)
                           select new EventoViewModel()
                           {
@@ -52,7 +56,8 @@ namespace LetsParty.AppService.Eventos
                               Fornecedor = u.Nome,
                               Valor = a.Valor,
                               DataEvento = e.DataEvento,
-                              DataSolicitacao = e.DataSolicitacao
+                              DataSolicitacao = e.DataSolicitacao,
+                              Status = s.status
                           });
 
             return Evento.ToList();
@@ -89,5 +94,7 @@ namespace LetsParty.AppService.Eventos
 
             return Evento.ToList();
         }
+
+       
     }
 }

@@ -25,5 +25,6 @@ namespace LetsParty.Domain.ViewModel
         public string Municipio { get; set; }
         public string Cidade { get; set; }
         public string Bairro { get; set; }
+        public string Status { get; set; }
     }
 }
