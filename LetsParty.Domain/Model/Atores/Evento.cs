@@ -32,5 +32,7 @@ namespace LetsParty.Domain.Model.Atores
         public Boolean EventoAtivo { get; set; }
         public Guid AnuncioID { get; set; }
         public Anuncio Anuncio { get; set; }
+        public Guid? StatusID { get; set; }
+        public StatusEvento Status { get; set; }
     }
 }
