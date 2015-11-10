@@ -23,5 +23,7 @@ namespace LetsParty.Seedwork.Repository
 
         IEnumerable<T> Listar();
 
+        void UpdateSet(T entityOld, T entity);
+
     }
 }

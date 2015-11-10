@@ -27,5 +27,6 @@ namespace LetsParty.Domain.ViewModel
         public string Bairro { get; set; }
         public string Status { get; set; }
         public Guid StatusId { get; set; }
+        public Guid FornecedorId { get; set; }
     }
 }

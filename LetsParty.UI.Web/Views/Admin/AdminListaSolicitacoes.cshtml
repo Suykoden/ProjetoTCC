@@ -88,24 +88,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach (var evento in Model.ListaEvento)
+                                        @if (Model.ListaEvento != null)
                                         {
-                                            <tr class="odd gradeX">
-                                                @Html.HiddenFor(modelItem => evento.EventoID)
-                                                <td>@Html.DisplayFor(modelItem => evento.Solicitante)</td>
-                                                <td>@Html.DisplayFor(modelItem => evento.DataSolicitacao)</td>
-                                                <td>@Html.DisplayFor(modelItem => evento.DataEvento)</td>
-                                                <td>@Html.DisplayFor(modelItem => evento.Endereco)</td>
-                                                <td>@Html.DisplayFor(modelItem => evento.Bairro)</td>
-                                                <td>@Html.DisplayFor(modelItem => evento.Cidade)</td>
-                                                <td>@Html.DisplayFor(modelItem => evento.Numero)</td>
-                                                <td>
-                                                    @Html.DropDownListFor(modelItem => evento.StatusId, new SelectList(ViewBag.ListaStatus, "Id", "status"), new { @class = "form-control", placeholder = "Status" })
-                                                </td>
-                                            </tr>
+                                            foreach (var eventos in Model.ListaEvento)
+                                            {
+                                                { Html.RenderPartial("PartialListaSolicitacoes", eventos); }
+                                            }
                                         }
                                     </tbody>
                                 </table>
+
                             </div>
                         </div>
                     </div>

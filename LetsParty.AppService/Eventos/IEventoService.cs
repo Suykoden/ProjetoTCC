@@ -17,6 +17,8 @@ namespace LetsParty.AppService.Eventos
         IEnumerable<EventoViewModel> RetornaEventoSolicitado(Guid Id);
         void EditarEvento(Evento evento);
         Evento BuscaPorId(Guid Id);
+        void AtualizaStatus(Evento eventoAntigo, Evento eventoAtu);
+        void UpdateStatus(Evento evento);
     }
 
 }

@@ -78,6 +78,20 @@ namespace LetsParty.UI.Web.Controllers
             return RedirectToAction("AdminListaPedido", "Admin");
         }
 
+        [HttpPost]
+        public ActionResult AtualizaStatus(EventoViewModel e)
+        {
+            Evento evento = new Evento();
+            evento.StatusID = e.StatusId;
+
+            evento =  EventosService.BuscaPorId(e.EventoID);
+            evento.StatusID = e.StatusId;
+            EventosService.UpdateStatus(evento);
+            Context.SaveChanges();
+
+            return RedirectToAction("AdminListaSolicitacoes", "Admin", new { Id = e.EventoID });
+
+        }
 
     }
 }

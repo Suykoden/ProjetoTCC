@@ -93,12 +93,22 @@ namespace LetsParty.AppService.Eventos
                               Bairro = e.Bairro,
                               Cidade = e.Cidade,
                               Status = s.status,
-                              StatusId = s.Id
+                              StatusId = s.Id,
+                              FornecedorId = e.UsuarioPrestadorID
                           });
 
             return Evento.ToList();
         }
 
+        public void AtualizaStatus(Evento eventoAntigo, Evento eventoAtu)
+        {
+            EventoRepository.UpdateSet(eventoAntigo, eventoAtu);
+        }
+
+        public void UpdateStatus(Evento evento)
+        {
+            EventoRepository.Update(evento);
+        }
 
     }
 }

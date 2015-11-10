@@ -1,0 +1,28 @@
+﻿@model LetsParty.Domain.ViewModel.EventoViewModel
+
+@using (Html.BeginForm("AtualizaStatus", "Evento", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    if (Model != null)
+    {
+        <tr class="odd gradeX">
+
+            <td>@Html.DisplayFor(modelItem => Model.Solicitante)</td>
+            <td>@Html.DisplayFor(modelItem => Model.DataSolicitacao)</td>
+            <td>@Html.DisplayFor(modelItem => Model.DataEvento)</td>
+            <td>@Html.DisplayFor(modelItem => Model.Endereco)</td>
+            <td>@Html.DisplayFor(modelItem => Model.Bairro)</td>
+            <td>@Html.DisplayFor(modelItem => Model.Cidade)</td>
+            <td>@Html.DisplayFor(modelItem => Model.Numero)</td>
+            
+
+            <td>
+                @Html.DropDownListFor(model => Model.StatusId, new SelectList(ViewBag.ListaStatus, "Id", "status", Model.StatusId), new { @class = "form-control", placeholder = "Status" })
+            </td>
+            <td>
+                <button type="submit" class="btn btn-success">Gravar</button>
+                @Html.HiddenFor(modelItem => Model.EventoID)
+            </td>
+        </tr>
+
+    }
+}

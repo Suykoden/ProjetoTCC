@@ -71,6 +71,10 @@ namespace LetsParty.Infra.Data.Repository
             return Context.Set<T>().AsEnumerable();
         }
 
+        public void UpdateSet(T entityOld, T entity)
+        {
+            Context.Entry(entityOld).CurrentValues.SetValues(entity);
+        }
     }
 
 
