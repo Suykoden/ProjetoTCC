@@ -94,7 +94,8 @@ namespace LetsParty.AppService.Eventos
                               Cidade = e.Cidade,
                               Status = s.status,
                               StatusId = s.Id,
-                              FornecedorId = e.UsuarioPrestadorID
+                              FornecedorId = e.UsuarioPrestadorID,
+                              
                           });
 
             return Evento.ToList();

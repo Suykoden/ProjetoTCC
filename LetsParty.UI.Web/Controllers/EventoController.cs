@@ -89,7 +89,7 @@ namespace LetsParty.UI.Web.Controllers
             EventosService.UpdateStatus(evento);
             Context.SaveChanges();
 
-            return RedirectToAction("AdminListaSolicitacoes", "Admin", new { Id = e.EventoID });
+            return RedirectToAction("AdminListaSolicitacoes", "Admin", new { Id = evento.AnuncioID });
 
         }
 
