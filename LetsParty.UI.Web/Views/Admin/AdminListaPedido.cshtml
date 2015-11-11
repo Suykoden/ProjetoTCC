@@ -107,9 +107,7 @@
                                                 <td>
                                                     @if (evento.Avaliacao == true)
                                                     {
-
                                                         <div class="form-group">
-
                                                             <div class="input-group">
                                                                 @Html.DropDownListFor(model => model.Avaliacao, new List<SelectListItem>{
                                                           new SelectListItem(){Text = "10", Value="10"},
@@ -124,15 +122,11 @@
                                                           new SelectListItem() {Text = "1", Value="1"},
                                                           new SelectListItem() {Text = "0", Value="0"}
                                                           }, new { @class = "form-control", style = "width:70px;" })
-
                                                                 <button type="submit" class="btn btn-success">Avaliar</button>
-
                                                             </div>
                                                         </div>
-
                                                     }
                                                 </td>
-
                                             </tr>
                                         }
                                     </tbody>
