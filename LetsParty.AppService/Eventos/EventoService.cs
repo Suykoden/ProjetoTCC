@@ -95,7 +95,7 @@ namespace LetsParty.AppService.Eventos
                               Status = s.status,
                               StatusId = s.Id,
                               FornecedorId = e.UsuarioPrestadorID,
-                              
+
                           });
 
             return Evento.ToList();
@@ -111,5 +111,17 @@ namespace LetsParty.AppService.Eventos
             EventoRepository.Update(evento);
         }
 
+        public bool SolicitaAvaliacao(Guid Id)
+        {
+            var Evento = EventoRepository.GetById(Id);
+
+            if (Evento.DataEvento < DateTime.Now && Evento.AvaliacaoCliente == null )
+            {
+                return true;
+            }
+            {
+                return false;
+            }
+        }
     }
 }

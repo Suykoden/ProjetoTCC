@@ -28,6 +28,7 @@ namespace LetsParty.Domain.ViewModel
         public string Status { get; set; }
         public Guid StatusId { get; set; }
         public Guid FornecedorId { get; set; }
-        public Guid AnuncioId { get; set; } 
+        public Guid AnuncioId { get; set; }
+        public bool Avaliacao { get; set; }
     }
 }

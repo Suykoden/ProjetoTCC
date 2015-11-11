@@ -93,5 +93,19 @@ namespace LetsParty.UI.Web.Controllers
 
         }
 
+
+        public ActionResult AvaliarEvento(Guid id)
+        {
+            if (ModelState.IsValid)
+            {
+                Evento evento = EventosService.BuscaPorId(id);
+                evento.EventoAtivo = false;
+                EventosService.EditarEvento(evento);
+                Context.SaveChanges();
+            }
+
+            return RedirectToAction("AdminListaPedido", "Admin");
+        }
+
     }
 }

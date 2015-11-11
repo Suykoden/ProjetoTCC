@@ -39,7 +39,6 @@ namespace LetsParty.UI.Web.Controllers
         {
             if (UsuarioService.ObtemUsuarioLogado() != null)
             {
-
                 return View();
             }
             else
@@ -104,11 +103,23 @@ namespace LetsParty.UI.Web.Controllers
         public ActionResult AdminListaPedido()
         {
             if (UsuarioService.ObtemUsuarioLogado() != null)
-            {  
+            {
                 var ListaModelo = new EventoViewModel
                 {
-                    ListaEvento = EventoService.RetornaEventos(UsuarioService.getIDUsuario()).ToList() 
+                    ListaEvento = EventoService.RetornaEventos(UsuarioService.getIDUsuario()).ToList()
                 };
+
+                foreach (var lista in ListaModelo.ListaEvento)
+                {
+                    if( EventoService.SolicitaAvaliacao(lista.EventoID)){
+
+                        lista.Avaliacao = true;
+                    }
+                    else
+                    {
+                        lista.Avaliacao = false;
+                    }
+                }
 
                 return View(ListaModelo);
             }

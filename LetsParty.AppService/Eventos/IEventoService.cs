@@ -19,6 +19,7 @@ namespace LetsParty.AppService.Eventos
         Evento BuscaPorId(Guid Id);
         void AtualizaStatus(Evento eventoAntigo, Evento eventoAtu);
         void UpdateStatus(Evento evento);
+        bool SolicitaAvaliacao(Guid Id);
     }
 
 }
