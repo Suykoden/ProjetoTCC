@@ -104,29 +104,14 @@
                                                     @Html.ActionLink("Cancelar", "CancelamentoEvento", "Evento", new { id = evento.EventoID }, new { @class = "btn btn-danger" })
                                                     @Html.ActionLink("Visualizar", "AdminEdicaoAnuncio", "Admin", new { id = evento.EventoID }, new { @class = "btn btn-info" })
                                                 </td>
-                                                <td>
-                                                    @if (evento.Avaliacao == true)
-                                                    {
-                                                        <div class="form-group">
-                                                            <div class="input-group">
-                                                                @Html.DropDownListFor(model => model.Avaliacao, new List<SelectListItem>{
-                                                          new SelectListItem(){Text = "10", Value="10"},
-                                                          new SelectListItem() {Text = "9", Value="9"},
-                                                          new SelectListItem() {Text = "8", Value="8"},
-                                                          new SelectListItem() {Text = "7", Value="7"},
-                                                          new SelectListItem() {Text = "6", Value="6"},
-                                                          new SelectListItem() {Text = "5", Value="5"},
-                                                          new SelectListItem() {Text = "4", Value="4"},
-                                                          new SelectListItem() {Text = "3", Value="3"},
-                                                          new SelectListItem() {Text = "2", Value="2"},
-                                                          new SelectListItem() {Text = "1", Value="1"},
-                                                          new SelectListItem() {Text = "0", Value="0"}
-                                                          }, new { @class = "form-control", style = "width:70px;" })
-                                                                <button type="submit" class="btn btn-success">Avaliar</button>
-                                                            </div>
-                                                        </div>
-                                                    }
-                                                </td>
+                                                @if (evento.Avaliacao == true)
+                                                {
+                                                    { Html.RenderPartial("PartialListaPedido", evento); }
+                                                }
+                                                else
+                                                {
+                                                    <td></td> <!--Nunca retirar, o mesmo evita que fique um buraco na grid -->
+                                                }
                                             </tr>
                                         }
                                     </tbody>

@@ -82,26 +82,26 @@ namespace LetsParty.UI.Web.Controllers
         public ActionResult AtualizaStatus(EventoViewModel e)
         {
             Evento evento = new Evento();
-            evento.StatusID = e.StatusId;
-
-            evento =  EventosService.BuscaPorId(e.EventoID);
+            evento = EventosService.BuscaPorId(e.EventoID);
             evento.StatusID = e.StatusId;
             EventosService.UpdateStatus(evento);
             Context.SaveChanges();
-
             return RedirectToAction("AdminListaSolicitacoes", "Admin", new { Id = evento.AnuncioID });
 
         }
 
-
-        public ActionResult AvaliarEvento(Guid id)
+        [HttpPost]
+        public ActionResult AvaliarEvento(EventoViewModel e)
         {
             if (ModelState.IsValid)
             {
-                Evento evento = EventosService.BuscaPorId(id);
-                evento.EventoAtivo = false;
-                EventosService.EditarEvento(evento);
+                Evento evento = new Evento();
+                evento = EventosService.BuscaPorId(e.EventoID);
+                evento.AvaliacaoCliente = e.NotaCliente;
+                EventosService.UpdateStatus(evento);
                 Context.SaveChanges();
+
+                return RedirectToAction("AdminListaPedido", "Admin");
             }
 
             return RedirectToAction("AdminListaPedido", "Admin");
