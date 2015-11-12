@@ -30,6 +30,7 @@ namespace LetsParty.Domain.ViewModel
         public Guid FornecedorId { get; set; }
         public Guid AnuncioId { get; set; }
         public bool Avaliacao { get; set; }
-        public int? NotaCliente { get; set; }
-    }
+        public int? NotaAnuncio { get; set; }
+        public decimal? NotalTotal { get; set; }
+       }
 }

@@ -97,7 +97,7 @@ namespace LetsParty.UI.Web.Controllers
             {
                 Evento evento = new Evento();
                 evento = EventosService.BuscaPorId(e.EventoID);
-                evento.AvaliacaoCliente = e.NotaCliente;
+                evento.AvaliacaoCliente = e.NotaAnuncio;
                 EventosService.UpdateStatus(evento);
                 Context.SaveChanges();
 

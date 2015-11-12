@@ -69,7 +69,7 @@ namespace LetsParty.AppService.Eventos
 
         public Evento BuscaPorId(Guid Id)
         {
-            return EventoRepository.GetById(Id);
+            return EventoRepository.GetById(Id); 
         }
 
         public IEnumerable<EventoViewModel> RetornaEventoSolicitado(Guid Id)
@@ -96,6 +96,7 @@ namespace LetsParty.AppService.Eventos
                               StatusId = s.Id,
                               FornecedorId = e.UsuarioPrestadorID,
 
+
                           });
 
             return Evento.ToList();
@@ -115,13 +116,34 @@ namespace LetsParty.AppService.Eventos
         {
             var Evento = EventoRepository.GetById(Id);
 
-            if (Evento.DataEvento < DateTime.Now && Evento.AvaliacaoCliente == null )
+            if (Evento.DataEvento < DateTime.Now && Evento.AvaliacaoCliente == null)
             {
                 return true;
             }
             {
                 return false;
             }
+        }
+
+        public decimal? ObtemNota(Guid AnuncioId)
+        {
+            var _Evento = EventoRepository.All().Where(e => e.AnuncioID == AnuncioId)
+                .GroupBy(e => e.AnuncioID)
+                .Select(g => new
+                {
+                    Total = g.Sum(e => e.AvaliacaoCliente),
+                    Contagem = g.Count(),
+                });
+
+            EventoViewModel eventoViewModel = new EventoViewModel();
+            foreach (var e in _Evento)
+            {
+                if (e.Contagem != 0) // evitar divisão por zero
+                {
+                    eventoViewModel.NotalTotal = Convert.ToDecimal(e.Total / e.Contagem);
+                }
+            }
+            return eventoViewModel.NotalTotal;
         }
     }
 }

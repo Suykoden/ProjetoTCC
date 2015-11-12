@@ -249,6 +249,7 @@ namespace LetsParty.UI.Web.Controllers
         [HttpPost]
         public ActionResult PaginaProduto(AnuncioViewModel _anuncio)
         {
+            _anuncio.NotaAnuncio = EventoService.ObtemNota(_anuncio.AnuncioID);
 
             return View(_anuncio);
         }
