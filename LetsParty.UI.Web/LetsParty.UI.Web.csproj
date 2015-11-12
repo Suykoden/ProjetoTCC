@@ -628,6 +628,7 @@
     <Content Include="Template\css\plugins\morris.css" />
     <Content Include="Template\css\PaginaProduto.css" />
     <Content Include="Template\css\ProfileCss.css" />
+    <Content Include="Template\css\RatingTemplate.css" />
     <Content Include="Template\css\shop-homepage.css" />
     <Content Include="Template\dist\css\sb-admin-2.css" />
     <Content Include="Template\dist\css\timeline.css" />

@@ -32,5 +32,6 @@ namespace LetsParty.Domain.ViewModel
         public bool Avaliacao { get; set; }
         public int? NotaAnuncio { get; set; }
         public decimal? NotalTotal { get; set; }
+        public int TotalUsuarios { get; set; }
        }
 }

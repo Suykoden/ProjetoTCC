@@ -14,7 +14,7 @@
     <!-- Bootstrap Core CSS -->
     <link href="~/Template/css/PaginaProduto.css" rel="stylesheet" />
     <link href="/Template/css/bootstrap.css" rel="stylesheet" />
-
+    <link href="~/Template/css/RatingTemplate.css" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="~/Template/css/CarouselRows.css" rel="stylesheet" />
     <link href="/Template/css/shop-homepage.css" rel="stylesheet">
@@ -183,7 +183,7 @@
                                     @using (Html.BeginForm("CadastroEvento", "Evento", FormMethod.Post, new { @class = "navbar-form navbar-left", role = "search" }))
                                     {
                                         <div style="display:none">
-                                           
+
                                             @Html.HiddenFor(model => Model.Titulo);
                                             @Html.HiddenFor(model => Model.Descricao);
                                             @Html.HiddenFor(model => Model.Valor);
@@ -205,6 +205,29 @@
                                             <button type="submit" class="btn btn-success">
                                                 Solicitar
                                             </button>
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-md-4 ">
+                                                        <div class="well well-sm">
+                                                            <div class="row">
+                                                                <div class="col-xs-12 col-md-6 text-center">
+                                                                    <h1 class="rating-num">
+                                                                        @ViewBag.NotaAnuncio
+                                                                    </h1>
+                                                                    <div class="rating">
+                                                                        <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
+                                                                        </span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
+                                                                        </span><span class="glyphicon glyphicon-star-empty"></span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <span class="glyphicon glyphicon-user"></span>@ViewBag.TotalUsers avaliações 
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     }
                                 </div>

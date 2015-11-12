@@ -245,11 +245,25 @@ namespace LetsParty.UI.Web.Controllers
             return View(ListaModelo);
         }
 
-
         [HttpPost]
         public ActionResult PaginaProduto(AnuncioViewModel _anuncio)
         {
-            _anuncio.NotaAnuncio = EventoService.ObtemNota(_anuncio.AnuncioID);
+            EventoViewModel _EventoViewModel = EventoService.ObtemNota(_anuncio.AnuncioID);
+
+            var Nota = string.Format("{0:F1}", _EventoViewModel.NotalTotal);
+
+            if (Nota != string.Empty)
+            {
+                ViewBag.NotaAnuncio = Nota;
+                ViewBag.TotalUsers = _EventoViewModel.TotalUsuarios;
+            }
+            else
+            {
+                ViewBag.NotaAnuncio = "Sem avaliação";
+                ViewBag.TotalUsers = "0";
+            }
+
+
 
             return View(_anuncio);
         }
@@ -262,9 +276,11 @@ namespace LetsParty.UI.Web.Controllers
                 ListaViewModel = AnunciosServices.PesquisaPorCategoria(Categoria).ToList()
             };
 
+
             return RedirectToAction("PesquisaAnuncio", new { _anuncio = ListaModelo });
+
         }
 
-      
+
     }
 }

@@ -125,7 +125,7 @@ namespace LetsParty.AppService.Eventos
             }
         }
 
-        public decimal? ObtemNota(Guid AnuncioId)
+        public EventoViewModel ObtemNota(Guid AnuncioId)
         {
             var _Evento = EventoRepository.All().Where(e => e.AnuncioID == AnuncioId)
                 .GroupBy(e => e.AnuncioID)
@@ -141,9 +141,10 @@ namespace LetsParty.AppService.Eventos
                 if (e.Contagem != 0) // evitar divisão por zero
                 {
                     eventoViewModel.NotalTotal = Convert.ToDecimal(e.Total / e.Contagem);
+                    eventoViewModel.TotalUsuarios = e.Contagem;
                 }
             }
-            return eventoViewModel.NotalTotal;
+            return eventoViewModel;
         }
     }
 }

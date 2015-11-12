@@ -20,7 +20,7 @@ namespace LetsParty.AppService.Eventos
         void AtualizaStatus(Evento eventoAntigo, Evento eventoAtu);
         void UpdateStatus(Evento evento);
         bool SolicitaAvaliacao(Guid Id);
-        decimal? ObtemNota(Guid AnuncioId);
+        EventoViewModel ObtemNota(Guid AnuncioId);
     }
 
 }
