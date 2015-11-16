@@ -111,7 +111,8 @@ namespace LetsParty.UI.Web.Controllers
 
                 foreach (var lista in ListaModelo.ListaEvento)
                 {
-                    if( EventoService.SolicitaAvaliacao(lista.EventoID)){
+                    if (EventoService.SolicitaAvaliacao(lista.EventoID))
+                    {
 
                         lista.Avaliacao = true;
                     }
@@ -147,6 +148,12 @@ namespace LetsParty.UI.Web.Controllers
             {
                 return RedirectToAction("Login", "Usuario");
             }
+        }
+
+
+        public ActionResult AdminRelatorios()
+        {
+            return View();
         }
 
     }
