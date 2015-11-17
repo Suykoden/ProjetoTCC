@@ -1006,6 +1006,7 @@
     <Content Include="Views\Admin\PartialListaPedido.cshtml" />
     <Content Include="Views\Admin\AdminRelatorios.cshtml" />
     <Content Include="Views\Admin\PartialFiltroRel.cshtml" />
+    <Content Include="Views\Relatorios\PartialRelatorioQualificacao.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -69,7 +69,7 @@ namespace LetsParty.AppService.Eventos
 
         public Evento BuscaPorId(Guid Id)
         {
-            return EventoRepository.GetById(Id); 
+            return EventoRepository.GetById(Id);
         }
 
         public IEnumerable<EventoViewModel> RetornaEventoSolicitado(Guid Id)
@@ -145,6 +145,33 @@ namespace LetsParty.AppService.Eventos
                 }
             }
             return eventoViewModel;
+        }
+
+
+        public EventoViewModel RetornaQualificacaoEventos()
+        {
+            var _Anuncios = AnuncioRepository.All();
+            var _Usuario = UsuarioRepository.All();
+            var _Evento = EventoRepository.All();
+            var Evento = (from e in _Evento
+                          join u in _Usuario on e.UsuarioPrestadorID equals u.Id
+                          join a in _Anuncios on e.AnuncioID equals a.Id
+                          where (e.EventoAtivo == true)
+                          group new { e, u, a } by new { e.AnuncioID } into g
+                          select new
+                  {
+                      g.Key.AnuncioID,
+                      Total = g.Sum(t => t.e.AvaliacaoCliente / g.Count()),
+                      NomeAnuncio = g.Select(na => na.a.Titulo).Distinct()
+
+                  }).OrderBy(e => e.Total);
+
+
+
+            EventoViewModel ev = new EventoViewModel();
+
+
+            return ev;
         }
     }
 }

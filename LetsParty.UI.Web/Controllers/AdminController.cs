@@ -130,8 +130,7 @@ namespace LetsParty.UI.Web.Controllers
             }
 
         }
-
-
+        
         public ActionResult AdminListaSolicitacoes(Guid Id)
         {
             if (UsuarioService.ObtemUsuarioLogado() != null)
@@ -150,11 +149,30 @@ namespace LetsParty.UI.Web.Controllers
             }
         }
 
-
         public ActionResult AdminRelatorios()
         {
-            return View();
+
+            if (UsuarioService.ObtemUsuarioLogado() != null)
+            {
+                //var ListaModelo = new EventoViewModel
+            //    {
+             //       ListaEvento = EventoService.RetornaQualificacaoEventos()
+          //      };
+//
+               var lista =  EventoService.RetornaQualificacaoEventos();
+                string partial = "PartialRelatorios";
+                string teste = "@Html.Partial(" + partial + ")";
+                ViewBag.Cabecalho = "@Html.Partial("+partial+")";
+
+                return View(lista);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Usuario");
+            }
         }
+
+
 
     }
 }
