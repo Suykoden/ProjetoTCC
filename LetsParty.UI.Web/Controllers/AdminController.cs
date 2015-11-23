@@ -154,12 +154,7 @@ namespace LetsParty.UI.Web.Controllers
 
             if (UsuarioService.ObtemUsuarioLogado() != null)
             {
-                var ListaModelo = new EventoViewModel
-                    {
-                        ListaEvento = EventoService.RetornaQualificacaoEventos()
-                    };
-
-                return View(ListaModelo);
+                return View();
             }
             else
             {

@@ -136,6 +136,7 @@
     <Compile Include="Controllers\AnuncioController.cs" />
     <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RelatoriosController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -998,7 +999,7 @@
     <Content Include="Views\Anuncio\PartialPesquisaAnuncio.cshtml" />
     <Content Include="Views\Evento\CadastroEvento.cshtml" />
     <Content Include="Views\Admin\AdminListaPedido.cshtml" />
-    <Content Include="Views\Admin\PartialMenuAdmin.cshtml" />
+    <Content Include="Views\Shared\PartialMenuAdmin.cshtml" />
     <Content Include="Views\Shared\_MenuBusca.cshtml" />
     <Content Include="Views\Shared\_MenuLateral.cshtml" />
     <Content Include="Views\Admin\AdminListaSolicitacoes.cshtml" />
@@ -1006,7 +1007,7 @@
     <Content Include="Views\Admin\PartialListaPedido.cshtml" />
     <Content Include="Views\Admin\AdminRelatorios.cshtml" />
     <Content Include="Views\Admin\PartialFiltroRel.cshtml" />
-    <Content Include="Views\Relatorios\PartialRelatorioQualificacao.cshtml" />
+    <Content Include="Views\Relatorios\RelatorioQualificacao.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
