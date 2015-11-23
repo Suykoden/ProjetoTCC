@@ -147,8 +147,10 @@ namespace LetsParty.AppService.Eventos
         }
 
 
-        public List<EventoViewModel> RetornaQualificacaoEventos()
+        public List<EventoViewModel> RetornaQualificacaoEventos(string Order)
         {
+
+
             var _Anuncios = AnuncioRepository.All();
             var _Usuario = UsuarioRepository.All();
             var _Evento = EventoRepository.All();
@@ -156,7 +158,7 @@ namespace LetsParty.AppService.Eventos
                           join u in _Usuario on e.UsuarioPrestadorID equals u.Id
                           join a in _Anuncios on e.AnuncioID equals a.Id
                           where (e.EventoAtivo == true)
-                          group new { e, u, a } by new { e.AnuncioID, a.Titulo,u.Nome } into g
+                          group new { e, u, a } by new { e.AnuncioID, a.Titulo, u.Nome } into g
 
                           select new
                   {
@@ -165,13 +167,39 @@ namespace LetsParty.AppService.Eventos
                       g.Key.Nome,
                       Total = g.Sum(t => t.e.AvaliacaoCliente / g.Count()),
 
-                  }).OrderBy(e => e.Total);
+                  });
 
             List<EventoViewModel> ev = new List<EventoViewModel>();
+
+
 
             foreach (var e in Evento)
             {
                 ev.Add(new EventoViewModel() { NotalTotal = e.Total, Titulo = e.Titulo, Fornecedor = e.Nome });
+            }
+
+            switch (Order)
+            {
+                case "name_desc":
+                    ev = ev.OrderByDescending(e => e.Titulo).ToList();
+                    break;
+                case "Forn_desc":
+                    ev = ev.OrderByDescending(e => e.Fornecedor).ToList();
+                    break;
+                case "Forn":
+                    ev = ev.OrderBy(e => e.Fornecedor).ToList();
+                    break;
+                case "Nota_desc":
+                    ev = ev.OrderByDescending(e => e.NotalTotal).ToList();
+                    break;
+                case "Nota":
+                    ev = ev.OrderBy(e => e.NotalTotal).ToList();
+                    break;
+
+
+                default:
+                    ev = ev.OrderBy(e => e.Titulo).ToList();
+                    break;
             }
 
             return ev;

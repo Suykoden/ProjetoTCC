@@ -33,5 +33,6 @@ namespace LetsParty.Domain.ViewModel
         public int? NotaAnuncio { get; set; }
         public decimal? NotalTotal { get; set; }
         public int TotalUsuarios { get; set; }
+        public string Order { get; set; }
        }
 }

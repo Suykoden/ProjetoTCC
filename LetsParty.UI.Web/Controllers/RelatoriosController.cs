@@ -36,14 +36,19 @@ namespace LetsParty.UI.Web.Controllers
 
 
 
-        public ActionResult RelatorioQualificacao()
+        public ActionResult RelatorioQualificacao(string sortOrder)
         {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.FornSortParm = sortOrder == "Forn" ? "Forn_desc" : "Forn";
+            ViewBag.NotaSortParm = sortOrder == "Nota" ? "Nota_desc" : "Nota";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
 
             if (UsuarioService.ObtemUsuarioLogado() != null)
             {
                 var ListaModelo = new EventoViewModel
                 {
-                    ListaEvento = EventoService.RetornaQualificacaoEventos()
+                    ListaEvento = EventoService.RetornaQualificacaoEventos(sortOrder)
                 };
 
                 return View(ListaModelo);

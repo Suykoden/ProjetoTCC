@@ -57,7 +57,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Solicitações do anúncio</h1>
+                    <h1 class="page-header">Relatórios</h1>
                 </div>
             </div>
             <div class="col-lg-12">
@@ -65,11 +65,7 @@
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:70px;">
                         Tipo <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu">
-                        <li> <a href="@Url.Action("RelatorioQualificacao", "Relatorios")">Relatório de fornecedores por qualificação</a></li>
-                        <li><a href="#">Relatório de serviços mais procurados</a></li>
-                        <li><a href="#">Relatório de fornecedores por localidade</a></li>
-                    </ul>
+                   @Html.Partial("PartialSelecaoRelatorio")
                 </div>
             </div>
             <br />

@@ -21,7 +21,7 @@ namespace LetsParty.AppService.Eventos
         void UpdateStatus(Evento evento);
         bool SolicitaAvaliacao(Guid Id);
         EventoViewModel ObtemNota(Guid AnuncioId);
-        List<EventoViewModel> RetornaQualificacaoEventos();
+        List<EventoViewModel> RetornaQualificacaoEventos(string Order);
     }
 
 }
