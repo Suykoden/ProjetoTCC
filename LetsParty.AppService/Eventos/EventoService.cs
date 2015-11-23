@@ -148,7 +148,7 @@ namespace LetsParty.AppService.Eventos
         }
 
 
-        public EventoViewModel RetornaQualificacaoEventos()
+        public List<EventoViewModel> RetornaQualificacaoEventos()
         {
             var _Anuncios = AnuncioRepository.All();
             var _Usuario = UsuarioRepository.All();
@@ -162,15 +162,20 @@ namespace LetsParty.AppService.Eventos
                   {
                       g.Key.AnuncioID,
                       Total = g.Sum(t => t.e.AvaliacaoCliente / g.Count()),
-                      NomeAnuncio = g.Select(na => na.a.Titulo).Distinct()
 
                   }).OrderBy(e => e.Total);
 
+            List<EventoViewModel> ev = new List<EventoViewModel>();
 
 
-            EventoViewModel ev = new EventoViewModel();
 
+            foreach (var e in Evento)
+            {
+                Anuncio _Anuncio = AnuncioRepository.GetById(e.AnuncioID);
+                ev.Add(new EventoViewModel() { NotalTotal = e.Total, Titulo = _Anuncio.Titulo });
 
+            }
+            
             return ev;
         }
     }
