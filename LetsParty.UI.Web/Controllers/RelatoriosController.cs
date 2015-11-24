@@ -36,19 +36,20 @@ namespace LetsParty.UI.Web.Controllers
 
 
 
-        public ActionResult RelatorioQualificacao(string sortOrder)
+        public ActionResult RelatorioQualificacao(string sortOrder, DateTime? DataIni, DateTime? DataFin)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.FornSortParm = sortOrder == "Forn" ? "Forn_desc" : "Forn";
             ViewBag.NotaSortParm = sortOrder == "Nota" ? "Nota_desc" : "Nota";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
 
-
             if (UsuarioService.ObtemUsuarioLogado() != null)
             {
                 var ListaModelo = new EventoViewModel
                 {
-                    ListaEvento = EventoService.RetornaQualificacaoEventos(sortOrder)
+                    ListaEvento = EventoService.RetornaQualificacaoEventos(sortOrder),
+                    DataInicial = DataIni,
+                    DataFinal = DataFin
                 };
 
                 return View(ListaModelo);
@@ -59,5 +60,10 @@ namespace LetsParty.UI.Web.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult RelatorioPorData(EventoViewModel Model)
+        {
+            return RedirectToAction("RelatorioQualificacao", "Relatorios", new { sortOrder = ViewBag.DateSortParm, DataIni = Model.DataInicial, DataFin = Model.DataFinal });
+        }
     }
 }

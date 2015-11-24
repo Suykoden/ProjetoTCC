@@ -6,9 +6,7 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-
     <meta charset="iso-8859-1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -60,7 +58,7 @@
                     <h1 class="page-header">Relatório por qualificação de anúncio</h1>
                 </div>
             </div>
-            <div class="col-lg-12">
+            <div class="col-lg-3">
                 <div class="btn-group">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:70px;">
                         Tipo <span class="caret"></span>
@@ -68,12 +66,24 @@
                     @Html.Partial("PartialSelecaoRelatorio")
                 </div>
             </div>
+            @using (Html.BeginForm("RelatorioPorData", "Relatorios", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <div class="col-lg-6">
+                    <label class="control-label col-sm-1" for="Nome">Período:</label>
+                    <div class="col-sm-3 col-lg-3 col-md-3">
+                        @Html.EditorFor(model => Model.DataInicial, new { htmlAttributes = new { @class = "form-control", type = "date", style = "width:180px;" } })
+                    </div>
+                    <div class="col-sm-5 col-lg-5 col-md-5">
+                        @Html.EditorFor(model => Model.DataFinal, new { htmlAttributes = new { @class = "form-control", type = "date", style = "width:180px;" } })
+                    </div>
+                    <button type="submit" class="btn btn-primary">Pesquisar</button>
+                </div>
+            }
             <br />
             <br />
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
-
                         <div class="panel-body">
 
                             <div class="dataTable_wrapper">
@@ -83,6 +93,7 @@
                                             <th> @Html.ActionLink("Titulo", "RelatorioQualificacao", "Relatorios", new { sortOrder = ViewBag.NameSortParm }, "")</th>
                                             <th> @Html.ActionLink("Fornecedor", "RelatorioQualificacao", "Relatorios", new { sortOrder = ViewBag.FornSortParm }, "")</th>
                                             <th> @Html.ActionLink("Nota", "RelatorioQualificacao", "Relatorios", new { sortOrder = ViewBag.NotaSortParm }, "")</th>
+                                            <th> @Html.ActionLink("Data", "RelatorioQualificacao", "Relatorios", new { sortOrder = ViewBag.DateSortParm }, "")</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -92,11 +103,11 @@
                                                 <td>@Html.DisplayFor(modelItem => Anuncio.Titulo)</td>
                                                 <td>@Html.DisplayFor(modelItem => Anuncio.Fornecedor)</td>
                                                 <td>@Html.DisplayFor(modelItem => Anuncio.NotalTotal)</td>
+                                                <td>@Html.DisplayFor(modelItem => Anuncio.Data)</td>
                                             </tr>
                                         }
                                     </tbody>
                                 </table>
-
                             </div>
                         </div>
                     </div>

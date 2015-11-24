@@ -34,5 +34,9 @@ namespace LetsParty.Domain.ViewModel
         public decimal? NotalTotal { get; set; }
         public int TotalUsuarios { get; set; }
         public string Order { get; set; }
-       }
+        public DateTime Data { get; set; }
+        public DateTime? DataInicial { get; set; }
+        public DateTime? DataFinal { get; set; }
+
+    }
 }

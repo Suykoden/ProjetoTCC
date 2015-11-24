@@ -158,13 +158,20 @@ namespace LetsParty.AppService.Eventos
                           join u in _Usuario on e.UsuarioPrestadorID equals u.Id
                           join a in _Anuncios on e.AnuncioID equals a.Id
                           where (e.EventoAtivo == true)
-                          group new { e, u, a } by new { e.AnuncioID, a.Titulo, u.Nome } into g
+                          group new { e, u, a } by new
+                          {
+                              e.AnuncioID,
+                              a.Titulo,
+                              u.Nome,
+                              a.Data
+                          } into g
 
                           select new
                   {
                       g.Key.AnuncioID,
                       g.Key.Titulo,
                       g.Key.Nome,
+                      g.Key.Data,
                       Total = g.Sum(t => t.e.AvaliacaoCliente / g.Count()),
 
                   });
@@ -175,7 +182,7 @@ namespace LetsParty.AppService.Eventos
 
             foreach (var e in Evento)
             {
-                ev.Add(new EventoViewModel() { NotalTotal = e.Total, Titulo = e.Titulo, Fornecedor = e.Nome });
+                ev.Add(new EventoViewModel() { NotalTotal = e.Total, Titulo = e.Titulo, Fornecedor = e.Nome, Data = e.Data });
             }
 
             switch (Order)
@@ -195,7 +202,12 @@ namespace LetsParty.AppService.Eventos
                 case "Nota":
                     ev = ev.OrderBy(e => e.NotalTotal).ToList();
                     break;
-
+                case "date_desc":
+                    ev = ev.OrderByDescending(e => e.Data).ToList();
+                    break;
+                case "Date":
+                    ev = ev.OrderBy(e => e.Data).ToList();
+                    break;
 
                 default:
                     ev = ev.OrderBy(e => e.Titulo).ToList();
