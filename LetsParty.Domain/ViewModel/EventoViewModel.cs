@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LetsParty.Domain.Model.Atores;
 using LetsParty.Domain.ViewModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace LetsParty.Domain.ViewModel
 {
@@ -35,7 +36,15 @@ namespace LetsParty.Domain.ViewModel
         public int TotalUsuarios { get; set; }
         public string Order { get; set; }
         public DateTime Data { get; set; }
+
+        [Display(Name = "Data inicial")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        [DataType(DataType.Date, ErrorMessage="Data em formato inválido")]
         public DateTime? DataInicial { get; set; }
+
+        [Display(Name = "Data final")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        [DataType(DataType.Date, ErrorMessage = "Data em formato inválido")]
         public DateTime? DataFinal { get; set; }
 
     }

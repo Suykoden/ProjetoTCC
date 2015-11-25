@@ -47,7 +47,7 @@ namespace LetsParty.UI.Web.Controllers
             {
                 var ListaModelo = new EventoViewModel
                 {
-                    ListaEvento = EventoService.RetornaQualificacaoEventos(sortOrder),
+                    ListaEvento = EventoService.RetornaQualificacaoEventos(sortOrder, DataIni, DataFin),
                     DataInicial = DataIni,
                     DataFinal = DataFin
                 };

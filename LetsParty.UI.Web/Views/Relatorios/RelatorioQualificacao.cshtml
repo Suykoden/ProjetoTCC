@@ -71,10 +71,14 @@
                 <div class="col-lg-6">
                     <label class="control-label col-sm-1" for="Nome">Período:</label>
                     <div class="col-sm-3 col-lg-3 col-md-3">
-                        @Html.EditorFor(model => Model.DataInicial, new { htmlAttributes = new { @class = "form-control", type = "date", style = "width:180px;" } })
+                        @Html.LabelFor(model => model.DataInicial)
+                        @Html.EditorFor(model => Model.DataInicial, new { htmlAttributes = new { @class = "form-control", style = "width:180px;" } })
+                        @Html.ValidationMessageFor(model => model.DataInicial)
                     </div>
                     <div class="col-sm-5 col-lg-5 col-md-5">
-                        @Html.EditorFor(model => Model.DataFinal, new { htmlAttributes = new { @class = "form-control", type = "date", style = "width:180px;" } })
+                        @Html.LabelFor(model => model.DataFinal)
+                        @Html.EditorFor(model => Model.DataFinal, new { htmlAttributes = new { @class = "form-control", style = "width:180px;" } })
+                        @Html.ValidationMessageFor(model => model.DataFinal)
                     </div>
                     <button type="submit" class="btn btn-primary">Pesquisar</button>
                 </div>
