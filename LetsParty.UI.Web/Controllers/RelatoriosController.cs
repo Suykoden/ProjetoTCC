@@ -43,10 +43,18 @@ namespace LetsParty.UI.Web.Controllers
             ViewBag.NotaSortParm = sortOrder == "Nota" ? "Nota_desc" : "Nota";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
 
+            ViewBag.DataInicial = DataIni;
+            ViewBag.DataFinal = DataFin;
+
+
             if (UsuarioService.ObtemUsuarioLogado() != null)
             {
+                   
+
                 var ListaModelo = new EventoViewModel
                 {
+
+
                     ListaEvento = EventoService.RetornaQualificacaoEventos(sortOrder, DataIni, DataFin),
                     DataInicial = DataIni,
                     DataFinal = DataFin

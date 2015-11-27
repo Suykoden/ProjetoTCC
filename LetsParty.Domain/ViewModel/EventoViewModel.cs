@@ -38,11 +38,13 @@ namespace LetsParty.Domain.ViewModel
         public DateTime Data { get; set; }
 
         [Display(Name = "Data inicial")]
+        [Required(ErrorMessage = "Informe a data inicial",AllowEmptyStrings=false)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         [DataType(DataType.Date, ErrorMessage="Data em formato inválido")]
         public DateTime? DataInicial { get; set; }
 
         [Display(Name = "Data final")]
+        [Required(ErrorMessage = "Informe a data final",AllowEmptyStrings=false)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         [DataType(DataType.Date, ErrorMessage = "Data em formato inválido")]
         public DateTime? DataFinal { get; set; }
