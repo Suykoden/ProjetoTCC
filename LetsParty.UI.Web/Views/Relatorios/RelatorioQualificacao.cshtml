@@ -69,7 +69,6 @@
             @using (Html.BeginForm("RelatorioPorData", "Relatorios", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 <div class="col-lg-6">
-                    <label class="control-label col-sm-1" for="Nome">Período:</label>
                     <div class="col-sm-3 col-lg-3 col-md-3">
                         @Html.LabelFor(model => model.DataInicial)
                         @Html.EditorFor(model => Model.DataInicial, new { htmlAttributes = new { @class = "form-control", style = "width:180px;" } })

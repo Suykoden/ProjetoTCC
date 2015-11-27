@@ -42,24 +42,17 @@ namespace LetsParty.UI.Web.Controllers
             ViewBag.FornSortParm = sortOrder == "Forn" ? "Forn_desc" : "Forn";
             ViewBag.NotaSortParm = sortOrder == "Nota" ? "Nota_desc" : "Nota";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
-
             ViewBag.DataInicial = DataIni;
             ViewBag.DataFinal = DataFin;
 
-
             if (UsuarioService.ObtemUsuarioLogado() != null)
             {
-                   
-
                 var ListaModelo = new EventoViewModel
                 {
-
-
                     ListaEvento = EventoService.RetornaQualificacaoEventos(sortOrder, DataIni, DataFin),
                     DataInicial = DataIni,
                     DataFinal = DataFin
                 };
-
                 return View(ListaModelo);
             }
             else
@@ -73,5 +66,40 @@ namespace LetsParty.UI.Web.Controllers
         {
             return RedirectToAction("RelatorioQualificacao", "Relatorios", new { sortOrder = ViewBag.DateSortParm, DataIni = Model.DataInicial, DataFin = Model.DataFinal });
         }
+
+        public ActionResult RelatorioLocalidade(string sortOrder, string cidade, string bairro, string estado)
+        {
+            ViewBag.FornSortParm = String.IsNullOrEmpty(sortOrder) ? "Forn_desc" : "";
+            ViewBag.AnuncioSortParm = sortOrder == "Anuncio" ? "Anuncio_desc" : "Anuncio";
+            ViewBag.ServSortParm = sortOrder == "Serv" ? "Serv_desc" : "Serv";
+            ViewBag.TelSortParm = sortOrder == "Tel" ? "Tel_desc" : "Tel";
+            ViewBag.MailSortParm = sortOrder == "Mail" ? "Mail_desc" : "Mail";
+            ViewBag.RuaSortParm = sortOrder == "Rua" ? "Rua_desc" : "Rua";
+            ViewBag.NumSortParm = sortOrder == "Num" ? "Num_desc" : "Num_";
+            ViewBag.BairroSortParm = sortOrder == "Bairro" ? "Bairro_desc" : "Bairro";
+            ViewBag.CidadeSortParm = sortOrder == "Cidade" ? "Cidade_desc" : "Cidade";
+
+
+
+            if (UsuarioService.ObtemUsuarioLogado() != null)
+            {
+                var ListaModelo = new AnuncioViewModel
+                {
+                    ListaViewModel = AnuncioService.RelatorioLocalidade(sortOrder, cidade, bairro, estado)
+                };
+
+                return View(ListaModelo);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Usuario");
+            }
+        }
+        [HttpPost]
+        public ActionResult RelatorioLocalidadeComFiltro(AnuncioViewModel Model)
+        {
+            return RedirectToAction("RelatorioQualificacao", "Relatorios", new { sortOrder = ViewBag.AnuncioSortParm, cidade = Model.Cidade, bairro = Model.Bairro, estado = Model.Estado });
+        }
+
     }
 }

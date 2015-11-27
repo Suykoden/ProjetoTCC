@@ -20,7 +20,7 @@ namespace LetsParty.AppService.Anuncios
         private IUsuarioRepository UsuarioRepository { get; set; }
         private IServicoRepository ServicoRepository { get; set; }
 
-        public AnunciosServices(IAnuncioRepository anunciorepository, IFotoRepository fotoRepository, ILetsPartyContext context, IUsuarioRepository usuarioRepository,IServicoRepository servicoRepository)
+        public AnunciosServices(IAnuncioRepository anunciorepository, IFotoRepository fotoRepository, ILetsPartyContext context, IUsuarioRepository usuarioRepository, IServicoRepository servicoRepository)
         {
             AnuncioRepository = anunciorepository;
             LetsPartyContext = context;
@@ -59,7 +59,7 @@ namespace LetsParty.AppService.Anuncios
             var AnuncioFoto = (from a in _Anuncios
                                join f in _Fotos on a.Id equals f.AnuncioID
                                join u in _Usuario on a.UsuarioID equals u.Id
-                              where (a.Descricao.ToUpper().Contains(anuncio.Busca.ToUpper()) && a.Ativo == true)
+                               where (a.Descricao.ToUpper().Contains(anuncio.Busca.ToUpper()) && a.Ativo == true)
                                select new AnuncioViewModel()
                                {
                                    Descricao = a.Descricao,
@@ -84,7 +84,7 @@ namespace LetsParty.AppService.Anuncios
                                    NomeUsuario = u.Nome,
                                    Email = u.email,
                                    UsuarioID = a.UsuarioID,
-                                   AnuncioID =  a.Id
+                                   AnuncioID = a.Id
                                });
 
             return AnuncioFoto.ToList();
@@ -98,7 +98,7 @@ namespace LetsParty.AppService.Anuncios
             var AnuncioFoto = (from a in _Anuncios
                                join f in _Fotos on a.Id equals f.AnuncioID
                                join u in _Usuario on a.UsuarioID equals u.Id
-                                join s in _Servico on f.AnuncioID equals s.Id
+                               join s in _Servico on f.AnuncioID equals s.Id
                                where (s.Nome.ToUpper().Contains(Categoria.ToUpper()) && a.Ativo == true)
                                select new AnuncioViewModel()
                                {
@@ -126,6 +126,100 @@ namespace LetsParty.AppService.Anuncios
                                });
 
             return AnuncioFoto.ToList();
+        }
+
+
+        public IEnumerable<AnuncioViewModel> RelatorioLocalidade(string Order, string cidade, string bairro, string estado)
+        {
+            var _Anuncios = AnuncioRepository.All();
+            var _Usuario = UsuarioRepository.All();
+            var _Servico = ServicoRepository.All();
+            var RelatorioLocalidade = (from a in _Anuncios
+                               join u in _Usuario on a.UsuarioID equals u.Id
+                               join s in _Servico on a.ServicoID equals s.Id
+                              select new AnuncioViewModel()
+                               {
+                                   Descricao = a.Descricao,
+                                   Titulo = a.Titulo,
+                                   Endereco = u.Endereco,
+                                   Cep = u.Cep,
+                                   Numero = u.Numero,
+                                   Estado = u.Estado,
+                                   Bairro = u.Bairro,
+                                   Celular = u.Celular,
+                                   Telefone = u.Telefone,
+                                   Cidade = u.Cidade,
+                                   NomeUsuario = u.Nome,
+                                   Email = u.email,
+                                   NomeServico = s.Nome
+                               });
+
+
+
+
+            switch (Order)
+            {
+                case "Forn_desc":
+                    RelatorioLocalidade = RelatorioLocalidade.OrderByDescending(e => e.NomeUsuario);
+                    break;
+                case "Anuncio_desc":
+                    RelatorioLocalidade = RelatorioLocalidade.OrderByDescending(e => e.NomeUsuario);
+                    break;
+                case "Serv_desc":
+                    RelatorioLocalidade = RelatorioLocalidade.OrderByDescending(e =>e.NomeServico);
+                    break;
+                case "Tel_desc":
+                    RelatorioLocalidade = RelatorioLocalidade.OrderByDescending(e => e.Telefone);
+                    break;
+                case "Mail_desc":
+                    RelatorioLocalidade = RelatorioLocalidade.OrderByDescending(e => e.Email);
+                    break;
+                case "Rua_desc":
+                    RelatorioLocalidade = RelatorioLocalidade.OrderByDescending(e => e.Endereco);
+                    break;
+                case "Num_desc":
+                    RelatorioLocalidade = RelatorioLocalidade.OrderByDescending(e => e.Numero);
+                    break;
+                case "Bairro_desc":
+                    RelatorioLocalidade = RelatorioLocalidade.OrderByDescending(e => e.Bairro);
+                    break;
+                case "Cidade_desc":
+                    RelatorioLocalidade = RelatorioLocalidade.OrderByDescending(e => e.Cidade);
+                    break;
+                case "Forn":
+                    RelatorioLocalidade = RelatorioLocalidade.OrderBy(e => e.NomeUsuario);
+                    break;
+                case "Anuncio":
+                    RelatorioLocalidade = RelatorioLocalidade.OrderBy(e => e.NomeUsuario);
+                    break;
+                case "Serv":
+                    RelatorioLocalidade = RelatorioLocalidade.OrderBy(e => e.NomeServico);
+                    break;
+                case "Tel":
+                    RelatorioLocalidade = RelatorioLocalidade.OrderBy(e => e.Telefone);
+                    break;
+                case "Mail":
+                    RelatorioLocalidade = RelatorioLocalidade.OrderBy(e => e.Email);
+                    break;
+                case "Rua":
+                    RelatorioLocalidade = RelatorioLocalidade.OrderBy(e => e.Endereco);
+                    break;
+                case "Num":
+                    RelatorioLocalidade = RelatorioLocalidade.OrderBy(e => e.Numero);
+                    break;
+                case "Bairro":
+                    RelatorioLocalidade = RelatorioLocalidade.OrderBy(e => e.Bairro);
+                    break;
+                case "Cidade":
+                    RelatorioLocalidade = RelatorioLocalidade.OrderBy(e => e.Cidade);
+                    break;
+
+
+                default:
+                    RelatorioLocalidade = RelatorioLocalidade.OrderBy(e => e.NomeUsuario);
+                    break;
+            }
+            return RelatorioLocalidade.ToList();
         }
     }
 }

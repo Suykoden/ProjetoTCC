@@ -43,6 +43,7 @@ namespace LetsParty.Domain.ViewModel
         public string Ponto_Referencia { get; set; }
         public string Telefone { get; set; }
         public string Celular { get; set; }
+        public string NomeServico { get; set; }
         public int? NotaAnuncio { get; set; }
         public IEnumerable<Anuncio> ListaAnuncio { get; set; }
         public IEnumerable<AnuncioViewModel> ListaViewModel { get; set; }

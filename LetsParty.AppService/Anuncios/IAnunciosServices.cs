@@ -18,5 +18,6 @@ namespace LetsParty.AppService.Anuncios
         void EditarAnuncio(Anuncio anuncio);
         IEnumerable<AnuncioViewModel> PesquisaPorDescricao(AnuncioViewModel anuncio);
         IEnumerable<AnuncioViewModel> PesquisaPorCategoria(String Categoria);
+        IEnumerable<AnuncioViewModel> RelatorioLocalidade(string sortOrder, string cidade, string bairro, string estado);
     }
 }
