@@ -129,33 +129,45 @@ namespace LetsParty.AppService.Anuncios
         }
 
 
-        public IEnumerable<AnuncioViewModel> RelatorioLocalidade(string Order, string cidade, string bairro, string estado)
+        public IEnumerable<AnuncioViewModel> RelatorioLocalidade(string Order, string Cidade, string Bairro, string Estado)
         {
             var _Anuncios = AnuncioRepository.All();
             var _Usuario = UsuarioRepository.All();
             var _Servico = ServicoRepository.All();
             var RelatorioLocalidade = (from a in _Anuncios
-                               join u in _Usuario on a.UsuarioID equals u.Id
-                               join s in _Servico on a.ServicoID equals s.Id
-                              select new AnuncioViewModel()
-                               {
-                                   Descricao = a.Descricao,
-                                   Titulo = a.Titulo,
-                                   Endereco = u.Endereco,
-                                   Cep = u.Cep,
-                                   Numero = u.Numero,
-                                   Estado = u.Estado,
-                                   Bairro = u.Bairro,
-                                   Celular = u.Celular,
-                                   Telefone = u.Telefone,
-                                   Cidade = u.Cidade,
-                                   NomeUsuario = u.Nome,
-                                   Email = u.email,
-                                   NomeServico = s.Nome
-                               });
+                                       join u in _Usuario on a.UsuarioID equals u.Id
+                                       join s in _Servico on a.ServicoID equals s.Id
+                                       where (u.Ativo == true)
+                                       select new AnuncioViewModel()
+                                        {
+                                            Descricao = a.Descricao,
+                                            Titulo = a.Titulo,
+                                            Endereco = u.Endereco,
+                                            Cep = u.Cep,
+                                            Numero = u.Numero,
+                                            Estado = u.Estado,
+                                            Bairro = u.Bairro,
+                                            Celular = u.Celular,
+                                            Telefone = u.Telefone,
+                                            Cidade = u.Cidade,
+                                            NomeUsuario = u.Nome,
+                                            Email = u.email,
+                                            NomeServico = s.Nome
+                                        });
 
+            if (!(String.IsNullOrEmpty(Bairro)))
+            {
+                RelatorioLocalidade.Where(u => u.Bairro.ToUpper().Contains(Bairro.ToUpper()));
+            }
 
-
+            if (!(String.IsNullOrEmpty(Cidade)))
+            {
+                RelatorioLocalidade.Where(u => u.Cidade.ToUpper().Contains(Cidade.ToUpper()));
+            }
+            if (!(String.IsNullOrEmpty(Estado)))
+            {
+                RelatorioLocalidade.Where(u => u.Estado.ToUpper().Contains(Estado.ToUpper()));
+            }
 
             switch (Order)
             {
@@ -166,7 +178,7 @@ namespace LetsParty.AppService.Anuncios
                     RelatorioLocalidade = RelatorioLocalidade.OrderByDescending(e => e.NomeUsuario);
                     break;
                 case "Serv_desc":
-                    RelatorioLocalidade = RelatorioLocalidade.OrderByDescending(e =>e.NomeServico);
+                    RelatorioLocalidade = RelatorioLocalidade.OrderByDescending(e => e.NomeServico);
                     break;
                 case "Tel_desc":
                     RelatorioLocalidade = RelatorioLocalidade.OrderByDescending(e => e.Telefone);
