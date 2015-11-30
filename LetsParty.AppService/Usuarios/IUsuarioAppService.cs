@@ -18,6 +18,6 @@ namespace LetsParty.AppService.Usuarios
         Guid getIDUsuario();
         Usuario BuscaUsuarioPorID(Guid Id);
         void EditarUsuario(Usuario usuario);
-
+        IEnumerable<Usuario> ListaUsuarios();
     }
 }

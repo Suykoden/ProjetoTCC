@@ -1010,6 +1010,8 @@
     <Content Include="Views\Relatorios\RelatorioQualificacao.cshtml" />
     <Content Include="Views\Shared\PartialSelecaoRelatorio.cshtml" />
     <Content Include="Views\Relatorios\RelatorioLocalidade.cshtml" />
+    <Content Include="Views\Admin\AdminMonitorUsuario.cshtml" />
+    <Content Include="Views\Admin\AdminMonitorAnuncios.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

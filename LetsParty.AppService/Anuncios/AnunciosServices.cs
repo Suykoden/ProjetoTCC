@@ -38,7 +38,7 @@ namespace LetsParty.AppService.Anuncios
 
         public IEnumerable<Anuncio> RetornaAnuncios(Guid Id)
         {
-            return AnuncioRepository.Listar().Where(a => a.UsuarioID == Id && a.Ativo == true);
+            return AnuncioRepository.Listar().Where(a => a.UsuarioID == Id);
         }
 
         public Anuncio BuscaPorId(Guid Id)
@@ -50,6 +50,12 @@ namespace LetsParty.AppService.Anuncios
         {
             AnuncioRepository.Update(anuncio);
         }
+
+        public IEnumerable<Anuncio> ListarTodos()
+        {
+            return AnuncioRepository.All().OrderBy(a => a.Titulo) ;
+        }
+
 
         public IEnumerable<AnuncioViewModel> PesquisaPorDescricao(AnuncioViewModel anuncio)
         {

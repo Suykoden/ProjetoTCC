@@ -116,5 +116,10 @@ namespace LetsParty.AppService.Usuarios
             UsuarioRepository.Update(usuario);
         }
 
+        public IEnumerable<Usuario> ListaUsuarios()
+        {
+            return UsuarioRepository.All();
+        }
+
     }
 }

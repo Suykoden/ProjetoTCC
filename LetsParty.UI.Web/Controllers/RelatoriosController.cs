@@ -34,8 +34,6 @@ namespace LetsParty.UI.Web.Controllers
             StatusService = statusService;
         }
 
-
-
         public ActionResult RelatorioQualificacao(string sortOrder, DateTime? DataIni, DateTime? DataFin)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -82,8 +80,6 @@ namespace LetsParty.UI.Web.Controllers
             ViewBag.Cidade = cidade;
             ViewBag.Bairro = bairro;
             ViewBag.Estado = estado;
-
-
 
             if (UsuarioService.ObtemUsuarioLogado() != null)
             {

@@ -136,6 +136,44 @@ namespace LetsParty.UI.Web.Controllers
             return RedirectToAction("Deslogar");
         }
 
+        public ActionResult ExclusaoUsuarioAdmin(Guid id)
+        {
+            var _Usuario = UsuarioAppService.BuscaUsuarioPorID(id);
+            if (ModelState.IsValid)
+            {
+                _Usuario.Ativo = false;
+                UsuarioAppService.EditarUsuario(_Usuario);
+                var ListaAnuncio = AnunciosServices.RetornaAnuncios(_Usuario.Id);
+                foreach (var anuncios in ListaAnuncio)
+                {
+                    anuncios.Ativo = false;
+                    AnunciosServices.EditarAnuncio(anuncios);
+
+                }
+            }
+            Context.SaveChanges();
+            return RedirectToAction("AdminMonitorUsuario","Admin");
+        }
+
+        public ActionResult ReativaUsuario(Guid id)
+        {
+            var _Usuario = UsuarioAppService.BuscaUsuarioPorID(id);
+            if (ModelState.IsValid)
+            {
+                _Usuario.Ativo = true;
+                UsuarioAppService.EditarUsuario(_Usuario);
+                var ListaAnuncio = AnunciosServices.RetornaAnuncios(_Usuario.Id);
+                foreach (var anuncios in ListaAnuncio)
+                {
+                    anuncios.Ativo = true;
+                    AnunciosServices.EditarAnuncio(anuncios);
+
+                }
+            }
+            Context.SaveChanges();
+            return RedirectToAction("AdminMonitorUsuario", "Admin");
+        }
+
         // GET: Usuario/Delete/5
         public ActionResult Delete(int id)
         {

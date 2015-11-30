@@ -19,5 +19,6 @@ namespace LetsParty.AppService.Anuncios
         IEnumerable<AnuncioViewModel> PesquisaPorDescricao(AnuncioViewModel anuncio);
         IEnumerable<AnuncioViewModel> PesquisaPorCategoria(String Categoria);
         IEnumerable<AnuncioViewModel> RelatorioLocalidade(string sortOrder, string cidade, string bairro, string estado);
+        IEnumerable<Anuncio> ListarTodos();
     }
 }

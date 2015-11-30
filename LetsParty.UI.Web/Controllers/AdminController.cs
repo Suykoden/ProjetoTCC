@@ -162,7 +162,41 @@ namespace LetsParty.UI.Web.Controllers
             }
         }
 
+        public ActionResult AdminMonitorUsuario()
+        {
 
+            if (UsuarioService.ObtemUsuarioLogado() != null)
+            {
+
+                IEnumerable<Usuario> ListaUsuarios = UsuarioService.ListaUsuarios();
+
+
+                return View(ListaUsuarios);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Usuario");
+            }
+
+        }
+
+        public ActionResult AdminMonitorAnuncios()
+        {
+
+            if (UsuarioService.ObtemUsuarioLogado() != null)
+            {
+
+                IEnumerable<Anuncio> ListaAnuncios = AnuncioService.ListarTodos();
+
+
+                return View(ListaAnuncios);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Usuario");
+            }
+
+        }
 
     }
 }
