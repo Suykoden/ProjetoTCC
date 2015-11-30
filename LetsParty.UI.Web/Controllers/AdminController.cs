@@ -25,14 +25,18 @@ namespace LetsParty.UI.Web.Controllers
         private IServicoServices ServicoService { get; set; }
         private IEventoService EventoService { get; set; }
         private IStatusService StatusService { get; set; }
+        private ILetsPartyContext Context { get; set; }
 
-        public AdminController(IAnunciosServices anuncioService, IUsuarioAppService usuarioService, IServicoServices servicoService, IEventoService eventoService, IStatusService statusService)
+        public AdminController(IAnunciosServices anuncioService, IUsuarioAppService usuarioService,
+            IServicoServices servicoService, IEventoService eventoService, IStatusService statusService, ILetsPartyContext context)
         {
             AnuncioService = anuncioService;
             UsuarioService = usuarioService;
             ServicoService = servicoService;
             EventoService = eventoService;
             StatusService = statusService;
+            Context = context;
+
         }
 
         public ActionResult Administrativo()
@@ -198,5 +202,52 @@ namespace LetsParty.UI.Web.Controllers
 
         }
 
+        public ActionResult AdminMonitorServicos()
+        {
+            var Servicos = new ServicoViewModel
+            {
+
+                ListaServico = ServicoService.RetornaServicos()
+            };
+            return View(Servicos);
+
+        }
+
+        [HttpPost]
+        public ActionResult CadastroServico(ServicoViewModel servico)
+        {
+            Servico _servico = new Servico();
+            _servico.Id = Guid.NewGuid();
+            _servico.Nome = servico.Nome;
+            _servico.Ativo = true;
+
+            ServicoService.GravaServico(_servico);
+            return RedirectToAction("AdminMonitorServicos");
+        }
+
+
+        public ActionResult ExclusaoServico(Guid id, string tipo)
+        {
+            var _Servico = ServicoService.BuscaPorId(id);
+
+            if (tipo == "D")
+            {
+                if (ModelState.IsValid)
+                {
+                    _Servico.Ativo = false;
+                    ServicoService.EditarServico(_Servico);
+                }
+            }
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    _Servico.Ativo = true;
+                    ServicoService.EditarServico(_Servico);
+                }
+            }
+            Context.SaveChanges();
+            return RedirectToAction("AdminMonitorServicos", "Admin");
+        }
     }
 }

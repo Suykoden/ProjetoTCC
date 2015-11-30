@@ -32,5 +32,21 @@ namespace LetsParty.AppService.Servicos
                         .All();
         }
 
+        public void GravaServico(Servico servico)
+        {
+            ServicoRepository.Insert(servico);
+            LetsPartyContext.SaveChanges();
+        }
+
+        public Servico BuscaPorId(Guid id)
+        {
+           return ServicoRepository.GetById(id);
+        }
+
+        public void EditarServico(Servico servico)
+        {
+            ServicoRepository.Update(servico);
+            
+        }
     }
 }

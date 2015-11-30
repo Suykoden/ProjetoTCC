@@ -7,8 +7,8 @@ using LetsParty.Seedwork;
 
 namespace LetsParty.Domain.Model.Atores
 {
-   public  class Servico: EntityWithName
+    public class Servico : EntityWithName
     {
-               
+        public bool? Ativo { get; set; }
     }
 }

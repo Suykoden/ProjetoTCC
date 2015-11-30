@@ -268,7 +268,7 @@ namespace LetsParty.UI.Web.Controllers
             return View(_anuncio);
         }
 
-        public ActionResult PesquisaAnuncioCategoria(String Categoria)
+        public ActionResult PesquisaAnuncioCategoria(string Categoria)
         {
 
             var ListaModelo = new AnuncioViewModel
@@ -279,6 +279,30 @@ namespace LetsParty.UI.Web.Controllers
 
             return RedirectToAction("PesquisaAnuncio", new { _anuncio = ListaModelo });
 
+        }
+
+        public ActionResult ExclusaoAnuncioAdmin(Guid id, string tipo)
+        {
+            var _Anuncio = AnunciosServices.BuscaPorId(id);
+
+            if (tipo == "D")
+            {
+                if (ModelState.IsValid)
+                {
+                    _Anuncio.Ativo = false;
+                    AnunciosServices.EditarAnuncio(_Anuncio);
+                }
+            }
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    _Anuncio.Ativo = true;
+                    AnunciosServices.EditarAnuncio(_Anuncio);
+                }
+            }
+            Context.SaveChanges();
+            return RedirectToAction("AdminMonitorAnuncios", "Admin");
         }
 
 

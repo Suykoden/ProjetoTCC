@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -1012,6 +1013,8 @@
     <Content Include="Views\Relatorios\RelatorioLocalidade.cshtml" />
     <Content Include="Views\Admin\AdminMonitorUsuario.cshtml" />
     <Content Include="Views\Admin\AdminMonitorAnuncios.cshtml" />
+    <Content Include="Views\Admin\AdminMonitorServicos.cshtml" />
+    <Content Include="Views\Admin\PartialMonitorServicos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

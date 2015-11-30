@@ -1,0 +1,18 @@
+﻿@model  LetsParty.Domain.ViewModel.ServicoViewModel
+
+@foreach (var Servico in Model.ListaServico)
+{
+    <tr class="odd gradeX">
+        <td>@Html.DisplayFor(modelItem => Servico.Nome)</td>
+        <td>
+            @if (Servico.Ativo == true)
+            {
+                @Html.ActionLink("Excluir", "ExclusaoServico", "Admin", new { id = Servico.Id, tipo = "D" }, new { @class = "btn btn-danger" })
+            }
+            else
+            {
+                @Html.ActionLink("Reativar", "ExclusaoServico", "Admin", new { id = Servico.Id,tipo = "" }, new { @class = "btn btn-success", type = "submit" })
+            }
+        </td>
+    </tr>
+}
