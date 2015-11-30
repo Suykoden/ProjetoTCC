@@ -157,16 +157,16 @@ namespace LetsParty.AppService.Anuncios
 
             if (!(String.IsNullOrEmpty(Bairro)))
             {
-                RelatorioLocalidade.Where(u => u.Bairro.ToUpper().Contains(Bairro.ToUpper()));
+                RelatorioLocalidade = RelatorioLocalidade.Where(u => u.Bairro.ToUpper().Contains(Bairro.ToUpper()));
             }
 
             if (!(String.IsNullOrEmpty(Cidade)))
             {
-                RelatorioLocalidade.Where(u => u.Cidade.ToUpper().Contains(Cidade.ToUpper()));
+                RelatorioLocalidade = RelatorioLocalidade.Where(u => u.Cidade.ToUpper().Contains(Cidade.ToUpper()));
             }
             if (!(String.IsNullOrEmpty(Estado)))
             {
-                RelatorioLocalidade.Where(u => u.Estado.ToUpper().Contains(Estado.ToUpper()));
+                RelatorioLocalidade = RelatorioLocalidade.Where(u => u.Estado.ToUpper().Contains(Estado.ToUpper()));
             }
 
             switch (Order)
@@ -175,7 +175,7 @@ namespace LetsParty.AppService.Anuncios
                     RelatorioLocalidade = RelatorioLocalidade.OrderByDescending(e => e.NomeUsuario);
                     break;
                 case "Anuncio_desc":
-                    RelatorioLocalidade = RelatorioLocalidade.OrderByDescending(e => e.NomeUsuario);
+                    RelatorioLocalidade = RelatorioLocalidade.OrderByDescending(e => e.Titulo);
                     break;
                 case "Serv_desc":
                     RelatorioLocalidade = RelatorioLocalidade.OrderByDescending(e => e.NomeServico);
@@ -202,7 +202,7 @@ namespace LetsParty.AppService.Anuncios
                     RelatorioLocalidade = RelatorioLocalidade.OrderBy(e => e.NomeUsuario);
                     break;
                 case "Anuncio":
-                    RelatorioLocalidade = RelatorioLocalidade.OrderBy(e => e.NomeUsuario);
+                    RelatorioLocalidade = RelatorioLocalidade.OrderBy(e => e.Titulo);
                     break;
                 case "Serv":
                     RelatorioLocalidade = RelatorioLocalidade.OrderBy(e => e.NomeServico);

@@ -66,7 +66,7 @@
                     @Html.Partial("PartialSelecaoRelatorio")
                 </div>
             </div>
-            @using (Html.BeginForm("RelatorioPorLocalidade", "Relatorios", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            @using (Html.BeginForm("RelatorioLocalidadeComFiltro", "Relatorios", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 <div class="col-lg-6">
                     <div class="col-sm-3 col-lg-3 col-md-3">
@@ -103,15 +103,15 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th> @Html.ActionLink("Fornecedor", "RelatorioLocalidade", "Relatorios", new { sortOrder = ViewBag.FornSortParm }, "")</th>
-                                            <th> @Html.ActionLink("Anuncio", "RelatorioLocalidade", "Relatorios", new { sortOrder = ViewBag.AnuncioSortParm }, "")</th>
-                                            <th> @Html.ActionLink("Serviço", "RelatorioLocalidade", "Relatorios", new { sortOrder = ViewBag.ServSortParm }, "")</th>
-                                            <th> @Html.ActionLink("Telefone", "RelatorioLocalidade", "Relatorios", new { sortOrder = ViewBag.TelSortParm }, "")</th>
-                                            <th> @Html.ActionLink("E-mail", "RelatorioLocalidade", "Relatorios", new { sortOrder = ViewBag.MailSortParm }, "")</th>
-                                            <th> @Html.ActionLink("Rua", "RelatorioLocalidade", "Relatorios", new { sortOrder = ViewBag.RuaSortParm }, "")</th>
-                                            <th> @Html.ActionLink("Nº", "RelatorioLocalidade", "Relatorios", new { sortOrder = ViewBag.NumSortParm }, "")</th>
-                                            <th> @Html.ActionLink("Bairro", "RelatorioLocalidade", "Relatorios", new { sortOrder = ViewBag.BairroSortParm }, "")</th>
-                                            <th> @Html.ActionLink("Cidade", "RelatorioLocalidade", "Relatorios", new { sortOrder = ViewBag.CidadeSortParm }, "")</th>
+                                            <th> @Html.ActionLink("Fornecedor", "RelatorioLocalidade", "Relatorios", new { sortOrder = ViewBag.FornSortParm, cidade = ViewBag.Cidade, bairro = ViewBag.Bairro, estado = ViewBag.Estado }, "")</th>
+                                            <th> @Html.ActionLink("Anuncio", "RelatorioLocalidade", "Relatorios", new { sortOrder = ViewBag.AnuncioSortParm, cidade = ViewBag.Cidade, bairro = ViewBag.Bairro, estado = ViewBag.Estado }, "")</th>
+                                            <th> @Html.ActionLink("Serviço", "RelatorioLocalidade", "Relatorios", new { sortOrder = ViewBag.ServSortParm, cidade = ViewBag.Cidade, bairro = ViewBag.Bairro, estado = ViewBag.Estado }, "")</th>
+                                            <th> @Html.ActionLink("Telefone", "RelatorioLocalidade", "Relatorios", new { sortOrder = ViewBag.TelSortParm, cidade = ViewBag.Cidade, bairro = ViewBag.Bairro, estado = ViewBag.Estado }, "")</th>
+                                            <th> @Html.ActionLink("E-mail", "RelatorioLocalidade", "Relatorios", new { sortOrder = ViewBag.MailSortParm, cidade = ViewBag.Cidade, bairro = ViewBag.Bairro, estado = ViewBag.Estado }, "")</th>
+                                            <th> @Html.ActionLink("Rua", "RelatorioLocalidade", "Relatorios", new { sortOrder = ViewBag.RuaSortParm, cidade = ViewBag.Cidade, bairro = ViewBag.Bairro, estado = ViewBag.Estado }, "")</th>
+                                            <th> @Html.ActionLink("Nº", "RelatorioLocalidade", "Relatorios", new { sortOrder = ViewBag.NumSortParm, cidade = ViewBag.Cidade, bairro = ViewBag.Bairro, estado = ViewBag.Estado }, "")</th>
+                                            <th> @Html.ActionLink("Bairro", "RelatorioLocalidade", "Relatorios", new { sortOrder = ViewBag.BairroSortParm, cidade = ViewBag.Cidade, bairro = ViewBag.Bairro, estado = ViewBag.Estado }, "")</th>
+                                            <th> @Html.ActionLink("Cidade", "RelatorioLocalidade", "Relatorios", new { sortOrder = ViewBag.CidadeSortParm, cidade = ViewBag.Cidade, bairro = ViewBag.Bairro, estado = ViewBag.Estado }, "")</th>
                                         </tr>
                                     </thead>
                                     <tbody>

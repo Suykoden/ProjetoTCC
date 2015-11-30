@@ -155,7 +155,8 @@ namespace LetsParty.AppService.Eventos
             var Evento = (from e in _Evento
                           join u in _Usuario on e.UsuarioPrestadorID equals u.Id
                           join a in _Anuncios on e.AnuncioID equals a.Id
-                          where ((DataIni == null && DataFin == null) ? e.EventoAtivo == true : e.EventoAtivo == true &&  a.Data >= DataIni && a.Data <= DataFin)
+                          where ((DataIni == null && DataFin == null) ? e.EventoAtivo == true : e.EventoAtivo == true && a.Data.Day >= DataIni.Value.Day && a.Data.Month >= DataIni.Value.Month &&
+                          a.Data.Year >= DataIni.Value.Year && a.Data.Day <= DataFin.Value.Day && a.Data.Month <= DataFin.Value.Month && a.Data.Year <= DataFin.Value.Year)
                           group new { e, u, a } by new
                           {
                               e.AnuncioID,

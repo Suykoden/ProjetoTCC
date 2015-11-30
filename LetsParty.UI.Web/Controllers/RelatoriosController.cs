@@ -79,6 +79,10 @@ namespace LetsParty.UI.Web.Controllers
             ViewBag.BairroSortParm = sortOrder == "Bairro" ? "Bairro_desc" : "Bairro";
             ViewBag.CidadeSortParm = sortOrder == "Cidade" ? "Cidade_desc" : "Cidade";
 
+            ViewBag.Cidade = cidade;
+            ViewBag.Bairro = bairro;
+            ViewBag.Estado = estado;
+
 
 
             if (UsuarioService.ObtemUsuarioLogado() != null)
@@ -98,7 +102,7 @@ namespace LetsParty.UI.Web.Controllers
         [HttpPost]
         public ActionResult RelatorioLocalidadeComFiltro(AnuncioViewModel Model)
         {
-            return RedirectToAction("RelatorioQualificacao", "Relatorios", new { sortOrder = ViewBag.AnuncioSortParm, cidade = Model.Cidade, bairro = Model.Bairro, estado = Model.Estado });
+            return RedirectToAction("RelatorioLocalidade", "Relatorios", new { sortOrder = ViewBag.AnuncioSortParm, cidade = Model.Cidade, bairro = Model.Bairro, estado = Model.Estado });
         }
 
     }
