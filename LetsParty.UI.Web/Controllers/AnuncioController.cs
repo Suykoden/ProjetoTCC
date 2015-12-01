@@ -70,7 +70,6 @@ namespace LetsParty.UI.Web.Controllers
                 if (file != null)
                 {
 
-
                     String[] strName = file.FileName.Split('.');
                     String strExt = strName[strName.Count() - 1];
                     String NomeFoto = strName[0];
@@ -193,6 +192,7 @@ namespace LetsParty.UI.Web.Controllers
                 _Anuncio.UsuarioID = _AnuncioViewModel.UsuarioID;
                 _Anuncio.Data = _AnuncioViewModel.Data;
                 _Anuncio.ServicoID = _AnuncioViewModel.ServicoID;
+                _Anuncio.Ativo = true;
                 AnunciosServices.EditarAnuncio(_Anuncio);
                 Context.SaveChanges();
             }
@@ -228,19 +228,27 @@ namespace LetsParty.UI.Web.Controllers
             return RedirectToAction("Logon", "Usuario");
         }
 
-        public ActionResult PesquisaAnuncio()
+        public ActionResult PesquisaAnuncio(string busca)
         {
-            return View("PesquisaAnuncio");
+            AnuncioViewModel _anuncio = new AnuncioViewModel();
+            _anuncio.Busca = busca;
+
+
+            var ListaModelo = new AnuncioViewModel
+            {
+                ListaViewModel = AnunciosServices.Pesquisa(_anuncio, "Servico").ToList()
+            };
+
+            return View(ListaModelo);
         }
 
         [HttpPost]
         public ActionResult PesquisaAnuncio(AnuncioViewModel anuncio)
         {
-
             var ListaModelo = new AnuncioViewModel
-            {
-                ListaViewModel = AnunciosServices.PesquisaPorDescricao(anuncio).ToList()
-            };
+                        {
+                            ListaViewModel = AnunciosServices.Pesquisa(anuncio, "Descricao").ToList()
+                        };
 
             return View(ListaModelo);
         }
@@ -263,22 +271,7 @@ namespace LetsParty.UI.Web.Controllers
                 ViewBag.TotalUsers = "0";
             }
 
-
-
             return View(_anuncio);
-        }
-
-        public ActionResult PesquisaAnuncioCategoria(string Categoria)
-        {
-
-            var ListaModelo = new AnuncioViewModel
-            {
-                ListaViewModel = AnunciosServices.PesquisaPorCategoria(Categoria).ToList()
-            };
-
-
-            return RedirectToAction("PesquisaAnuncio", new { _anuncio = ListaModelo });
-
         }
 
         public ActionResult ExclusaoAnuncioAdmin(Guid id, string tipo)
@@ -304,7 +297,6 @@ namespace LetsParty.UI.Web.Controllers
             Context.SaveChanges();
             return RedirectToAction("AdminMonitorAnuncios", "Admin");
         }
-
 
     }
 }

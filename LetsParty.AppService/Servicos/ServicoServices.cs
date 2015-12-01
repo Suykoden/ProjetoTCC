@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LetsParty.Domain.Model.Atores;
+using LetsParty.Domain.ViewModel;
 using LetsParty.AppService.Usuarios.DTO;
 using System.Web.Security;
 using System.Web;
@@ -47,13 +48,15 @@ namespace LetsParty.AppService.Servicos
 
         public Servico BuscaPorId(Guid id)
         {
-           return ServicoRepository.GetById(id);
+            return ServicoRepository.GetById(id);
         }
 
         public void EditarServico(Servico servico)
         {
             ServicoRepository.Update(servico);
-            
+
         }
+
+      
     }
 }

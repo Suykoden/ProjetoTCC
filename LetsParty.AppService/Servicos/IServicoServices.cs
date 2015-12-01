@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LetsParty.AppService.Usuarios.DTO;
 using LetsParty.Domain.Model.Atores;
+using LetsParty.Domain.ViewModel;
 
 namespace LetsParty.AppService.Servicos
 {
@@ -14,5 +15,6 @@ namespace LetsParty.AppService.Servicos
         void GravaServico(Servico servico);
         Servico BuscaPorId(Guid id);
         void EditarServico(Servico servico);
+        
     }
 }

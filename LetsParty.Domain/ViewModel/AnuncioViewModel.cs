@@ -9,7 +9,7 @@ using LetsParty.Domain.Model.Atores;
 
 namespace LetsParty.Domain.ViewModel
 {
-    public class AnuncioViewModel:EntityBase
+    public class AnuncioViewModel : EntityBase
     {
         public string Titulo { get; set; }
         public string Descricao { get; set; }
@@ -29,7 +29,7 @@ namespace LetsParty.Domain.ViewModel
         public string Busca { get; set; }
         public string NomeUsuario { get; set; }
         public string Email { get; set; }
-        public decimal? Valor { get; set; } 
+        public decimal? Valor { get; set; }
         public Guid AnuncioID { get; set; }
         public Anuncio anuncio { get; set; }
         public string Endereco { get; set; }
@@ -47,6 +47,6 @@ namespace LetsParty.Domain.ViewModel
         public int? NotaAnuncio { get; set; }
         public IEnumerable<Anuncio> ListaAnuncio { get; set; }
         public IEnumerable<AnuncioViewModel> ListaViewModel { get; set; }
-       
+
     }
 }

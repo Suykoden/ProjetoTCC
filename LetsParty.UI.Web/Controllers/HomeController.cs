@@ -1,4 +1,6 @@
 ﻿using LetsParty.AppService.Usuarios;
+using LetsParty.AppService.Servicos;
+using LetsParty.Domain.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +13,11 @@ namespace LetsParty.UI.Web.Controllers
     {
 
         private IUsuarioAppService UsuarioAppService { get; set; }
-        public HomeController(IUsuarioAppService usuarioApp)
+        private IServicoServices ServicoService { get; set; }
+        public HomeController(IUsuarioAppService usuarioApp, IServicoServices servicoService)
         {
             UsuarioAppService = usuarioApp;
+            ServicoService = servicoService;
         }
         
 

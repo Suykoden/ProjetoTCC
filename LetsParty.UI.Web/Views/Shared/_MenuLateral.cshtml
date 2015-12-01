@@ -1,17 +1,16 @@
-﻿@{
-    Layout = null;
-}
+﻿@model LetsParty.Domain.ViewModel.AnuncioViewModel
 
 <div class="col-md-3">
     <p class="lead">Categorias</p>
     <div class="list-group">
-        <a href="#" class="list-group-item">Festas Infantis</a>
-        <a href="#" class="list-group-item">Casamentos</a>
-        <a href="#" class="list-group-item">15 anos</a>
-        <a href="#" class="list-group-item">Formaturas</a>
-        <a href="#" class="list-group-item">Recepções</a>
-        <a href="#" class="list-group-item">Produtos festivos</a>
-        <a href="#" class="list-group-item">Salões</a>
+        @Html.ActionLink("Infantis", "PesquisaAnuncio", "Anuncio", new { busca = "Infantis" }, new { @class = "list-group-item" })
+        @Html.ActionLink("Casamentos", "PesquisaAnuncio", "Anuncio", new { busca = "Casamentos" }, new { @class = "list-group-item" })
+        @Html.ActionLink("Formatura", "PesquisaAnuncio", "Anuncio", new { busca = "Formatura" }, new { @class = "list-group-item" })
+        @Html.ActionLink("Debutantes", "PesquisaAnuncio", "Anuncio", new { busca = "Debutantes" }, new { @class = "list-group-item" })
+        @Html.ActionLink("Recepções", "PesquisaAnuncio", "Anuncio", new { busca = "Recepções" }, new { @class = "list-group-item" })
+        @Html.ActionLink("Salões", "PesquisaAnuncio", "Anuncio", new { busca = "Buffet" }, new { @class = "list-group-item" })
+        @Html.ActionLink("Produtos festivos", "PesquisaAnuncio", "Anuncio", new { busca = "Produtos" }, new { @class = "list-group-item" })
+        
     </div>
     <hr />
     <p class="lead">Regiões</p>
@@ -43,20 +42,6 @@
             Minas Gerais
         </label>
     </div>
-    <hr />
-    <p class="lead">Tipo</p>
-    <div class="checkbox">
-        <label>
-            <input type="checkbox" value="">
-            <span class="cr"></span>
-            Serviços
-        </label>
-    </div>
-    <div class="checkbox">
-        <label>
-            <input type="checkbox" value="">
-            <span class="cr"></span>
-            Produtos
-        </label>
-    </div>
+ 
+ 
 </div>

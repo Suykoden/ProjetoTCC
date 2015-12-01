@@ -16,8 +16,7 @@ namespace LetsParty.AppService.Anuncios
         IEnumerable<Anuncio> RetornaAnuncios(Guid Id);
         Anuncio BuscaPorId(Guid Id);
         void EditarAnuncio(Anuncio anuncio);
-        IEnumerable<AnuncioViewModel> PesquisaPorDescricao(AnuncioViewModel anuncio);
-        IEnumerable<AnuncioViewModel> PesquisaPorCategoria(String Categoria);
+        IEnumerable<AnuncioViewModel> Pesquisa(AnuncioViewModel anuncio, string tipo);
         IEnumerable<AnuncioViewModel> RelatorioLocalidade(string sortOrder, string cidade, string bairro, string estado);
         IEnumerable<Anuncio> ListarTodos();
     }
