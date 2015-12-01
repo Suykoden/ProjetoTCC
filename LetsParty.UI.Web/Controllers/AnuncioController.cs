@@ -165,7 +165,7 @@ namespace LetsParty.UI.Web.Controllers
         {
             if (UsuarioService.ObtemUsuarioLogado() != null)
             {
-                ViewBag.ListaServico = ServicoService.RetornaServicos().ToList();
+                ViewBag.ListaServico = ServicoService.RetornaServicos(false).ToList();
                 return View("Anuncio");
             }
             else

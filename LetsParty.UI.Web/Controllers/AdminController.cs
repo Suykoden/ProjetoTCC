@@ -62,7 +62,7 @@ namespace LetsParty.UI.Web.Controllers
             _AnuncioViewModel.ServicoID = anuncio.ServicoID;
             _AnuncioViewModel.UsuarioID = anuncio.UsuarioID;
 
-            ViewBag.ListaServico = ServicoService.RetornaServicos().ToList();
+            ViewBag.ListaServico = ServicoService.RetornaServicos(false).ToList();
             return View(_AnuncioViewModel);
         }
 
@@ -207,7 +207,7 @@ namespace LetsParty.UI.Web.Controllers
             var Servicos = new ServicoViewModel
             {
 
-                ListaServico = ServicoService.RetornaServicos()
+                ListaServico = ServicoService.RetornaServicos(true)
             };
             return View(Servicos);
 

@@ -10,7 +10,7 @@ namespace LetsParty.AppService.Servicos
 {
     public interface IServicoServices
     {
-        IQueryable<Servico> RetornaServicos();
+        IQueryable<Servico> RetornaServicos(bool ListaInativos);
         void GravaServico(Servico servico);
         Servico BuscaPorId(Guid id);
         void EditarServico(Servico servico);

@@ -26,10 +26,17 @@ namespace LetsParty.AppService.Servicos
             LetsPartyContext = context;
         }
 
-        public IQueryable<Servico> RetornaServicos()
+        public IQueryable<Servico> RetornaServicos(bool ListaInativos)
         {
-            return ServicoRepository
-                        .All();
+            if (ListaInativos == true)
+            {
+                return ServicoRepository
+                            .All();
+            }
+            else
+            {
+                return ServicoRepository.All().Where(s => s.Ativo == true);
+            }
         }
 
         public void GravaServico(Servico servico)
