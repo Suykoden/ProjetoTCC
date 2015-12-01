@@ -12,5 +12,6 @@ namespace LetsParty.AppService.Status
        Guid ObtemStatusPadrao();
        string RetornaStatusAtual(Guid Id);
        IQueryable<StatusEvento> RetornaStatus();
+        void GravaStatus(StatusEvento status);
       }
 }

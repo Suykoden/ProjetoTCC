@@ -9,6 +9,6 @@ namespace LetsParty.Domain.Model.Atores
 {
     public class Perfil : EntityWithName
     {
-
+        
     }
 }

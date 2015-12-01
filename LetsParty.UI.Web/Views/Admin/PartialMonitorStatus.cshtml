@@ -1,0 +1,9 @@
+﻿@model  LetsParty.Domain.ViewModel.StatusViewModel
+
+@foreach (var Status in Model.ListaStatus)
+{
+    <tr class="odd gradeX">
+        <td>@Html.DisplayFor(modelItem => Status.status)</td>
+        
+    </tr>
+}

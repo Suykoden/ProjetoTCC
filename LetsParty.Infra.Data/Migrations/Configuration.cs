@@ -54,45 +54,46 @@ namespace LetsParty.Infra.Data.Migrations
                }*/
 
 
-            /*  try
-            {
-                var servicoDbSet = context.Set<StatusEvento>();
+            /*   try
+               {
+                   var servicoDbSet = context.Set<StatusEvento>();
 
-                servicoDbSet.Add(new StatusEvento()
-                {
-                    
-                    Id = cd0da356-f054-45a2-85e0-37b0d74da8ff,
-                    status = "Aguardando análise do fornecedor"
-                });
+                   servicoDbSet.Add(new StatusEvento()
+                   {
 
-                servicoDbSet.Add(new StatusEvento()
-                {
+                       Id = Guid.Parse("cd0da356 - f054-45a2-85e0-37b0d74da8ff"),
+                       status = "Aguardando análise do fornecedor"
+                   });
 
-                    Id = f39e7794-58de-423a-ab07-a2f3957a0855,
-                    status = "Agendado"
-                });
+                   servicoDbSet.Add(new StatusEvento()
+                   {
 
-                servicoDbSet.Add(new StatusEvento()
-                {
+                       Id = Guid.Parse("f39e7794-58de-423a-ab07-a2f3957a0855"),
+                       status = "Agendado"
+                   });
 
-                    Id = dc50fcc3-7134-45ce-a331-a7c0261a5236,
-                    status = "Solicitação recusada"
-                });
+                   servicoDbSet.Add(new StatusEvento()
+                   {
 
-                servicoDbSet.Add(new StatusEvento()
-                {
+                       Id = Guid.Parse("dc50fcc3-7134-45ce-a331-a7c0261a5236"),
+                       status = "Solicitação recusada"
+                   });
 
-                    Id = 30cbd91b-b4ef-40ad-bd17-d61e3dff7e6c,
-                    status = "Solicitação finalizada"
-                });
+                   servicoDbSet.Add(new StatusEvento()
+                   {
+
+                       Id = Guid.Parse("30cbd91b-b4ef-40ad-bd17-d61e3dff7e6c"),
+                       status = "Solicitação finalizada"
+                   });
 
 
-                context.SaveChanges();
-            }
-            catch (Exception)
-            {
+                   context.SaveChanges();
+               }
+               catch (Exception)
+               {
 
-            }*/
+
+               */
         }
     }
 }

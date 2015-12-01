@@ -249,5 +249,29 @@ namespace LetsParty.UI.Web.Controllers
             Context.SaveChanges();
             return RedirectToAction("AdminMonitorServicos", "Admin");
         }
+
+
+        public ActionResult AdminMonitorStatus()
+        {
+            var Status = new StatusViewModel
+            {
+
+                ListaStatus = StatusService.RetornaStatus()
+            };
+            return View(Status);
+
+        }
+
+        [HttpPost]
+        public ActionResult CadastroStatus(ServicoViewModel status)
+        {
+            StatusEvento _status = new StatusEvento();
+            _status.Id = Guid.NewGuid();
+            _status.status = status.Nome;
+
+
+            StatusService.GravaStatus(_status);
+            return RedirectToAction("AdminMonitorStatus");
+        }
     }
 }

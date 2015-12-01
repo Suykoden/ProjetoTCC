@@ -38,5 +38,12 @@ namespace LetsParty.AppService.Status
         {
             return StatusRepository.All();
         }
+
+        public void GravaStatus(StatusEvento status)
+        {
+            StatusRepository.Insert(status);
+            Context.SaveChanges();
+        }
+
     }
 }

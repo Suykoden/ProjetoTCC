@@ -93,8 +93,7 @@ namespace LetsParty.UI.Web.Controllers
         [HttpPost]
         public ActionResult AvaliarEvento(EventoViewModel e)
         {
-            if (ModelState.IsValid)
-            {
+           
                 Evento evento = new Evento();
                 evento = EventosService.BuscaPorId(e.EventoID);
                 evento.AvaliacaoCliente = e.NotaAnuncio;
@@ -102,9 +101,7 @@ namespace LetsParty.UI.Web.Controllers
                 Context.SaveChanges();
 
                 return RedirectToAction("AdminListaPedido", "Admin");
-            }
-
-            return RedirectToAction("AdminListaPedido", "Admin");
+           
         }
 
     }
