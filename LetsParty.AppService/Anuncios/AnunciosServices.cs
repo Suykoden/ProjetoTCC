@@ -56,7 +56,6 @@ namespace LetsParty.AppService.Anuncios
             return AnuncioRepository.All().OrderBy(a => a.Titulo);
         }
 
-
         public IEnumerable<AnuncioViewModel> Pesquisa(AnuncioViewModel anuncio, string tipo)
         {
 
