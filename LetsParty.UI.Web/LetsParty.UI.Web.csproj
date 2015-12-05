@@ -1016,6 +1016,7 @@
     <Content Include="Views\Admin\AdminMonitorServicos.cshtml" />
     <Content Include="Views\Admin\PartialMonitorServicos.cshtml" />
     <Content Include="Views\Admin\AdminMonitorStatus.cshtml" />
+    <Content Include="Views\Admin\PartialMonitorUsuario.cshtml" />
     <Content Include="Views\Admin\PartialMonitorStatus.cshtml" />
   </ItemGroup>
   <ItemGroup>

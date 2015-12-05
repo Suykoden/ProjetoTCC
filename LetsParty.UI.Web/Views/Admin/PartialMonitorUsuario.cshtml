@@ -1,0 +1,21 @@
+﻿@model  LetsParty.Domain.ViewModel.UsuarioViewModel
+
+@foreach (var Usuarios in Model.ListaUsuario)
+{
+    <tr class="odd gradeX">
+
+        <td>@Html.DisplayFor(modelItem => Usuarios.Nome)</td>
+        <td>@Html.DisplayFor(modelItem => Usuarios.DataCadastro)</td>
+        <td>@Html.DisplayFor(modelItem => Usuarios.Documento)</td>
+        <td>
+            @if (Usuarios.Ativo == true)
+            {
+                @Html.ActionLink("Excluir", "ExclusaoUsuarioAdmin", "Usuario", new { id = Usuarios.Id }, new { @class = "btn btn-danger" })
+            }
+            else
+            {
+                @Html.ActionLink("Reativar", "ReativaUsuario", "Usuario", new { id = Usuarios.Id }, new { @class = "btn btn-success", type = "submit" })
+            }
+        </td>
+    </tr>
+}

@@ -62,6 +62,7 @@
     <Compile Include="ViewModel\EventoViewModel.cs" />
     <Compile Include="ViewModel\ServicoViewModel.cs" />
     <Compile Include="ViewModel\StatusViewModel.cs" />
+    <Compile Include="ViewModel\UsuarioViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LetsParty.Seedwork\LetsParty.Seedwork.csproj">
