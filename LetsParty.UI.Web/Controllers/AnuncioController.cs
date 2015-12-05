@@ -66,7 +66,14 @@ namespace LetsParty.UI.Web.Controllers
                 _Anuncio.Descricao = anuncio.Descricao;
                 _Anuncio.Valor = anuncio.Valor;
                 _Anuncio.Ativo = true;
-
+                _Anuncio.Endereco = anuncio.Endereco;
+                _Anuncio.Numero = anuncio.Numero;
+                _Anuncio.Cep = anuncio.Cep;
+                _Anuncio.Bairro = anuncio.Bairro;
+                _Anuncio.Municipio = anuncio.Cidade;
+                _Anuncio.Estado = anuncio.Estado;
+                _Anuncio.Telefone = anuncio.Telefone;
+                _Anuncio.Email = anuncio.Email;
                 if (file != null)
                 {
 
@@ -193,6 +200,13 @@ namespace LetsParty.UI.Web.Controllers
                 _Anuncio.Data = _AnuncioViewModel.Data;
                 _Anuncio.ServicoID = _AnuncioViewModel.ServicoID;
                 _Anuncio.Ativo = true;
+                _Anuncio.Endereco = _AnuncioViewModel.Endereco;
+                _Anuncio.Numero = _AnuncioViewModel.Numero;
+                _Anuncio.Cep = _AnuncioViewModel.Cep;
+                _Anuncio.Estado = _AnuncioViewModel.Estado;
+                _Anuncio.Municipio = _AnuncioViewModel.Cidade;
+                _Anuncio.Bairro = _AnuncioViewModel.Bairro;
+                _Anuncio.Valor = _AnuncioViewModel.Valor;
                 AnunciosServices.EditarAnuncio(_Anuncio);
                 Context.SaveChanges();
             }
@@ -228,18 +242,30 @@ namespace LetsParty.UI.Web.Controllers
             return RedirectToAction("Logon", "Usuario");
         }
 
-        public ActionResult PesquisaAnuncio(string busca)
+        public ActionResult PesquisaAnuncio(string busca, string tipo)
         {
             AnuncioViewModel _anuncio = new AnuncioViewModel();
             _anuncio.Busca = busca;
 
-
-            var ListaModelo = new AnuncioViewModel
+            if (tipo == "categoria")
             {
-                ListaViewModel = AnunciosServices.Pesquisa(_anuncio, "Servico").ToList()
-            };
+                var ListaModelo = new AnuncioViewModel
+                {
+                    ListaViewModel = AnunciosServices.Pesquisa(_anuncio, "Servico").ToList(),
+                  
+                };
 
-            return View(ListaModelo);
+                return View(ListaModelo);
+            }
+            else
+            {
+                var ListaModelo = new AnuncioViewModel
+                {
+                    ListaViewModel = AnunciosServices.Pesquisa(_anuncio, "Cidade").ToList()
+                };
+
+                return View(ListaModelo);
+            }
         }
 
         [HttpPost]

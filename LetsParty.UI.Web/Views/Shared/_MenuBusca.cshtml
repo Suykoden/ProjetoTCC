@@ -15,15 +15,21 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="http://localhost:34417/Home">Festeje - O Seu site de festas</a>
+            <a class="navbar-brand" href="http://localhost:34417/Home">Festeje - O seu site de festas </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             @using (Html.BeginForm("PesquisaAnuncio", "Anuncio", FormMethod.Post, new { @class = "navbar-form navbar-left", role = "search" }))
             {
                 <div class="form-group">
-                    @Html.EditorFor(model => model.Busca, new { htmlAttributes = new { @class = "form-control", placeholder = " Procurar", size = "100" } })
+                    @Html.EditorFor(model => model.Busca, new { htmlAttributes = new { @class = "form-control", placeholder = " Diga o que procura", size = "14" } })
 
+                </div>
+                <div class="form-group">
+                    @Html.EditorFor(model => model.Bairro, new { htmlAttributes = new { @class = "form-control", placeholder = " Bairro", size= "9" } })
+                </div>
+                <div class="form-group">
+                    @Html.EditorFor(model => model.Cidade, new { htmlAttributes = new { @class = "form-control", placeholder = "Cidade", size = "10" } })
                 </div>
                 <button type="submit" class="btn btn-primary">
                     <span class="glyphicons glyphicons-search"></span>

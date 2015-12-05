@@ -49,9 +49,16 @@
                 </div>
                 <div class="slide-content">
                     <h4>@Html.DisplayFor(modelItem => Model.Titulo)</h4>
+                    <h4>
+                        <span class="label label-info"><i class="glyphicon glyphicon-road"></i> @Html.DisplayFor(modelItem => Model.Cidade)</span>
+                        <span class="label label-primary"><i class="glyphicon glyphicon-wrench"></i> @Html.DisplayFor(modelItem => Model.NomeServico)</span>
+                         <span class="label label-success"><i class="glyphicon glyphicon-user"></i> @Html.DisplayFor(modelItem => Model.NomeUsuario)</span>
+                    </h4>
+
                     <p>
                         @Html.DisplayFor(modelItem => Model.Descricao)
                     </p>
+
                 </div>
                 <div class="slide-footer">
                     <span class="pull-right buttons">

@@ -61,6 +61,13 @@ namespace LetsParty.UI.Web.Controllers
             _AnuncioViewModel.Data = anuncio.Data;
             _AnuncioViewModel.ServicoID = anuncio.ServicoID;
             _AnuncioViewModel.UsuarioID = anuncio.UsuarioID;
+            _AnuncioViewModel.Endereco = anuncio.Endereco;
+            _AnuncioViewModel.Numero = anuncio.Numero;
+            _AnuncioViewModel.Cep = anuncio.Cep;
+            _AnuncioViewModel.Cidade = anuncio.Municipio;
+            _AnuncioViewModel.Estado = anuncio.Estado;
+            _AnuncioViewModel.Bairro = anuncio.Bairro;
+            _AnuncioViewModel.Valor = anuncio.Valor;
 
             ViewBag.ListaServico = ServicoService.RetornaServicos(false).ToList();
             return View(_AnuncioViewModel);

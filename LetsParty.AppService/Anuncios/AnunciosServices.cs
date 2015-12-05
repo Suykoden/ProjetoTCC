@@ -83,32 +83,45 @@ namespace LetsParty.AppService.Anuncios
                                     Caminho2 = f.Caminho2,
                                     Caminho3 = f.Caminho3,
                                     Valor = a.Valor,
-                                    Endereco = u.Endereco,
-                                    Cep = u.Cep,
-                                    Numero = u.Numero,
-                                    Pais = u.Pais,
-                                    Estado = u.Estado,
-                                    Bairro = u.Bairro,
-                                    Celular = u.Celular,
-                                    Telefone = u.Telefone,
-                                    Cidade = u.Cidade,
+                                    Endereco = a.Endereco,
+                                    Cep = a.Cep,
+                                    Numero = a.Numero,
+                                    Pais = a.Pais,
+                                    Estado = a.Estado,
+                                    Bairro = a.Bairro,
+                                    Celular = a.Celular,
+                                    Telefone = a.Telefone,
+                                    Cidade = a.Municipio,
                                     NomeUsuario = u.Nome,
                                     Email = u.email,
                                     UsuarioID = a.UsuarioID,
                                     AnuncioID = a.Id,
                                     NomeServico = s.Nome
                                 });
-
-
             switch (tipo)
             {
                 case "Descricao":
                     if (!(String.IsNullOrEmpty(anuncio.Busca)))
-                        ListaAnuncio = ListaAnuncio.Where(a => a.Descricao.ToUpper().Contains(anuncio.Busca.ToUpper()));
+                    {
+                        ListaAnuncio = ListaAnuncio.Where(a => (a.Descricao).ToUpper().Contains(anuncio.Busca.ToUpper()));
+                    }
+
                     break;
                 case "Servico":
                     ListaAnuncio = ListaAnuncio.Where(a => a.NomeServico.ToUpper().Contains(anuncio.Busca.ToUpper()));
                     break;
+                case "Cidade":
+                    ListaAnuncio = ListaAnuncio.Where(a => a.Estado.ToUpper().Contains(anuncio.Busca.ToUpper()));
+                    break;
+            }
+
+            if (!(String.IsNullOrEmpty(anuncio.Bairro)))
+            {
+                ListaAnuncio = ListaAnuncio.Where(a => a.Bairro.ToUpper().Contains(anuncio.Bairro.ToUpper()));
+            }
+            if (!(String.IsNullOrEmpty(anuncio.Cidade)))
+            {
+                ListaAnuncio = ListaAnuncio.Where(a => a.Cidade.ToUpper().Contains(anuncio.Cidade.ToUpper()));
             }
             return ListaAnuncio.ToList();
         }
