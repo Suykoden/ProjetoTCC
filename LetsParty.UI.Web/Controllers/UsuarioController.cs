@@ -65,6 +65,11 @@ namespace LetsParty.UI.Web.Controllers
             return View();
         }
 
+
+        public ActionResult Sucessocadastro()
+        {
+            return View();
+        }
         // POST: Usuario/Create
         [HttpPost]
         public ActionResult Create(Usuario usuario)
@@ -73,14 +78,13 @@ namespace LetsParty.UI.Web.Controllers
             {
                 usuario.Id = Guid.NewGuid();
                 usuario.DataCadastro = DateTime.Now;
-                usuario.DataNascimento = DateTime.Now;
                 usuario.Ativo = true;
+                usuario.Administrador = false;
                 UsuarioAppService.Grava(usuario);
-                // return View();
+                ViewBag.Cadastro = "Cadastro realizado com sucesso, efetue seu login";
+                return RedirectToAction("Sucessocadastro");
 
             }
-
-            ViewBag.Cadastro = "Sucesso";
             return View("Cadastro");
         }
 
@@ -129,7 +133,7 @@ namespace LetsParty.UI.Web.Controllers
                 {
                     anuncios.Ativo = false;
                     AnunciosServices.EditarAnuncio(anuncios);
-                   
+
                 }
             }
             Context.SaveChanges();
@@ -152,7 +156,7 @@ namespace LetsParty.UI.Web.Controllers
                 }
             }
             Context.SaveChanges();
-            return RedirectToAction("AdminMonitorUsuario","Admin");
+            return RedirectToAction("AdminMonitorUsuario", "Admin");
         }
 
         public ActionResult ReativaUsuario(Guid id)

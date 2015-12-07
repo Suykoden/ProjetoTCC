@@ -244,6 +244,7 @@ namespace LetsParty.UI.Web.Controllers
 
         public ActionResult PesquisaAnuncio(string busca, string tipo)
         {
+            
             AnuncioViewModel _anuncio = new AnuncioViewModel();
             _anuncio.Busca = busca;
 

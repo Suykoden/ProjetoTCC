@@ -1027,6 +1027,7 @@
     <Content Include="Views\Admin\AdminMonitorStatus.cshtml" />
     <Content Include="Views\Admin\PartialMonitorUsuario.cshtml" />
     <Content Include="Views\Admin\PartialMonitorStatus.cshtml" />
+    <Content Include="Views\Usuario\Sucessocadastro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
