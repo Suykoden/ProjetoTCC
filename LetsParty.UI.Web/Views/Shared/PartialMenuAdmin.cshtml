@@ -14,20 +14,23 @@
                 <a href="@Url.Action("AdminListaPedido", "Admin")"><i class="glyphicon glyphicon-shopping-cart"></i> Minhas Solicitações</a>
             </li>
             <li>
-                <a href="@Url.Action("AdminMonitorAnuncios", "Admin")"><i class="glyphicon glyphicon-object-align-bottom"></i> Monitor de anúncios</a>
-            </li>
-            <li>
-                <a href="@Url.Action("AdminMonitorUsuario", "Admin")"><i class="glyphicon glyphicon-hand-right"></i> Monitor de usuários</a>
-            </li>
-            <li>
-                <a href="@Url.Action("AdminMonitorServicos", "Admin")"><i class="fa fa-dashboard fa-fw"></i> Manutenção de serviços</a>
-            </li>
-            <li>
-                <a href="@Url.Action("AdminMonitorStatus", "Admin")"><i class="glyphicon glyphicon-retweet"></i> Cadastro de status</a>
-            </li>
-            <li>
                 <a href="@Url.Action("AdminRelatorios", "Admin")"><i class="glyphicon glyphicon-file"></i> Relatórios</a>
             </li>
+            @if (Session["Administrador"] != null)
+            {
+                <li>
+                    <a href="@Url.Action("AdminMonitorAnuncios", "Admin")"><i class="glyphicon glyphicon-object-align-bottom"></i> Monitor de anúncios</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("AdminMonitorUsuario", "Admin")"><i class="glyphicon glyphicon-hand-right"></i> Monitor de usuários</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("AdminMonitorServicos", "Admin")"><i class="fa fa-dashboard fa-fw"></i> Manutenção de serviços</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("AdminMonitorStatus", "Admin")"><i class="glyphicon glyphicon-retweet"></i> Cadastro de status</a>
+                </li>
+            }
         </ul>
     </div>
     <!-- /.sidebar-collapse -->

@@ -121,5 +121,15 @@ namespace LetsParty.AppService.Usuarios
             return UsuarioRepository.All();
         }
 
+        public string VerificaAdministrador(Guid id)
+        {
+
+            var Usuarios = UsuarioRepository.All();
+            string Admin = (from u in Usuarios
+                           where u.Id == id && u.Administrador == true
+                         select u.Nome.ToString()).SingleOrDefault();
+
+            return Admin;
+        }
     }
 }

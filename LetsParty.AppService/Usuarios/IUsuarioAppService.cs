@@ -19,5 +19,6 @@ namespace LetsParty.AppService.Usuarios
         Usuario BuscaUsuarioPorID(Guid Id);
         void EditarUsuario(Usuario usuario);
         IEnumerable<Usuario> ListaUsuarios();
+        string VerificaAdministrador(Guid id);
     }
 }

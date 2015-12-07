@@ -22,7 +22,7 @@
             @using (Html.BeginForm("PesquisaAnuncio", "Anuncio", FormMethod.Post, new { @class = "navbar-form navbar-left", role = "search" }))
             {
                 <div class="form-group">
-                    @Html.EditorFor(model => model.Busca, new { htmlAttributes = new { @class = "form-control", placeholder = " Diga o que procura", size = "14" } })
+                    @Html.EditorFor(model => model.Busca, new { htmlAttributes = new { @class = "form-control", placeholder = " O que procura?", size = "11" } })
 
                 </div>
                 <div class="form-group">
@@ -41,7 +41,7 @@
                     @Html.ActionLink("Anunciar", "Anuncio", "Anuncio")
                 </li>
                 <li>
-                    @Html.ActionLink("Minha conta", "Administrativo", "Admin")
+                    @Html.ActionLink("Minha conta", "AdminListaUsuario", "Admin")
                 </li>
 
                 @if (ViewBag.Logado == false)

@@ -31,6 +31,6 @@ namespace LetsParty.Domain.Model.Atores
         public Boolean Ativo { get; set; }
         public Guid? PerfilID{ get; set; }
         public virtual Perfil perfil { get; set; }
-
+        public bool? Administrador { get; set; }
     }
 }

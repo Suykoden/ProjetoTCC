@@ -97,6 +97,7 @@ namespace LetsParty.UI.Web.Controllers
             if (UsuarioService.ObtemUsuarioLogado() != null)
             {
                 var IdUsuario = UsuarioService.getIDUsuario();
+                Session["Administrador"] = UsuarioService.VerificaAdministrador(IdUsuario);
                 return View(UsuarioService.BuscaUsuarioPorID(IdUsuario));
             }
             else

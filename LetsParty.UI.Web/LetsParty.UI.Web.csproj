@@ -155,6 +155,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="ImagensIndex\11253668_1577151042552416_2007772662_n.jpg" />
+    <Content Include="ImagensIndex\application-cache-image-2cfb726404a9578eb914fdc494313297-800x300.jpg" />
+    <Content Include="ImagensIndex\application-cache-image-c21e7f58423e35215ec31fcef34720a3-800x300.jpg" />
+    <Content Include="ImagensIndex\DSCN0025.JPG" />
+    <Content Include="ImagensIndex\festa_circo_aniversrio_1_ano-mae_tipo_eu-2-800x300.jpg" />
+    <Content Include="ImagensIndex\Iluminação 02.jpg" />
+    <Content Include="ImagensIndex\Joypaper %28149 de 150%29.jpg" />
+    <Content Include="ImagensIndex\SDC10958.jpg" />
+    <Content Include="ImagensIndex\Setembro - separar 150.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.eot" />

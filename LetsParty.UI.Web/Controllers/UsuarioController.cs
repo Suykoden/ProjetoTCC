@@ -208,7 +208,7 @@ namespace LetsParty.UI.Web.Controllers
 
                 UsuarioAppService.Deslogar();
 
-
+                Session.RemoveAll();
             }
             return RedirectToAction("Index", "Home");
         }
