@@ -180,9 +180,31 @@ namespace LetsParty.UI.Web.Controllers
             if (UsuarioService.ObtemUsuarioLogado() != null)
             {
 
-                IEnumerable<Usuario> ListaUsuarios = UsuarioService.ListaUsuarios();
+                var ListaUsuarios = new UsuarioViewModel {
+                ListaUsuario =   UsuarioService.ListaUsuarios()
 
+            };
+                return View(ListaUsuarios);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Usuario");
+            }
 
+        }
+
+        [HttpPost]
+        public ActionResult AdminMonitorUsuario(string nome)
+        {
+
+            if (UsuarioService.ObtemUsuarioLogado() != null)
+            {
+
+                var ListaUsuarios = new UsuarioViewModel
+                {
+                    ListaUsuario = UsuarioService.BuscaUsuarioPorNome(nome)
+
+                };
                 return View(ListaUsuarios);
             }
             else

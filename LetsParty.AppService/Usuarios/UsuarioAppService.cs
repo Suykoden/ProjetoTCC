@@ -111,6 +111,22 @@ namespace LetsParty.AppService.Usuarios
         }
 
 
+        public IEnumerable<Usuario> BuscaUsuarioPorNome(string Nome)
+        {
+
+            if (String.IsNullOrEmpty(Nome)) return null;
+
+            var Usuarios = UsuarioRepository.All();
+
+            var ListaUsuario = (from u in Usuarios
+                                where u.Nome.ToUpper().Contains(Nome.ToUpper())
+                                select u);
+
+            return ListaUsuario;
+
+
+        }
+
         public void EditarUsuario(Usuario usuario)
         {
             UsuarioRepository.Update(usuario);
@@ -126,8 +142,8 @@ namespace LetsParty.AppService.Usuarios
 
             var Usuarios = UsuarioRepository.All();
             string Admin = (from u in Usuarios
-                           where u.Id == id && u.Administrador == true
-                         select u.Nome.ToString()).SingleOrDefault();
+                            where u.Id == id && u.Administrador == true
+                            select u.Nome.ToString()).SingleOrDefault();
 
             return Admin;
         }

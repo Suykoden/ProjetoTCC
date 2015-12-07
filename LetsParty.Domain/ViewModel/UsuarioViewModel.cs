@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LetsParty.Seedwork;
+using LetsParty.Domain.Model.Atores;
 
 namespace LetsParty.Domain.ViewModel
 {
@@ -29,7 +30,7 @@ namespace LetsParty.Domain.ViewModel
         public string Ponto_Referencia { get; set; }
         public string Imagem { get; set; }
         public Boolean Ativo { get; set; }
-        public IEnumerable<UsuarioViewModel> ListaUsuario { get; set; }
+        public IEnumerable<Usuario> ListaUsuario { get; set; }
 
     }
 }

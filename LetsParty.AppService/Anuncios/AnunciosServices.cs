@@ -93,7 +93,7 @@ namespace LetsParty.AppService.Anuncios
                                     Telefone = a.Telefone,
                                     Cidade = a.Municipio,
                                     NomeUsuario = u.Nome,
-                                    Email = u.email,
+                                    Email = a.Email,
                                     UsuarioID = a.UsuarioID,
                                     AnuncioID = a.Id,
                                     NomeServico = s.Nome

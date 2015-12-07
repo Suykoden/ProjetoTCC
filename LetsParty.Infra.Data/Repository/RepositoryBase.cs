@@ -41,6 +41,7 @@ namespace LetsParty.Infra.Data.Repository
             return All().AsQueryable().FirstOrDefault(p => p.Id == id.Value);
         }
 
+      
         public void Insert(T entity)
         {
             Base.Add(entity);

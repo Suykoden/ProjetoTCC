@@ -283,6 +283,14 @@ namespace LetsParty.UI.Web.Controllers
         public ActionResult PaginaProduto(AnuncioViewModel _anuncio)
         {
             EventoViewModel _EventoViewModel = EventoService.ObtemNota(_anuncio.AnuncioID);
+            var TempAnuncio = new Anuncio();
+
+            TempAnuncio = AnunciosServices.BuscaPorId(_anuncio.AnuncioID);
+
+            _anuncio.Bairro = TempAnuncio.Bairro;
+            _anuncio.Email = TempAnuncio.Email;
+            _anuncio.Cidade = TempAnuncio.Municipio;
+            _anuncio.Telefone = TempAnuncio.Telefone;
 
             var Nota = string.Format("{0:F1}", _EventoViewModel.NotalTotal);
 
