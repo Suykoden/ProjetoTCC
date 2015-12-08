@@ -35,9 +35,16 @@
                 <hr>
                 @if (Model != null)
                 {
-                    foreach (var anuncios in Model.ListaViewModel)
+                    if (Model.ListaViewModel.Count() == 0)
                     {
-                        { Html.RenderPartial("PartialPesquisaAnuncio", anuncios); }
+                        <h4> Nenhum resultado encontrado!!</h4>
+                    }
+                    else
+                    {
+                        foreach (var anuncios in Model.ListaViewModel)
+                        {
+                            { Html.RenderPartial("PartialPesquisaAnuncio", anuncios); }
+                        }
                     }
                 }
             </div>

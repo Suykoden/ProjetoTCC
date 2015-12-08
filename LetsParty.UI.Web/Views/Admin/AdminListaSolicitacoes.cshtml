@@ -91,6 +91,7 @@
                                     <tbody>
                                         @if (Model.ListaEvento != null)
                                         {
+                                            
                                             foreach (var eventos in Model.ListaEvento)
                                             {
                                                 { Html.RenderPartial("PartialListaSolicitacoes", eventos); }
