@@ -136,21 +136,21 @@ namespace LetsParty.AppService.Anuncios
             var RelatorioLocalidade = (from a in _Anuncios
                                        join u in _Usuario on a.UsuarioID equals u.Id
                                        join s in _Servico on a.ServicoID equals s.Id
-                                       where (u.Ativo == true)
+                                       where (u.Ativo == true && a.Ativo == true)
                                        select new AnuncioViewModel()
                                         {
                                             Descricao = a.Descricao,
                                             Titulo = a.Titulo,
-                                            Endereco = u.Endereco,
-                                            Cep = u.Cep,
-                                            Numero = u.Numero,
-                                            Estado = u.Estado,
-                                            Bairro = u.Bairro,
-                                            Celular = u.Celular,
-                                            Telefone = u.Telefone,
-                                            Cidade = u.Cidade,
+                                            Endereco = a.Endereco,
+                                            Cep = a.Cep,
+                                            Numero = a.Numero,
+                                            Estado = a.Estado,
+                                            Bairro = a.Bairro,
+                                            Celular = a.Celular,
+                                            Telefone = a.Telefone,
+                                            Cidade = a.Municipio,
                                             NomeUsuario = u.Nome,
-                                            Email = u.email,
+                                            Email = a.Email,
                                             NomeServico = s.Nome
                                         });
 
