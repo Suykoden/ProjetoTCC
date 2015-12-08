@@ -9,6 +9,7 @@ using LetsParty.AppService.Eventos;
 using LetsParty.AppService.Fotos;
 using LetsParty.AppService.Servicos;
 using LetsParty.AppService.Status;
+using LetsParty.AppService.Log;
 using LetsParty.Domain.Model.Atores;
 using LetsParty.Domain.Repository;
 using LetsParty.Infra.Data.Repository;
@@ -26,15 +27,17 @@ namespace LetsParty.UI.Web.Controllers
         private IEventoService EventoService { get; set; }
         private IStatusService StatusService { get; set; }
         private ILetsPartyContext Context { get; set; }
+        private IlogService LogService { get; set; }
 
         public AdminController(IAnunciosServices anuncioService, IUsuarioAppService usuarioService,
-            IServicoServices servicoService, IEventoService eventoService, IStatusService statusService, ILetsPartyContext context)
+            IServicoServices servicoService, IEventoService eventoService, IStatusService statusService, ILetsPartyContext context, IlogService logService)
         {
             AnuncioService = anuncioService;
             UsuarioService = usuarioService;
             ServicoService = servicoService;
             EventoService = eventoService;
             StatusService = statusService;
+            LogService = logService;
             Context = context;
 
         }
@@ -303,5 +306,17 @@ namespace LetsParty.UI.Web.Controllers
             StatusService.GravaStatus(_status);
             return RedirectToAction("AdminMonitorStatus");
         }
+
+        public ActionResult AdminLogEvento(Guid id)
+        {
+            var Logs = new LogViewModel
+            {
+                ListaLogs = LogService.RetornaLog(id)
+            };
+
+            return View(Logs);
+        }
+
+
     }
 }

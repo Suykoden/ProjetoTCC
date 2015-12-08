@@ -20,6 +20,9 @@
             </td>
             <td>
                 <button type="submit" class="btn btn-success">Gravar</button>
+                @Html.ActionLink("Histórico", "AdminLogEvento", "Admin", new { id = Model.EventoID }, new { @class = "btn btn-info" })
+
+
                 @Html.HiddenFor(modelItem => Model.EventoID)
             </td>
         </tr>

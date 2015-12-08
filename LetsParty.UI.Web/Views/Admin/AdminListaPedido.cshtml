@@ -102,6 +102,7 @@
                                                 <td>@Html.DisplayFor(modelItem => evento.Status)</td>
                                                 <td>
                                                     @Html.ActionLink("Cancelar", "CancelamentoEvento", "Evento", new { id = evento.EventoID }, new { @class = "btn btn-danger" })
+                                                    @Html.ActionLink("Histórico", "AdminLogEvento", "Admin", new { id = evento.EventoID }, new { @class = "btn btn-info" })
                                                 </td>
                                                 @if (evento.Avaliacao == true)
                                                 {

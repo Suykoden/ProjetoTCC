@@ -27,5 +27,16 @@ namespace LetsParty.AppService.Log
         {
             LogRepository.Insert(log);
         }
+
+        public IEnumerable<LogEventos> RetornaLog(Guid Id)
+        {
+            var Log = LogRepository.All();
+
+            var ListaLog = (from l in Log
+                            where (l.EventoID == Id)
+                            select l);
+
+            return ListaLog;
+        }
     }
 }

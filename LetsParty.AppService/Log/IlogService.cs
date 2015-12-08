@@ -15,5 +15,6 @@ namespace LetsParty.AppService.Log
     public interface IlogService
     {
         void GravaLog(LogEventos log);
+       IEnumerable<LogEventos> RetornaLog(Guid Id);
     }
 }
