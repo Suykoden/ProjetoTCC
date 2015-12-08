@@ -21,6 +21,7 @@ namespace LetsParty.AppService.Eventos
         private IAnuncioRepository AnuncioRepository;
         private IUsuarioRepository UsuarioRepository;
         private IStatusRepository StatusRepository;
+        
 
         public EventoService(ILetsPartyContext context, IEventoRepository eventoRepository, IAnuncioRepository anuncioRepository, IUsuarioRepository usuarioRepository, IStatusRepository statusRepository)
         {

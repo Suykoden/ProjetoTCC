@@ -19,6 +19,7 @@ namespace LetsParty.UI.Web.App_Start
     using LetsParty.AppService.Fotos;
     using LetsParty.AppService.Eventos;
     using LetsParty.AppService.Status;
+    using LetsParty.AppService.Log;
 
     public static class NinjectWebCommon 
     {
@@ -79,6 +80,7 @@ namespace LetsParty.UI.Web.App_Start
             kernel.Bind<IFotoRepository>().To<FotoRepository>();
             kernel.Bind<IEventoRepository>().To<EventoRepository>();
             kernel.Bind<IStatusRepository>().To<StatusRepository>();
+            kernel.Bind<ILogResository>().To<LogRepository>();
 
             //Sevicos
             kernel.Bind<IUsuarioAppService>().To<UsuarioAppService>();
@@ -87,7 +89,7 @@ namespace LetsParty.UI.Web.App_Start
             kernel.Bind<IFotoService>().To<FotoService>();
             kernel.Bind<IEventoService>().To<EventoService>();
             kernel.Bind<IStatusService>().To<StatusService>();
-
+            kernel.Bind<IlogService>().To<LogService>();
 
         }        
     }

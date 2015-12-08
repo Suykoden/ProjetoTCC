@@ -53,6 +53,7 @@
     <Compile Include="Repository\IAnuncioRepository.cs" />
     <Compile Include="Repository\IEventoRepository.cs" />
     <Compile Include="Repository\IFotoRepository.cs" />
+    <Compile Include="Repository\ILogResository.cs" />
     <Compile Include="Repository\IServicoRepository.cs" />
     <Compile Include="Repository\IStatusRepository.cs" />
     <Compile Include="Repository\IUsuarioRepository.cs" />

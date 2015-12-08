@@ -47,6 +47,8 @@
     <Compile Include="Eventos\IEventoService.cs" />
     <Compile Include="Fotos\FotoService.cs" />
     <Compile Include="Fotos\IFotoService.cs" />
+    <Compile Include="Log\IlogService.cs" />
+    <Compile Include="Log\LogService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicos\IServicoServices.cs" />
     <Compile Include="Servicos\ServicoServices.cs" />

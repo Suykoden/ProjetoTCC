@@ -28,7 +28,7 @@ namespace LetsParty.AppService.Status
             return IdStatus;
         }
 
-        public string RetornaStatusAtual(Guid Id)
+        public string RetornaStatusAtual(Guid? Id)
         {
             string Status = StatusRepository.All().SingleOrDefault(s => s.Id == Id).status;
             return Status;
@@ -45,5 +45,10 @@ namespace LetsParty.AppService.Status
             Context.SaveChanges();
         }
 
+        public StatusEvento BuscaStatusPorID(Guid? Id)
+        {
+            var Status = StatusRepository.GetById(Id);
+            return Status;
+        }
     }
 }

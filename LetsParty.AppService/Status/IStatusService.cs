@@ -10,8 +10,10 @@ namespace LetsParty.AppService.Status
    public  interface IStatusService
     {
        Guid ObtemStatusPadrao();
-       string RetornaStatusAtual(Guid Id);
+       string RetornaStatusAtual(Guid? Id);
        IQueryable<StatusEvento> RetornaStatus();
         void GravaStatus(StatusEvento status);
+        StatusEvento BuscaStatusPorID(Guid? Id);
+       
       }
 }

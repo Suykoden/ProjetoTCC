@@ -9,6 +9,7 @@ using LetsParty.AppService.Fotos;
 using LetsParty.AppService.Servicos;
 using LetsParty.AppService.Eventos;
 using LetsParty.AppService.Status;
+using LetsParty.AppService.Log;
 using LetsParty.Domain.Model.Atores;
 using LetsParty.Domain.Repository;
 using LetsParty.Infra.Data.Repository;
@@ -27,15 +28,17 @@ namespace LetsParty.UI.Web.Controllers
         private IEventoService EventosService { get; set; }
         private ILetsPartyContext Context { get; set; }
         private IStatusService StatuService { get; set; }
+        private IlogService LogService { get; set; }
 
         public EventoController(IAnunciosServices anuncioService, IUsuarioAppService usuarioService, IServicoServices servicoService,
-                                IEventoService eventoService, ILetsPartyContext context, IStatusService statuService)
+                                IEventoService eventoService, ILetsPartyContext context, IStatusService statuService, IlogService logService)
         {
             AnuncioService = anuncioService;
             UsuarioService = usuarioService;
             ServicoService = servicoService;
             EventosService = eventoService;
             StatuService = statuService;
+            LogService = logService;
             Context = context;
         }
 
@@ -82,8 +85,20 @@ namespace LetsParty.UI.Web.Controllers
         public ActionResult AtualizaStatus(EventoViewModel e)
         {
             Evento evento = new Evento();
+            LogEventos log = new LogEventos();
+
+            var Status = StatuService.BuscaStatusPorID(e.StatusId);
             evento = EventosService.BuscaPorId(e.EventoID);
+
+            log.Id = Guid.NewGuid();
+            log.Data = DateTime.Now;
+            log.EventoID = evento.Id;
+            log.Origem = StatuService.RetornaStatusAtual(evento.StatusID);
+            log.Destino = Status.status;
+
             evento.StatusID = e.StatusId;
+
+            LogService.GravaLog(log);
             EventosService.UpdateStatus(evento);
             Context.SaveChanges();
             return RedirectToAction("AdminListaSolicitacoes", "Admin", new { Id = evento.AnuncioID });
@@ -93,15 +108,15 @@ namespace LetsParty.UI.Web.Controllers
         [HttpPost]
         public ActionResult AvaliarEvento(EventoViewModel e)
         {
-           
-                Evento evento = new Evento();
-                evento = EventosService.BuscaPorId(e.EventoID);
-                evento.AvaliacaoCliente = e.NotaAnuncio;
-                EventosService.UpdateStatus(evento);
-                Context.SaveChanges();
 
-                return RedirectToAction("AdminListaPedido", "Admin");
-           
+            Evento evento = new Evento();
+            evento = EventosService.BuscaPorId(e.EventoID);
+            evento.AvaliacaoCliente = e.NotaAnuncio;
+            EventosService.UpdateStatus(evento);
+            Context.SaveChanges();
+
+            return RedirectToAction("AdminListaPedido", "Admin");
+
         }
 
     }
